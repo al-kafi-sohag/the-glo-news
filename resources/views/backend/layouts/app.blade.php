@@ -10,6 +10,9 @@
         @yield('title', config('app.name')) - {{ config('app.name') }}
     </title>
 
+
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -33,7 +36,6 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('backend/admin/plugins/summernote/summernote-bs4.min.css') }}">
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     @stack('link_css')
     @stack('css')
