@@ -4,7 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>
+        @yield('title', config('app.name')) - {{ config('app.name') }}
+    </title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -14,7 +18,8 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="{{ asset('backend/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('backend/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
     <!-- iCheck -->
     <link rel="stylesheet" href="{{ asset('backend/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <!-- JQVMap -->
@@ -27,40 +32,28 @@
     <link rel="stylesheet" href="{{ asset('backend/admin/plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('backend/admin/plugins/summernote/summernote-bs4.min.css') }}">
+
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    @stack('link_css')
+    @stack('css')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
-        <!-- Preloader -->
-        {{-- <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
-                width="60">
-        </div> --}}
-
-        <!-- Navbar -->
         @include('backend.include.nav_top');
-        <!-- /.navbar -->
-
-        <!-- Main Sidebar Container -->
 
         @include('backend.include.side_nav');
 
-        <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
 
             @yield('content')
 
         </div>
-        <!-- /.content-wrapper -->
 
         @include('backend.include.footer');
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
 
@@ -69,9 +62,6 @@
     <!-- jQuery UI 1.11.4 -->
     <script src="{{ asset('backend/admin/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
-        $.widget.bridge('uibutton', $.ui.button)
-    </script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('backend/admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- ChartJS -->
@@ -87,7 +77,8 @@
     <script src="{{ asset('backend/admin/plugins/moment/moment.min.js') }}"></script>
     <script src="{{ asset('backend/admin/plugins/daterangepicker/daterangepicker.js') }}"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{ asset('backend/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    <script src="{{ asset('backend/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
+    </script>
     <!-- Summernote -->
     <script src="{{ asset('backend/admin/plugins/summernote/summernote-bs4.min.js') }}"></script>
     <!-- overlayScrollbars -->
@@ -98,6 +89,10 @@
     <script src="{{ asset('backend/admin/dist/js/demo.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('backend/admin/dist/js/pages/dashboard.js') }}"></script>
+
+
+    @stack('link_script')
+    @stack('script')
 </body>
 
 </html>
