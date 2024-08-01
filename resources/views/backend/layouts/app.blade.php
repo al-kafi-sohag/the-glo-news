@@ -32,21 +32,17 @@
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
-        @include('backend.include.nav_top');
+        @include('backend.include.nav_top')
 
-        @include('backend.include.side_nav');
+        @include('backend.include.side_nav')
 
         <div class="content-wrapper">
-
             @yield('content')
-
         </div>
 
-        @include('backend.include.footer');
+        @include('backend.include.footer')
 
     </div>
-    <!-- ./wrapper -->
-
     <script src="{{ asset('backend/admin/plugins/jquery/jquery.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
