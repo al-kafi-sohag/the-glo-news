@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Backend\DashboardController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
@@ -8,7 +10,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('admin-page', function(){
-//     return view('backend.index');
-// });
+Route::group(['middleware' => ['auth'], 'prefix' => 'backend'], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    // Route::controller(PermissionController::class)->prefix('permission')->name('permission.')->group(function () {
+        // Route::get('index', 'index')->name('permission_list');
+    // });
+
+
+});

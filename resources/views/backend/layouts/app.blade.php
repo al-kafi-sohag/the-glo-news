@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>
         @yield('title', config('app.name')) - {{ config('app.name') }}
@@ -31,6 +32,11 @@
     <link rel="stylesheet" href="{{ asset('backend/admin/plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('backend/admin/plugins/summernote/summernote-bs4.min.css') }}">
+
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    @stack('link_css')
+    @stack('css')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -83,6 +89,10 @@
     <script src="{{ asset('backend/admin/dist/js/demo.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('backend/admin/dist/js/pages/dashboard.js') }}"></script>
+
+
+    @stack('link_script')
+    @stack('script')
 </body>
 
 </html>
