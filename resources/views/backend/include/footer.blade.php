@@ -1,6 +1,6 @@
-<footer class="main-footer">
-    <strong>Copyright &copy; 2022-{{ date('Y') }} <a
-            href="{{ config('app.url') }}">{{ config('app.name') }}</a>.</strong>
+<footer class="main-footer text-center">
+    <strong>Copyright &copy; 2022-{{ date('Y') }} <a href="{{ config('app.url') }}"
+            target="_blank">{{ config('app.name') }}</a>.</strong>
     All rights reserved.
 
     <span class="ml-1"> Developed by

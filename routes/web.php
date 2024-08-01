@@ -10,8 +10,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'backend'], function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::group(['middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'b.'], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // Route::controller(PermissionController::class)->prefix('permission')->name('permission.')->group(function () {
         // Route::get('index', 'index')->name('permission_list');
