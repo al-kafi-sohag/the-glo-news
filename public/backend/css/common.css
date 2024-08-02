@@ -1,0 +1,58 @@
+h1, h2, h3, h4, h5, h6{
+    margin-bottom: 0px !important;
+}
+
+.tbl-img{
+    height: 3.5rem;
+    width: auto;
+    object-fit: cover;
+}
+
+.dataTable tr td{
+    vertical-align: middle;
+}
+
+.dt-container .dt-buttons{
+    float: left;
+    margin-bottom: 1rem;
+}
+
+.dt-container .dt-search{
+    float: right;
+    margin-bottom: 1rem;
+}
+
+.dt-container .dt-info{
+    margin-top: 1rem;
+    float: left;
+}
+
+.dt-container .dt-paging{
+    margin-top: 1rem !important;
+    float: right;
+}
+
+.dt-container .dt-paging .disabled .page-link{
+    background-color: #e9ecef !important;
+}
+
+table.dataTable td.dt-type-numeric{
+    text-align: center !important;
+}
+
+table.dataTable th.dt-type-numeric{
+    text-align: center !important;
+}
+
+.loading{
+    height: 1.5rem;
+    width: auto;
+    margin: 0rem .25rem;
+}
+
+.display-image{
+    height: 8rem;
+    width: auto;
+    object-fit: cover;
+    margin: 1rem 0rem;
+}
