@@ -1,1 +1,15 @@
-
+/* sidebar css */
+.layout-fixed .wrapper .sidebar {
+    height: calc(100vh - (3.5rem + 39px));
+}
+.layout-fixed .wrapper .sidebar .logout{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    transition: .4s;
+}
+/* navbar css */
+.layout-fixed .wrapper .navbar-expand .navbar-nav .dropdown-menu {
+    left: -200px !important;
+}

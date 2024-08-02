@@ -1,5 +1,7 @@
+
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="{{ config('app.url') }}" class="brand-link text-center">
+    <a href="{{ route('b.dashboard') }}" class="brand-link text-center">
         <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
     </a>
 
@@ -32,8 +34,87 @@
                         <p>{{ __('Category') }}</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('b.category.index') }}"
+                        class="nav-link {{ $pageSlug == 'category' ? 'active' : '' }}">
+                        <i class="nav-icon fa-solid fa-list"></i>
+                        <p>{{ __('Category') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('b.category.index') }}"
+                        class="nav-link {{ $pageSlug == 'category' ? 'active' : '' }}">
+                        <i class="nav-icon fa-solid fa-list"></i>
+                        <p>{{ __('Category') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('b.category.index') }}"
+                        class="nav-link {{ $pageSlug == 'category' ? 'active' : '' }}">
+                        <i class="nav-icon fa-solid fa-list"></i>
+                        <p>{{ __('Category') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('b.category.index') }}"
+                        class="nav-link {{ $pageSlug == 'category' ? 'active' : '' }}">
+                        <i class="nav-icon fa-solid fa-list"></i>
+                        <p>{{ __('Category') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('b.category.index') }}"
+                        class="nav-link {{ $pageSlug == 'category' ? 'active' : '' }}">
+                        <i class="nav-icon fa-solid fa-list"></i>
+                        <p>{{ __('Category') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('b.category.index') }}"
+                        class="nav-link {{ $pageSlug == 'category' ? 'active' : '' }}">
+                        <i class="nav-icon fa-solid fa-list"></i>
+                        <p>{{ __('Category') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('b.category.index') }}"
+                        class="nav-link {{ $pageSlug == 'category' ? 'active' : '' }}">
+                        <i class="nav-icon fa-solid fa-list"></i>
+                        <p>{{ __('Category') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('b.category.index') }}"
+                        class="nav-link {{ $pageSlug == 'category' ? 'active' : '' }}">
+                        <i class="nav-icon fa-solid fa-list"></i>
+                        <p>{{ __('Category') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('b.category.index') }}"
+                        class="nav-link {{ $pageSlug == 'category' ? 'active' : '' }}">
+                        <i class="nav-icon fa-solid fa-list"></i>
+                        <p>{{ __('Category1') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('b.category.index') }}"
+                        class="nav-link {{ $pageSlug == 'category' ? 'active' : '' }}">
+                        <i class="nav-icon fa-solid fa-list"></i>
+                        <p>{{ __('Category2') }}</p>
+                    </a>
+                </li>
 
             </ul>
         </nav>
+    </div>
+    <div class="logout">
+        <a href="javascript:void(0)" class="btn btn-default btn-flat w-100"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            {{ __('Sign out') }}
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
     </div>
 </aside>
