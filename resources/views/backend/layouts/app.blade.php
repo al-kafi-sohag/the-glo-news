@@ -26,6 +26,7 @@
 
 
     @stack('link_css')
+    <link rel="stylesheet" href="{{ asset('backend/admin/css/style.css') }}">
     @stack('css')
 </head>
 
