@@ -1,4 +1,4 @@
-@extends('backend.layouts.app')
+@extends('backend.layouts.app', ['pageSlug' => ''])
 
 @section('title', '')
 
@@ -9,7 +9,7 @@
 @endpush
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid mt-2">
         <div class="row justify-content-center">
             <div class="col-md-10 col-lg-12">
                 <div class="card">
@@ -21,6 +21,11 @@
 
                         </span>
                     </div>
+                    <div class="card-body">
+
+                    </div>
+
+
                     <div class="card-body">
 
                     </div>
