@@ -83,7 +83,7 @@
 
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="../../index2.html" class="h1 text-decoration-none">{{ config('app.name') }}</a>
+                <a href="{{ config('app.url') }}" class="h1 text-decoration-none">{{ config('app.name') }}</a>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{ route('login') }}" method="post">

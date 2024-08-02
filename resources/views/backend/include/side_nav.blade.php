@@ -1,3 +1,5 @@
+
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="{{ config('app.url') }}" class="brand-link text-center">
         <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
@@ -32,8 +34,16 @@
                         <p>{{ __('Category') }}</p>
                     </a>
                 </li>
-
             </ul>
         </nav>
+    </div>
+    <div class="logout">
+        <a href="javascript:void(0)" class="btn btn-default btn-flat w-100"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            {{ __('Sign out') }}
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
     </div>
 </aside>
