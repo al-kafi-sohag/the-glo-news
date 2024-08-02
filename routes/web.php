@@ -9,7 +9,7 @@ use Livewire\Features\SupportFileUploads\FileUploadController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Auth::routes();
 
