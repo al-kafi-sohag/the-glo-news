@@ -30,9 +30,11 @@
     <link rel="stylesheet" href="{{ asset('backend/admin/dist/css/adminlte.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('backend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/admin/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/css/common.css') }}">
 
 
+    @stack('link_css')
     @stack('css')
 </head>
 
