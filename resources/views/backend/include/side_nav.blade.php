@@ -34,6 +34,13 @@
                         <p>{{ __('Category') }}</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('b.subCategory.index') }}"
+                        class="nav-link {{ $pageSlug == 'sub-category' ? 'active' : '' }}">
+                        <i class="nav-icon fa-solid fa-list"></i>
+                        <p>{{ __('Sub-Category') }}</p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

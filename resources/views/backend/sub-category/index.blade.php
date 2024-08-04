@@ -1,6 +1,6 @@
-@extends('backend.layouts.app', ['pageSlug' => 'category'])
+@extends('backend.layouts.app', ['pageSlug' => 'sub-category'])
 
-@section('title', 'Category')
+@section('title', 'Sub-Category')
 
 @section('content')
     <div class="container-fluid mt-2">
@@ -12,7 +12,7 @@
                             <h4>{{ __('Category List') }}</h4>
                         </span>
                         <span class="float-right">
-                            <a href="{{ route('b.category.create') }}" class="btn btn-info">{{ __('Create') }}</a>
+                            <a href="{{ route('b.subCategory.create') }}" class="btn btn-info">{{ __('Create') }}</a>
                         </span>
                     </div>
                     <div class="card-body">
@@ -30,7 +30,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($categories as $key=>$category)
+                                        @foreach ($subcategories as $key => $category)
                                             <tr>
                                                 <td>
                                                     {{ ++$key }}
@@ -50,10 +50,14 @@
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                                        <a href="javascript:void(0)" data-id="{{ $category->id }}" class="btn btn-secondary view" title="View details"><i class="fa-solid fa-eye"></i></a>
-                                                        <a href="{{ route('b.category.update', $category->id) }}" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
-                                                        <a href="{{ route('b.category.delete', $category->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
-                                                      </div>
+                                                        <a href="javascript:void(0)" class="btn btn-secondary view"
+                                                        data-id="{{ $category->id }}" title="View details"><i class="fa-solid fa-eye"></i></a>
+                                                        <a href="{{ route('b.subCategory.update', $category->id) }}"
+                                                            class="btn btn-info"><i
+                                                                class="fa-solid fa-pen-to-square"></i></a>
+                                                        <a href="{{ route('b.subCategory.delete', $category->id) }}"
+                                                            class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -66,8 +70,7 @@
             </div>
         </div>
     </div>
-
-     {{-- Category Details Modal  --}}
+     {{-- Sub-Category Details Modal  --}}
      <div class="modal view_modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
      <div class="modal-dialog modal-lg" role="document">
@@ -92,7 +95,7 @@
         $(document).ready(function() {
             $('.view').on('click', function() {
                 let id = $(this).data('id');
-                let url = ("{{ route('b.category.details', ['id']) }}");
+                let url = ("{{ route('b.subCategory.details', ['id']) }}");
                 let _url = url.replace('id', id);
                 $.ajax({
                     url: _url,
