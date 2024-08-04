@@ -9,10 +9,10 @@
                 <div class="card">
                     <div class="card-header">
                         <span class="float-left">
-                            <h4>{{ __('Category List') }}</h4>
+                            <h4>{{ __('Sub Category List') }}</h4>
                         </span>
                         <span class="float-right">
-                            <a href="{{ route('b.subCategory.create') }}" class="btn btn-info">{{ __('Create') }}</a>
+                            <a href="{{ route('b.sub_category.create') }}" class="btn btn-info">{{ __('Create') }}</a>
                         </span>
                     </div>
                     <div class="card-body">
@@ -52,10 +52,10 @@
                                                     <div class="btn-group" role="group" aria-label="Basic example">
                                                         <a href="javascript:void(0)" class="btn btn-secondary view"
                                                         data-id="{{ $category->id }}" title="View details"><i class="fa-solid fa-eye"></i></a>
-                                                        <a href="{{ route('b.subCategory.update', $category->id) }}"
+                                                        <a href="{{ route('b.sub_category.update', $category->id) }}"
                                                             class="btn btn-info"><i
                                                                 class="fa-solid fa-pen-to-square"></i></a>
-                                                        <a href="{{ route('b.subCategory.delete', $category->id) }}"
+                                                        <a href="{{ route('b.sub_category.delete', $category->id) }}"
                                                             class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                                                     </div>
                                                 </td>
@@ -76,7 +76,7 @@
      <div class="modal-dialog modal-lg" role="document">
          <div class="modal-content">
              <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">{{ __('Category Details') }}</h5>
+                 <h5 class="modal-title" id="exampleModalLabel">{{ __('Sub Category Details') }}</h5>
                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button>
@@ -95,7 +95,7 @@
         $(document).ready(function() {
             $('.view').on('click', function() {
                 let id = $(this).data('id');
-                let url = ("{{ route('b.subCategory.details', ['id']) }}");
+                let url = ("{{ route('b.sub_category.details', ['id']) }}");
                 let _url = url.replace('id', id);
                 $.ajax({
                     url: _url,

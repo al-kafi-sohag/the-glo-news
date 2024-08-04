@@ -14,16 +14,16 @@
                 <div class="card">
                     <div class="card-header">
                         <span class="float-left card-title">
-                            <h4>{{ __('Create new sub-category') }}</h4>
+                            <h4>{{ __('Create new sub category') }}</h4>
                         </span>
                         <span class="float-right">
-                            <a href="{{ route('b.subCategory.create') }}" class="btn btn-info">{{  __('Back') }}</a>
+                            <a href="{{ route('b.sub_category.index') }}" class="btn btn-info">{{  __('Back') }}</a>
                         </span>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-10 m-auto">
-                                <form action="{{ route('b.subCategory.create') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('b.sub_category.create') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="form-group">

@@ -17,13 +17,13 @@
                             <h4>{{ __('Update sub category') }}</h4>
                         </span>
                         <span class="float-right">
-                            <a href="{{ route('b.subCategory.index') }}" class="btn btn-info">{{ __('Back') }}</a>
+                            <a href="{{ route('b.sub_category.index') }}" class="btn btn-info">{{ __('Back') }}</a>
                         </span>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-10 m-auto">
-                                <form action="{{ route('b.subCategory.update', $category->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('b.sub_category.update', $category->id) }}" method="POST" enctype="multipart/form-data">
                                     @method('put')
                                     @csrf
 

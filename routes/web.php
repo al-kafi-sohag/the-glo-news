@@ -27,7 +27,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'b.'], fu
         Route::get('delete/{id}', 'delete')->name('delete');
         Route::get('details/{id}', 'details')->name('details');
     });
-    Route::controller(SubCategoryController::class)->prefix('subCategory')->name('subCategory.')->group(function () {
+    Route::controller(SubCategoryController::class)->prefix('sub-category')->name('sub_category.')->group(function () {
         Route::get('index', 'index')->name('index');
         Route::get('create', 'create')->name('create');
         Route::post('create', 'store')->name('create');

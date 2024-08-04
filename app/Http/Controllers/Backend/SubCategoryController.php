@@ -45,8 +45,8 @@ class SubCategoryController
             }
         }
 
-        sweetalert()->success("Sub-Category $save->title created successfully");
-        return redirect()->route('b.subCategory.index', $save->id);
+        sweetalert()->success("Sub category $save->title created successfully");
+        return redirect()->route('b.sub_category.index', $save->id);
     }
     public function update($id): View
     {
@@ -78,15 +78,15 @@ class SubCategoryController
                 return redirect()->back();
             }
         }
-        sweetalert()->success("Sub-Category $save->title updated successfully");
-        return redirect()->route('b.subCategory.index');
+        sweetalert()->success("Sub category $save->title updated successfully");
+        return redirect()->route('b.sub_category.index');
     }
     public function delete($id){
         $category = SubCategory::findOrFail($id);
         $category->delete();
 
-        sweetalert()->success("Sub-Category $category->title deleted successfully");
-        return redirect()->route('b.subCategory.index');
+        sweetalert()->success("Sub category $category->title deleted successfully");
+        return redirect()->route('b.sub_category.index');
     }
     public function details($id){
         $category = SubCategory::with(['created_user','updated_user'])->findOrFail($id);
