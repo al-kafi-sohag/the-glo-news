@@ -52,7 +52,7 @@
                                                     <div class="btn-group" role="group" aria-label="Basic example">
                                                         <a href="javascript:void(0)" data-id="{{ $category->id }}" class="btn btn-secondary view" title="View details"><i class="fa-solid fa-eye"></i></a>
                                                         <a href="{{ route('b.category.update', $category->id) }}" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
-                                                        <a href="{{ route('b.category.delete', $category->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                                        <a href="javascript:void(0)" class="btn btn-danger delete" data-id="{{ $category->id }}"><i class="fa-solid fa-trash-can"></i></a>
                                                       </div>
                                                 </td>
                                             </tr>
@@ -88,6 +88,17 @@
 @include('backend.partials.datatable', ['columns_to_show' => [0, 1, 2, 3, 4]])
 
 @push('script')
+<script>
+
+        $(document).ready(function(){
+            $('.delete').on('click', function(){
+                let url=`{{ route('b.category.delete', ['id'=>'_id']) }}`;
+                url=url.replace('_id',$(this).data('id'))
+                confirmDelete(url);
+            });
+        });
+
+</script>
     <script>
         $(document).ready(function() {
             $('.view').on('click', function() {

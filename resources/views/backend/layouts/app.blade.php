@@ -60,8 +60,9 @@
     <script src="{{ asset('backend/admin/dist/js/adminlte.js') }}"></script>
     <script src="{{ asset('backend/js/loading.js') }}"></script>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @stack('link_script')
+    <script src="{{ asset('backend/js/custom.js') }}"></script>
     @stack('script')
 </body>
 

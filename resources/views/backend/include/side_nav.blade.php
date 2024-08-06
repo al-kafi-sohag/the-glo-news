@@ -23,14 +23,14 @@
                 <li class="nav-item">
                     <a href="{{ route('b.dashboard') }}"
                         class="nav-link {{ $pageSlug == 'dashboard' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-home"></i>
+                        <i class="fa-solid fa-house"></i>
                         <p>{{ __('Dashboard') }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('b.category.index') }}"
                         class="nav-link {{ $pageSlug == 'category' ? 'active' : '' }}">
-                        <i class="nav-icon fa-solid fa-list"></i>
+                        <i class="fa-solid fa-list"></i>
                         <p>{{ __('Category') }}</p>
                     </a>
                 </li>
