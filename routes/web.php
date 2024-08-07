@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\AuthorController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FileControlController;
@@ -26,6 +27,16 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'b.'], fu
     });
 
     Route::post('/file-upload/process', [FileControlController::class, 'upload'])->name('file.upload');
+
+
+    Route::controller(AuthorController::class)->prefix('author')->name('author.')->group(function () {
+        Route::get('index', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::post('create', 'store')->name('create');
+        Route::get('update/{id}', 'update')->name('update');
+        Route::get('status/{id}', 'status')->name('status.update');
+        Route::put('update/{id}', 'update_store')->name('update');
+    });
 
     // Route::controller(PermissionController::class)->prefix('permission')->name('permission.')->group(function () {
         // Route::get('index', 'index')->name('permission_list');

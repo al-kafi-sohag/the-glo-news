@@ -34,6 +34,13 @@
                         <p>{{ __('Category') }}</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('b.author.index') }}"
+                        class="nav-link {{ $pageSlug == 'author' ? 'active' : '' }}">
+                        <i class="fa-solid fa-users"></i>
+                        <p>{{ __('Author') }}</p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
