@@ -1,40 +1,32 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\SubCategoryRequset;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use App\Models\SubCategory;
 use App\Models\Category;
 use App\Models\TmpFile;
-use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\View\View;
 
-class CategoryController extends Controller
+class SubCategoryController
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-
     public function index():View
     {
-        $data['categories'] = Category::latest()->get();
-        return view('backend.category.index', $data);
+        $data['subcategories'] = SubCategory::latest()->get();
+        return view('backend.sub-category.index', $data);
     }
-
     public function create(): View
     {
-        return view('backend.category.create');
+        $data['categories'] = Category::latest()->get();
+        return view('backend.sub-category.create', $data);
     }
-
-    public function store(CategoryRequest $request): RedirectResponse
+    public function store(SubCategoryRequset $request): RedirectResponse
     {
-        $save = new Category;
+        $save = new SubCategory;
         $save->title = $request->title;
+        $save->c_id = $request->category;
         $save->created_by = auth()->user()->id;
         $save->save();
 
@@ -43,7 +35,7 @@ class CategoryController extends Controller
                 $temp_file = TmpFile::findOrFail($request->image);
 
                 $from_path = $temp_file->path . '/' . $temp_file->filename;
-                $to_path = 'images/category/' . $save->id . '/' . $temp_file->filename;
+                $to_path = 'images/sub-category/' . $save->id . '/' . $temp_file->filename;
 
                 Storage::move($from_path, 'public/'.$to_path);
                 Storage::deleteDirectory($temp_file->path);
@@ -56,20 +48,22 @@ class CategoryController extends Controller
             }
         }
 
-        sweetalert()->success("Category $save->title created successfully");
-        return redirect()->route('b.category.update', $save->id);
+        sweetalert()->success("Sub category $save->title created successfully");
+        return redirect()->route('b.sub_category.index', $save->id);
     }
-
     public function update($id): View
     {
-        $data['category'] = Category::findOrFail($id);
-        return view('backend.category.update', $data);
+
+        $data['subcategories'] = SubCategory::findOrFail($id);
+        $data['categories'] = Category::latest()->get();
+        return view('backend.sub-category.update', $data);
     }
 
-    public function update_store(CategoryRequest $request, $id):RedirectResponse
+    public function update_store(SubCategoryRequset $request, $id):RedirectResponse
     {
-        $save = Category::findOrFail($id);
+        $save = SubCategory::findOrFail($id);
         $save->title = $request->title;
+        $save->c_id = $request->category;
         $save->updated_by = auth()->user()->id;
         $save->save();
 
@@ -78,7 +72,7 @@ class CategoryController extends Controller
                 $temp_file = TmpFile::findOrFail($request->image);
 
                 $from_path = $temp_file->path . '/' . $temp_file->filename;
-                $to_path = 'images/category/' . $save->id . '/' . $temp_file->filename;
+                $to_path = 'images/sub-category/' . $save->id . '/' . $temp_file->filename;
 
                 Storage::move($from_path, 'public/'.$to_path);
                 Storage::deleteDirectory($temp_file->path);
@@ -90,18 +84,18 @@ class CategoryController extends Controller
                 return redirect()->back();
             }
         }
-        sweetalert()->success("Category $save->title updated successfully");
-        return redirect()->route('b.category.index');
+        sweetalert()->success("Sub category $save->title updated successfully");
+        return redirect()->route('b.sub_category.index');
     }
     public function delete($id){
-        $category = Category::findOrFail($id);
+        $category = SubCategory::findOrFail($id);
         $category->delete();
 
-        sweetalert()->success("Category $category->title deleted successfully");
-        return redirect()->route('b.category.index');
+        sweetalert()->success("Sub category $category->title deleted successfully");
+        return redirect()->route('b.sub_category.index');
     }
     public function details($id){
-        $category = Category::with(['created_user','updated_user'])->findOrFail($id);
+        $category = SubCategory::with(['created_user','updated_user'])->findOrFail($id);
         $category->created_time=timeFormate($category->created_at);
         $category->updated_time=($category->created_at != $category->updated_at) ? timeFormate($category->updated_at):'null';
         $category->img=storage_url($category->img);
@@ -109,4 +103,5 @@ class CategoryController extends Controller
 
         return response()->json(['category'=>$category]);
     }
+
 }

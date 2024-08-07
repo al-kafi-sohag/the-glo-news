@@ -23,31 +23,40 @@
                 <li class="nav-item">
                     <a href="{{ route('b.dashboard') }}"
                         class="nav-link {{ $pageSlug == 'dashboard' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-home"></i>
+                        <i class="fa-solid fa-house"></i>
                         <p>{{ __('Dashboard') }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('b.category.index') }}"
                         class="nav-link {{ $pageSlug == 'category' ? 'active' : '' }}">
-                        <i class="nav-icon fa-solid fa-list"></i>
+                        <i class="fa-solid fa-list"></i>
                         <p>{{ __('Category') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('b.sub_category.index') }}"
+                        class="nav-link {{ $pageSlug == 'sub-category' ? 'active' : '' }}">
+                        <i class="fa-solid fa-list"></i>
+                        <p>{{ __('Sub Category') }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('b.author.index') }}"
                         class="nav-link {{ $pageSlug == 'author' ? 'active' : '' }}">
-                        <i class="fa-solid fa-users"></i>
+                        <i class="fa-solid fa-list"></i>
                         <p>{{ __('Author') }}</p>
                     </a>
                 </li>
             </ul>
+            <i class="fa-solid fa-users"></i>
+            <i class="fa-solid fa-arrow-right-arrow-left"></i>
         </nav>
     </div>
     <div class="logout">
         <a href="javascript:void(0)" class="btn btn-default btn-flat w-100"
             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-            {{ __('Sign out') }}
+            <i class="fas fa-power-off"></i>
         </a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
