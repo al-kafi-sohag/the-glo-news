@@ -26,7 +26,7 @@ return new class extends Migration
             $table->tinyInteger('status')->default(0);
 
 
-            $table->unsignedBigInteger('c_id')->nullable();
+            $table->unsignedBigInteger('c_id');
             $table->foreign('c_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();

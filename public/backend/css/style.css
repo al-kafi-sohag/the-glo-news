@@ -4,3 +4,8 @@
     margin-right: 7px;
     font-size: 1.2rem;
 }
+
+/* sidebar logout css */
+.main-sidebar .logout a{
+    background-color: red;
+}

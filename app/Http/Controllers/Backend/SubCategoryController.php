@@ -6,6 +6,7 @@ use App\Http\Requests\SubCategoryRequset;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Models\SubCategory;
+use App\Models\Category;
 use App\Models\TmpFile;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,12 +19,14 @@ class SubCategoryController
     }
     public function create(): View
     {
-        return view('backend.sub-category.create');
+        $data['categories'] = Category::latest()->get();
+        return view('backend.sub-category.create', $data);
     }
     public function store(SubCategoryRequset $request): RedirectResponse
     {
         $save = new SubCategory;
         $save->title = $request->title;
+        $save->c_id = $request->category;
         $save->created_by = auth()->user()->id;
         $save->save();
 
@@ -50,7 +53,9 @@ class SubCategoryController
     }
     public function update($id): View
     {
-        $data['category'] = SubCategory::findOrFail($id);
+
+        $data['subcategories'] = SubCategory::findOrFail($id);
+        $data['categories'] = Category::latest()->get();
         return view('backend.sub-category.update', $data);
     }
 
@@ -58,6 +63,7 @@ class SubCategoryController
     {
         $save = SubCategory::findOrFail($id);
         $save->title = $request->title;
+        $save->c_id = $request->category;
         $save->updated_by = auth()->user()->id;
         $save->save();
 

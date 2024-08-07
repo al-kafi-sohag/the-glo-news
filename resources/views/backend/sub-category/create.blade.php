@@ -27,6 +27,17 @@
                                     @csrf
 
                                     <div class="form-group">
+                                        <label  class="mt-3" for="category">{{ __('Category') }}<span class="text-danger">*</span></label>
+                                        <select name="category" id="category" class="form-control">
+                                            <option value=" " selected hidden>{{ __('Select Category') }}</option>
+                                            @foreach ($categories as $category )
+                                                <option value="{{ $category->id }}" {{ $category->id==old('category') ? 'selected': '' }}>{{ $category->title}}</option>
+                                            @endforeach
+                                        </select>
+                                        @include('backend.partials.form-error', ['field' => 'category'])
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="title">{{ __('Title') }} <span class="text-danger">*</span></label>
                                         <input type="name" class="form-control" id="title" placeholder="Enter category name" name="title">
 

@@ -47,7 +47,7 @@
     <div class="logout">
         <a href="javascript:void(0)" class="btn btn-default btn-flat w-100"
             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-            {{ __('Sign out') }}
+            <i class="fas fa-power-off"></i>
         </a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf

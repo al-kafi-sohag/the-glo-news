@@ -16,7 +16,8 @@ class SubCategoryRequset extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|max:255|min:3'
+            'title' => 'required|max:255|min:3',
+            'category' => 'required',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());
