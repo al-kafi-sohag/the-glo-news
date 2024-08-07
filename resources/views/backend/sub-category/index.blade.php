@@ -22,6 +22,7 @@
                                     <thead>
                                         <tr>
                                             <th>{{ __('Sl') }}</th>
+                                            <th>{{ __('Category Title') }}</th>
                                             <th>{{ __('Title') }}</th>
                                             <th>{{ __('Logo') }}</th>
                                             <th>{{ __('Created at') }}</th>
@@ -35,6 +36,7 @@
                                                 <td>
                                                     {{ ++$key }}
                                                 </td>
+                                                <td>{{ $category->category->title }}</td>
                                                 <td>
                                                     {{ $category->title }}
                                                 </td>
