@@ -6,6 +6,6 @@
 }
 
 /* sidebar logout css */
-.main-sidebar .logout a{
-    background-color: red;
+.main-sidebar .logout i{
+    color: red;
 }
