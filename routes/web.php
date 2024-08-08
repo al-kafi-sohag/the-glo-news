@@ -48,6 +48,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'b.'], fu
         Route::get('update/{id}', 'update')->name('update');
         Route::get('status/{id}', 'status')->name('status.update');
         Route::put('update/{id}', 'update_store')->name('update');
+        Route::get('delete/{id}', 'delete')->name('delete');
+        Route::get('details/{id}', 'details')->name('details');
     });
 
     // Route::controller(PermissionController::class)->prefix('permission')->name('permission.')->group(function () {

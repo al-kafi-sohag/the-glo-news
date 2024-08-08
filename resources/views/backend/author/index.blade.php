@@ -43,9 +43,9 @@
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                                        <a href="javascript:void(0)" class="btn btn-secondary" title="View details"><i class="fa-solid fa-eye"></i></a>
+                                                        <a href="javascript:void(0)" data-id="{{ $author->id }}" class="btn btn-secondary view" title="View details"><i class="fa-solid fa-eye"></i></a>
                                                         <a href="{{route('b.author.update',$author->id)}}" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
-                                                        <a href="javascript:void(0)" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                                        <a href="javascript:void(0)" class="btn btn-danger delete" data-id="{{ $author->id }}"><i class="fa-solid fa-trash-can"></i></a>
                                                         <a href="{{route('b.author.status.update',$author->id)}}" class="btn {{$author->statusIcon()}}"><i class="fa-solid fa-power-off"></i></a>
                                                       </div>
                                                 </td>
@@ -60,10 +60,94 @@
             </div>
         </div>
     </div>
+     {{-- Author Details Modal  --}}
+     <div class="modal view_modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+     <div class="modal-dialog modal-lg" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">{{ __('Author Details') }}</h5>
+                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <div class="modal-body modal_data">
+             </div>
+         </div>
+     </div>
+ </div>
 @endsection
 
 @include('backend.partials.datatable', ['columns_to_show' => [0, 1, 2, 3, 4]])
 
 @push('script')
-    <script></script>
+<script>
+
+    $(document).ready(function(){
+        $('.delete').on('click', function(){
+            let url=`{{ route('b.author.delete', ['id'=>'_id']) }}`;
+            url=url.replace('_id',$(this).data('id'))
+            confirmDelete(url);
+        });
+    });
+
+</script>
+<script>
+    $(document).ready(function() {
+        $('.view').on('click', function() {
+            let id = $(this).data('id');
+            let url = "{{ route('b.author.details', ':id') }}";
+            let _url = url.replace(':id', id);
+            $.ajax({
+                url: _url,
+                method: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    var result = `
+                            <table class="table table-striped">
+                                <tr>
+                                    <th class="text-nowrap">Name</th>
+                                    <th>:</th>
+                                    <td>${data.author.name}</td>
+                                </tr>
+                                // <tr>
+                                //     <th class="text-nowrap">Image</th>
+                                //     <th>:</th>
+                                //     <td>
+                                //         <img src="${data.category.img}" class="tbl-img" alt="${ data.category.title }">
+                                //  </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-nowrap">Created At</th>
+                                    <th>:</th>
+                                    <td>${data.author.created_time}</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-nowrap">Created By</th>
+                                    <th>:</th>
+                                    <td>${data.author.created_user.name ?? 'system'}</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-nowrap">Updated At</th>
+                                    <th>:</th>
+                                    <td>${data.author.updated_time}</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-nowrap">Updated By</th>
+                                    <th>:</th>
+                                    <td>${data.author.updated_user ? data.author.updated_user.name : 'null'}</td>
+                                </tr>
+                            </table>
+                            `;
+                    $('.modal_data').html(result);
+                    $('.view_modal').modal('show');
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error fetching admin data:', error);
+                }
+            });
+        });
+    });
+</script>
 @endpush

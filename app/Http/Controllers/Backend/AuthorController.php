@@ -60,4 +60,20 @@ class AuthorController extends Controller
         sweetalert()->success("Author $author->name status updated successfully");
         return redirect()->route('b.author.index');
     }
+    public function delete($id){
+        $author = Author::findOrFail($id);
+        $author->delete();
+
+        sweetalert()->success("Author $author->title deleted successfully");
+        return redirect()->route('b.author.index');
+    }
+    public function details($id){
+        $author = Author::with(['created_user','updated_user'])->findOrFail($id);
+        $author->created_time=timeFormate($author->created_at);
+        $author->updated_time=($author->created_at != $author->updated_at) ? timeFormate($author->updated_at):'null';
+        // $author->img=storage_url($author->img);
+
+
+        return response()->json(['author'=>$author]);
+    }
 }
