@@ -14,3 +14,10 @@ function confirmDelete(url) {
         }
     });
 }
+
+$(document).ready(function(){
+    $('.delete').on('click', function(){
+        let url=details['url'].replace('_id',$(this).data('id'))
+        confirmDelete(url);
+    });
+});

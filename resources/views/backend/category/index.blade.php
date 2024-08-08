@@ -51,8 +51,8 @@
                                                 <td class="text-center">
                                                     <div class="btn-group" role="group" aria-label="Basic example">
                                                         <a href="javascript:void(0)" data-id="{{ $category->id }}" class="btn btn-secondary view" title="View details"><i class="fa-solid fa-eye"></i></a>
-                                                        <a href="{{ route('b.category.update', $category->id) }}" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
-                                                        <a href="javascript:void(0)" class="btn btn-danger delete" data-id="{{ $category->id }}"><i class="fa-solid fa-trash-can"></i></a>
+                                                        <a href="{{ route('b.category.update', $category->id) }}" title="Update item" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                        <a href="javascript:void(0)" class="btn btn-danger delete" data-id="{{ $category->id }}" title="Delete item"><i class="fa-solid fa-trash-can"></i></a>
                                                       </div>
                                                 </td>
                                             </tr>
@@ -89,15 +89,7 @@
 
 @push('script')
 <script>
-
-        $(document).ready(function(){
-            $('.delete').on('click', function(){
-                let url=`{{ route('b.category.delete', ['id'=>'_id']) }}`;
-                url=url.replace('_id',$(this).data('id'))
-                confirmDelete(url);
-            });
-        });
-
+    const details = {'url':`{{ route('b.category.delete', ['id'=>'_id']) }}`}
 </script>
     <script>
         $(document).ready(function() {
@@ -119,7 +111,7 @@
                                         <td>${data.category.title}</td>
                                     </tr>
                                     <tr>
-                                        <th class="text-nowrap">Image</th>
+                                        <th class="text-nowrap">Logo</th>
                                         <th>:</th>
                                         <td>
                                             <img src="${data.category.img}" class="tbl-img" alt="${ data.category.title }">

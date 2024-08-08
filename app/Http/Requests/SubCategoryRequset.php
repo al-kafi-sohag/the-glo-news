@@ -17,7 +17,7 @@ class SubCategoryRequset extends FormRequest
     {
         return [
             'title' => 'required|max:255|min:3',
-            'category' => 'required',
+            'category' => 'required|exists:categories,id',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());

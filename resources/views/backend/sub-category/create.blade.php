@@ -1,6 +1,6 @@
-@extends('backend.layouts.app', ['pageSlug' => 'sub-category'])
+@extends('backend.layouts.app', ['pageSlug' => 'sub - category'])
 
-@section('title', 'Sub-Category')
+@section('title', 'Sub - category')
 
 @push('link_css')
     <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
@@ -27,7 +27,7 @@
                                     @csrf
 
                                     <div class="form-group">
-                                        <label  class="mt-3" for="category">{{ __('Category') }}<span class="text-danger">*</span></label>
+                                        <label  class="mt-3" for="category">{{ __('Select Category') }}<span class="text-danger">*</span></label>
                                         <select name="category" id="category" class="form-control">
                                             <option value=" " selected hidden>{{ __('Select Category') }}</option>
                                             @foreach ($categories as $category )
@@ -38,8 +38,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="title">{{ __('Title') }} <span class="text-danger">*</span></label>
-                                        <input type="name" class="form-control" id="title" placeholder="Enter category name" name="title">
+                                        <label for="title">{{ __('Sub - category Title') }} <span class="text-danger">*</span></label>
+                                        <input type="name" class="form-control" id="title" placeholder="Enter sub Category name" name="title">
 
                                         @include('backend.partials.form-error', ['field' => 'title'])
                                     </div>
@@ -69,9 +69,9 @@
 @endsection
 
 @push('link_script')
-    <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
-    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-    <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
-    <script src="https://unpkg.com/jquery-filepond/filepond.jquery.js"></script>
+    <script src="{{ asset('backend/js/filepond/file-validation-type.js') }}"></script>
+    <script src="{{ asset('backend/js/filepond/image-preview.js') }}"></script>
+    <script src="{{ asset('backend/js/filepond/filepond.min.js') }}"></script>
+    <script src="{{ asset('backend/js/filepond/filepond.jquery.js') }}"></script>
     <script src="{{ asset('backend/js/filepond.js') }}"></script>
 @endpush

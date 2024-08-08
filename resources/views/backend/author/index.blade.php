@@ -82,15 +82,7 @@
 
 @push('script')
 <script>
-
-    $(document).ready(function(){
-        $('.delete').on('click', function(){
-            let url=`{{ route('b.author.delete', ['id'=>'_id']) }}`;
-            url=url.replace('_id',$(this).data('id'))
-            confirmDelete(url);
-        });
-    });
-
+    const details = {'url':`{{ route('b.author.delete', ['id'=>'_id']) }}`}
 </script>
 <script>
     $(document).ready(function() {
@@ -111,12 +103,10 @@
                                     <th>:</th>
                                     <td>${data.author.name}</td>
                                 </tr>
-                                // <tr>
-                                //     <th class="text-nowrap">Image</th>
-                                //     <th>:</th>
-                                //     <td>
-                                //         <img src="${data.category.img}" class="tbl-img" alt="${ data.category.title }">
-                                //  </td>
+                                <tr>
+                                    <th class="text-nowrap">Status</th>
+                                    <th>:</th>
+                                    <td><span class="${data.author.statusBg}">${data.author.statusTitle}</span></td>
                                 </tr>
                                 <tr>
                                     <th class="text-nowrap">Created At</th>

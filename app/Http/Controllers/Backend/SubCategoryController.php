@@ -14,7 +14,7 @@ class SubCategoryController
 {
     public function index():View
     {
-        $data['subcategories'] = SubCategory::latest()->get();
+        $data['subcategories'] = SubCategory::with(['category', 'created_user'])->latest()->get();
         return view('backend.sub-category.index', $data);
     }
     public function create(): View
@@ -44,12 +44,12 @@ class SubCategoryController
                 $save->save();
             } catch (\Throwable $th) {
                 sweetalert()->error("Something went wrong with the image");
-                return redirect()->route('b.category.index');
+                return redirect()->route('b.sub_category.index');
             }
         }
 
         sweetalert()->success("Sub category $save->title created successfully");
-        return redirect()->route('b.sub_category.index', $save->id);
+        return redirect()->route('b.sub_category.update', $save->id);
     }
     public function update($id): View
     {
@@ -88,20 +88,20 @@ class SubCategoryController
         return redirect()->route('b.sub_category.index');
     }
     public function delete($id){
-        $category = SubCategory::findOrFail($id);
-        $category->delete();
+        $sub_category = SubCategory::findOrFail($id);
+        $sub_category->delete();
 
-        sweetalert()->success("Sub category $category->title deleted successfully");
+        sweetalert()->success("Sub category $sub_category->title deleted successfully");
         return redirect()->route('b.sub_category.index');
     }
     public function details($id){
-        $category = SubCategory::with(['created_user','updated_user'])->findOrFail($id);
-        $category->created_time=timeFormate($category->created_at);
-        $category->updated_time=($category->created_at != $category->updated_at) ? timeFormate($category->updated_at):'null';
-        $category->img=storage_url($category->img);
+        $sub_category = SubCategory::with(['created_user','updated_user','category'])->findOrFail($id);
+        $sub_category->created_time=timeFormate($sub_category->created_at);
+        $sub_category->updated_time=($sub_category->created_at != $sub_category->updated_at) ? timeFormate($sub_category->updated_at):'null';
+        $sub_category->img=storage_url($sub_category->img);
 
 
-        return response()->json(['category'=>$category]);
+        return response()->json(['sub_category'=>$sub_category]);
     }
 
 }

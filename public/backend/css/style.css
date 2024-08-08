@@ -9,3 +9,9 @@
 .main-sidebar .logout i{
     color: red;
 }
+.main-sidebar .logout i:active{
+    color: #fff;
+}
+.main-sidebar .logout a:active{
+    color: #fff;
+}

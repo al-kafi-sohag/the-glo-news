@@ -58,9 +58,9 @@
 @endsection
 
 @push('link_script')
-    <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
-    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-    <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
-    <script src="https://unpkg.com/jquery-filepond/filepond.jquery.js"></script>
+    <script src="{{ asset('backend/js/filepond/file-validation-type.js') }}"></script>
+    <script src="{{ asset('backend/js/filepond/image-preview.js') }}"></script>
+    <script src="{{ asset('backend/js/filepond/filepond.min.js') }}"></script>
+    <script src="{{ asset('backend/js/filepond/filepond.jquery.js') }}"></script>
     <script src="{{ asset('backend/js/filepond.js') }}"></script>
 @endpush

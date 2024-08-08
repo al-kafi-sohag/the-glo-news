@@ -71,8 +71,8 @@ class AuthorController extends Controller
         $author = Author::with(['created_user','updated_user'])->findOrFail($id);
         $author->created_time=timeFormate($author->created_at);
         $author->updated_time=($author->created_at != $author->updated_at) ? timeFormate($author->updated_at):'null';
-        // $author->img=storage_url($author->img);
-
+        $author->statusBg=$author->statusBg();
+        $author->statusTitle=$author->statusTitle();
 
         return response()->json(['author'=>$author]);
     }

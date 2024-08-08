@@ -1,6 +1,6 @@
-@extends('backend.layouts.app', ['pageSlug' => 'sub-category'])
+@extends('backend.layouts.app', ['pageSlug' => 'sub - category'])
 
-@section('title', 'Sub-Category')
+@section('title', 'Sub - category')
 
 @push('link_css')
     <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
@@ -44,14 +44,6 @@
 
                                         @include('backend.partials.form-error', ['field' => 'title'])
                                     </div>
-
-                                    {{-- <div class="form-group">
-                                        <label for="title">{{ __('Title') }} <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="title" placeholder="Enter category name" name="title" value="{{ old('title') ?? $category->title }}">
-
-                                        @include('backend.partials.form-error', ['field' => 'title'])
-                                    </div> --}}
-
                                     <div class="form-group">
                                         <label for="image">{{ __('Image') }} <span class="text-muted">({{ __('optional') }})</span></label>
                                         <br>
@@ -80,14 +72,9 @@
 @endsection
 
 @push('link_script')
-    <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
-    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-    <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
-    <script src="https://unpkg.com/jquery-filepond/filepond.jquery.js"></script>
+    <script src="{{ asset('backend/js/filepond/file-validation-type.js') }}"></script>
+    <script src="{{ asset('backend/js/filepond/image-preview.js') }}"></script>
+    <script src="{{ asset('backend/js/filepond/filepond.min.js') }}"></script>
+    <script src="{{ asset('backend/js/filepond/filepond.jquery.js') }}"></script>
     <script src="{{ asset('backend/js/filepond.js') }}"></script>
-@endpush
-
-@push('script')
-    <script>
-    </script>
 @endpush

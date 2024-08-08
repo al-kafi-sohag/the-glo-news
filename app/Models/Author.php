@@ -3,12 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Author extends Model
+
+class Author extends  BaseModel
+
+
+
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     public $guarded = [];
 
@@ -20,19 +24,19 @@ class Author extends Model
         }else{
             return 'badge badge-danger';
         }
-    } 
+    }
     public function statusTitle(){
         if($this->status == 1){
             return 'Active';
         }else{
             return 'Deactive';
         }
-    } 
+    }
     public function statusIcon(){
         if($this->status == 1){
             return 'btn-warning';
         }else{
             return 'btn-success';
         }
-    } 
+    }
 }
