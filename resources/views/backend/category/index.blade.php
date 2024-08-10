@@ -111,6 +111,21 @@
                                         <td>${data.category.title}</td>
                                     </tr>
                                     <tr>
+                                        <th class="text-nowrap">Featured</th>
+                                        <th>:</th>
+                                        <td><span class="${data.category.featuredBg}">${data.category.featuredTitle}</span></td>
+                                    </tr>
+                                    <tr>
+                                    <th class="text-nowrap">Latest</th>
+                                        <th>:</th>
+                                        <td><span class="${data.category.latestBg}">${data.category.latestTitle}</span></td>
+                                    </tr>
+                                    <th class="text-nowrap">Header</th>
+                                        <th>:</th>
+                                        <td><span class="${data.category.headerBg}">${data.category.headerTitle}</span></td>
+                                    </tr>
+
+                                    <tr>
                                         <th class="text-nowrap">Logo</th>
                                         <th>:</th>
                                         <td>

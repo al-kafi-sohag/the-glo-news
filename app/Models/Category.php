@@ -11,4 +11,48 @@ class Category extends BaseModel
     use HasFactory, SoftDeletes;
 
     public $guarded = [];
+
+
+    public function featuredBg(){
+        if($this->is_featured == 1){
+            return 'badge badge-success';
+        }else{
+            return 'badge badge-danger';
+        }
+    }
+    public function featuredTitle(){
+        if($this->is_featured == 1){
+            return 'True';
+        }else{
+            return 'False';
+        }
+    }
+    public function latestBg(){
+        if($this->is_latest == 1){
+            return 'badge badge-success';
+        }else{
+            return 'badge badge-danger';
+        }
+    }
+    public function latestTitle(){
+        if($this->is_latest == 1){
+            return 'True';
+        }else{
+            return 'False';
+        }
+    }
+    public function headerBg(){
+        if($this->is_header == 1){
+            return 'badge badge-success';
+        }else{
+            return 'badge badge-danger';
+        }
+    }
+    public function headerTitle(){
+        if($this->is_header == 1){
+            return 'True';
+        }else{
+            return 'False';
+        }
+    }
 }

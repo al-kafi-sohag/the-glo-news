@@ -33,8 +33,15 @@ class CategoryController extends Controller
 
     public function store(CategoryRequest $request): RedirectResponse
     {
+
+        $featured = $request->featured ?? 0;
+        $latest = $request->latest ?? 0;
+        $header = $request->header ?? 0;
         $save = new Category;
         $save->title = $request->title;
+        $save->is_featured = $featured;
+        $save->is_header = $header;
+        $save->is_latest = $latest;
         $save->created_by = auth()->user()->id;
         $save->save();
 
@@ -68,8 +75,14 @@ class CategoryController extends Controller
 
     public function update_store(CategoryRequest $request, $id):RedirectResponse
     {
+        $featured = $request->featured ?? 0;
+        $latest = $request->latest ?? 0;
+        $header = $request->header ?? 0;
         $save = Category::findOrFail($id);
         $save->title = $request->title;
+        $save->is_featured = $featured;
+        $save->is_latest = $latest;
+        $save->is_header = $header;
         $save->updated_by = auth()->user()->id;
         $save->save();
 
@@ -105,6 +118,13 @@ class CategoryController extends Controller
         $category->created_time=timeFormate($category->created_at);
         $category->updated_time=($category->created_at != $category->updated_at) ? timeFormate($category->updated_at):'null';
         $category->img=storage_url($category->img);
+        $category->featuredBg=$category->featuredBg();
+        $category->featuredTitle=$category->featuredTitle();
+        $category->latestBg=$category->latestBg();
+        $category->latestTitle=$category->latestTitle();
+        $category->headerBg=$category->headerBg();
+        $category->headerTitle=$category->headerTitle();
+
 
 
         return response()->json(['category'=>$category]);
