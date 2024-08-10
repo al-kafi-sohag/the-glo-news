@@ -5,15 +5,19 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FileControlController;
+use App\Http\Controllers\Frontend\HomePageController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Features\SupportFileUploads\FileUploadController;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
 
 Auth::routes();
+
+
+
+Route::group(['as' => 'f.'], function () {
+    Route::get('/', [HomePageController::class, 'index'])->name('home');
+
+});
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'b.'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
