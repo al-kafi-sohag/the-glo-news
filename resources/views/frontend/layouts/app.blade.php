@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>
-        @yield('title', config('app.name')) - {{ config('app.name') }}
+        @yield('title', config('app.name')) | {{ config('app.name') }}
     </title>
 
 
@@ -46,6 +46,8 @@
         @include('frontend.includes.header')
 
         @yield('content')
+
+        @include('frontend.includes.footer')
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
