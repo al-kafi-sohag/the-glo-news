@@ -1,6 +1,6 @@
-@extends('backend.layouts.app', ['pageSlug' => 'category'])
+@extends('backend.layouts.app', ['pageSlug' => 'sub - category'])
 
-@section('title', 'Category')
+@section('title', 'Sub - category')
 
 @push('link_css')
     <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
@@ -14,36 +14,50 @@
                 <div class="card">
                     <div class="card-header">
                         <span class="float-left card-title">
-                            <h4>{{ __('Create new category') }}</h4>
+                            <h4>{{ __('Update sub category') }}</h4>
                         </span>
                         <span class="float-right">
-                            <a href="{{ route('b.category.index') }}" class="btn btn-info">{{  __('Back') }}</a>
+                            <a href="{{ route('b.sub_category.index') }}" class="btn btn-info">{{ __('Back') }}</a>
                         </span>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-10 m-auto">
-                                <form action="{{ route('b.category.create') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('b.sub_category.update', $subcategories->id) }}" method="POST" enctype="multipart/form-data">
+                                    @method('put')
                                     @csrf
 
-                                    <div class="form-group">
-                                        <label for="title">{{ __('Title') }} <span class="text-danger">*</span></label>
-                                        <input type="name" class="form-control" id="title" placeholder="Enter category name" name="title">
 
-                                        @include('backend.partials.form-error', ['field' => 'title'])
+                                    <div class="form-group">
+                                        <label  class="mt-3" for="category">{{ __('Category') }}</label>
+                                        <select name="category" id="category" class="form-control">
+                                            @foreach ($categories as $category )
+                                                <option value="{{ $category->id }}" {{ $category->id==old('category', $category->c_id) ? 'selected': '' }}>{{ $category->title}}</option>
+                                            @endforeach
+                                        </select>
+                                        @include('backend.partials.form-error', ['field' => 'category'])
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="title">{{ __('Title') }} <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="title" placeholder="Enter category name" name="title" value="{{ old('title') ?? $subcategories->title }}">
+
+                                        @include('backend.partials.form-error', ['field' => 'title'])
+                                    </div>
+                                    <div class="form-group">
                                         <label for="image">{{ __('Image') }} <span class="text-muted">({{ __('optional') }})</span></label>
                                         <br>
-                                        <input type="file" id="image" name="image" class="image-upload">
+                                        <div>
+                                            <img src="{{ storage_url($subcategories->img) }}" alt="{{ $subcategories->name }}" class="display-image">
+                                        </div>
+                                        <input type="file" id="image" name="image" class="image-upload"  data-file="{{ $subcategories->img ? storage_url($subcategories->img) : null }}">
 
                                         @include('backend.partials.form-error', ['field' => 'image'])
                                     </div>
 
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success w-100 submitBtn">
-                                            {{ __('Submit') }}
+                                            {{ __('Update') }}
                                         </button>
                                     </div>
 

@@ -1,0 +1,17 @@
+/* Nav css */
+
+.sidebar .nav .nav-item .nav-link i{
+    margin-right: 7px;
+    font-size: 1.2rem;
+}
+
+/* sidebar logout css */
+.main-sidebar .logout i{
+    color: red;
+}
+.main-sidebar .logout i:active{
+    color: #fff;
+}
+.main-sidebar .logout a:active{
+    color: #fff;
+}

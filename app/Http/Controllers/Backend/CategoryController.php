@@ -93,4 +93,20 @@ class CategoryController extends Controller
         sweetalert()->success("Category $save->title updated successfully");
         return redirect()->route('b.category.index');
     }
+    public function delete($id){
+        $category = Category::findOrFail($id);
+        $category->delete();
+
+        sweetalert()->success("Category $category->title deleted successfully");
+        return redirect()->route('b.category.index');
+    }
+    public function details($id){
+        $category = Category::with(['created_user','updated_user'])->findOrFail($id);
+        $category->created_time=timeFormate($category->created_at);
+        $category->updated_time=($category->created_at != $category->updated_at) ? timeFormate($category->updated_at):'null';
+        $category->img=storage_url($category->img);
+
+
+        return response()->json(['category'=>$category]);
+    }
 }

@@ -1,6 +1,6 @@
-@extends('backend.layouts.app', ['pageSlug' => 'category'])
+@extends('backend.layouts.app', ['pageSlug' => 'sub - category'])
 
-@section('title', 'Category')
+@section('title', 'Sub - category')
 
 @push('link_css')
     <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
@@ -14,21 +14,32 @@
                 <div class="card">
                     <div class="card-header">
                         <span class="float-left card-title">
-                            <h4>{{ __('Create new category') }}</h4>
+                            <h4>{{ __('Create new sub category') }}</h4>
                         </span>
                         <span class="float-right">
-                            <a href="{{ route('b.category.index') }}" class="btn btn-info">{{  __('Back') }}</a>
+                            <a href="{{ route('b.sub_category.index') }}" class="btn btn-info">{{  __('Back') }}</a>
                         </span>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-10 m-auto">
-                                <form action="{{ route('b.category.create') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('b.sub_category.create') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="form-group">
-                                        <label for="title">{{ __('Title') }} <span class="text-danger">*</span></label>
-                                        <input type="name" class="form-control" id="title" placeholder="Enter category name" name="title">
+                                        <label  class="mt-3" for="category">{{ __('Select Category') }}<span class="text-danger">*</span></label>
+                                        <select name="category" id="category" class="form-control">
+                                            <option value=" " selected hidden>{{ __('Select Category') }}</option>
+                                            @foreach ($categories as $category )
+                                                <option value="{{ $category->id }}" {{ $category->id==old('category') ? 'selected': '' }}>{{ $category->title}}</option>
+                                            @endforeach
+                                        </select>
+                                        @include('backend.partials.form-error', ['field' => 'category'])
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="title">{{ __('Sub - category Title') }} <span class="text-danger">*</span></label>
+                                        <input type="name" class="form-control" id="title" placeholder="Enter sub Category name" name="title">
 
                                         @include('backend.partials.form-error', ['field' => 'title'])
                                     </div>
