@@ -131,6 +131,10 @@
                                         <th>:</th>
                                         <td><span class="${data.sub_category.headerBg}">${data.sub_category.headerTitle}</span></td>
                                     </tr>
+                                    <th class="text-nowrap">Status</th>
+                                        <th>:</th>
+                                        <td><span class="${data.sub_category.statusBg}">${data.sub_category.statusTitle}</span></td>
+                                    </tr>
                                     <tr>
                                         <th class="text-nowrap">Logo</th>
                                         <th>:</th>

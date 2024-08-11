@@ -37,11 +37,13 @@ class CategoryController extends Controller
         $featured = $request->featured ?? 0;
         $latest = $request->latest ?? 0;
         $header = $request->header ?? 0;
+        $status = $request->status ?? 0;
         $save = new Category;
         $save->title = $request->title;
         $save->is_featured = $featured;
         $save->is_header = $header;
         $save->is_latest = $latest;
+        $save->status = $status;
         $save->created_by = auth()->user()->id;
         $save->save();
 
@@ -78,11 +80,13 @@ class CategoryController extends Controller
         $featured = $request->featured ?? 0;
         $latest = $request->latest ?? 0;
         $header = $request->header ?? 0;
+        $status = $request->status ?? 0;
         $save = Category::findOrFail($id);
         $save->title = $request->title;
         $save->is_featured = $featured;
         $save->is_latest = $latest;
         $save->is_header = $header;
+        $save->status = $status;
         $save->updated_by = auth()->user()->id;
         $save->save();
 
@@ -124,6 +128,8 @@ class CategoryController extends Controller
         $category->latestTitle=$category->latestTitle();
         $category->headerBg=$category->headerBg();
         $category->headerTitle=$category->headerTitle();
+        $category->statusBg=$category->statusBg();
+        $category->statusTitle=$category->statusTitle();
 
 
 

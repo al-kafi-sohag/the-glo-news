@@ -24,9 +24,17 @@ class SubCategoryController
     }
     public function store(SubCategoryRequset $request): RedirectResponse
     {
+        $featured = $request->featured ?? 0;
+        $latest = $request->latest ?? 0;
+        $header = $request->header ?? 0;
+        $status = $request->status ?? 0;
         $save = new SubCategory;
         $save->title = $request->title;
         $save->c_id = $request->category;
+        $save->is_featured = $featured;
+        $save->is_header = $header;
+        $save->is_latest = $latest;
+        $save->status = $status;
         $save->created_by = auth()->user()->id;
         $save->save();
 
@@ -64,11 +72,13 @@ class SubCategoryController
         $featured = $request->featured ?? 0;
         $latest = $request->latest ?? 0;
         $header = $request->header ?? 0;
+        $status = $request->status ?? 0;
         $save = SubCategory::findOrFail($id);
         $save->title = $request->title;
         $save->is_featured = $featured;
         $save->is_header = $header;
         $save->is_latest = $latest;
+        $save->status = $status;
         $save->c_id = $request->category;
         $save->updated_by = auth()->user()->id;
         $save->save();
@@ -111,6 +121,8 @@ class SubCategoryController
         $sub_category->latestTitle=$sub_category->latestTitle();
         $sub_category->headerBg=$sub_category->headerBg();
         $sub_category->headerTitle=$sub_category->headerTitle();
+        $sub_category->statusBg=$sub_category->statusBg();
+        $sub_category->statusTitle=$sub_category->statusTitle();
 
 
         return response()->json(['sub_category'=>$sub_category]);

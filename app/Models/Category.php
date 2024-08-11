@@ -55,4 +55,18 @@ class Category extends BaseModel
             return 'False';
         }
     }
+    public function statusBg(){
+        if($this->status == 1){
+            return 'badge badge-success';
+        }else{
+            return 'badge badge-danger';
+        }
+    }
+    public function statusTitle(){
+        if($this->status == 1){
+            return 'Active';
+        }else{
+            return 'Deactive';
+        }
+    }
 }
