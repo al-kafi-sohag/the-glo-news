@@ -1,26 +1,25 @@
-@for ($i = 0; $i <= 10; $i++)
-
-<div class="post type-post">
+@foreach ($featured_news as $fn)
+<div class="post type-post w-100">
     <div class="post_wrapper">
         <div class="post_content_wrapper">
-            <div class="post_header search">
-                <div class="post_img static one_third">
-                    <a href="singleblog.html">
-                        <img src="{{ asset('frontend/img/pexels-photo-700x466.jpg') }}" alt="" class="" />
+            <div class="post_header search d-flex align-items-center justify-content-between">
+                <div class="post_img static one_third w-40">
+                    <a href="">
+                        <img src="{{ storage_url($fn->image) }}" alt="{{ $fn->title }}" class="" />
                     </a>
                 </div>
-                <div class="post_header_title two_third last">
+                <div class="post_header_title two_third last w-60">
                     <h5>
-                        <a href="singleblog.html" title="Whistleblower wins $51 million in kickback and bribery case">
-                            Whistleblower wins $51 million in kickback and bribery case
+                        <a href="" title="{{ $fn->title }}">
+                            {{ strLimit($fn->title) }}
                         </a>
                     </h5>
                     <span class="post_info_date">
-                        <a href="singleblog.html">July 22, 2015</a>
+                        <a href="">{{ newsTimeFormate($fn->created_at ) }}</a>
                     </span>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endfor
+@endforeach
