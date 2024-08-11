@@ -38,12 +38,18 @@
                                                 </td>
                                                 <td>
                                                     {{ $n->title }}
+                                                    @if($n->is_main)
+                                                        <span class="badge badge-warning">main</span>
+                                                    @endif
+                                                    @if($n->is_featured)
+                                                        <span class="badge badge-info">featured</span>
+                                                    @endif
                                                 </td>
                                                 <td>
                                                     {{ $n->author->name }}
                                                 </td>
                                                 <td>
-                                                    {{ $n->status }}
+                                                    <span class="badge bg-{{ $n->statusBg() }}">{{ $n->statusTitle() }}</span>
                                                 </td>
                                                 <td>
                                                     {{ timeFormate($n->created_at) }}
@@ -71,7 +77,7 @@
     </div>
 @endsection
 
-@include('backend.partials.datatable', ['columns_to_show' => [0, 1, 2, 3, 4]])
+@include('backend.partials.datatable', ['columns_to_show' => [0, 1, 2, 3, 4, 5]])
 
 @push('script')
 @endpush

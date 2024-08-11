@@ -39,4 +39,19 @@ class BaseModel extends Model
     public function scopeMenu($query){
         return $query->where('is_menu',1);
     }
+
+    public function statusBg(){
+        if($this->status == 1){
+            return 'badge badge-success';
+        }else{
+            return 'badge badge-danger';
+        }
+    }
+    public function statusTitle(){
+        if($this->status == 1){
+            return 'Active';
+        }else{
+            return 'Deactive';
+        }
+    }
 }

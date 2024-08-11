@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use RalphJSmit\Laravel\SEO\Support\HasSEO;
 
-class Post extends Model
+class Post extends BaseModel
 {
     use HasFactory, HasSEO, Sluggable;
 

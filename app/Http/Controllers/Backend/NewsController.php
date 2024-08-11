@@ -83,11 +83,11 @@ class NewsController extends Controller
                 Storage::move($from_path, 'public/'.$to_path);
                 Storage::deleteDirectory($temp_file->path);
 
-                $news->img = $to_path;
+                $news->image = $to_path;
                 $news->save();
             } catch (\Throwable $th) {
                 sweetalert()->error("Something went wrong with the image");
-                return redirect()->route('b.news.update');
+                return redirect()->route('b.news.update', $save->id);
             }
         }
 
