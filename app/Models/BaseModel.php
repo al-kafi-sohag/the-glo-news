@@ -29,4 +29,14 @@ class BaseModel extends Model
     {
         return $this->morphTo();
     }
+
+    public function scopeActivated($query){
+        return $query->where('status',1);
+    }
+    public function scopeFeatured($query){
+        return $query->where('is_featured',1);
+    }
+    public function scopeMenu($query){
+        return $query->where('is_menu',1);
+    }
 }

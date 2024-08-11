@@ -14,6 +14,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
-        "admin-lte": "3.2"
+        "admin-lte": "3.2",
+        "ckeditor5": "^43.0.0"
     }
 }

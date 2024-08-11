@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8c05b363628963d3749ad50f355a6a2",
+    "content-hash": "b5bb8f7b2ef02d1f1c4abd02c07aaff2",
     "packages": [
         {
             "name": "brick/math",
@@ -134,6 +134,154 @@
                 }
             ],
             "time": "2024-02-09T16:56:22+00:00"
+        },
+        {
+            "name": "cocur/slugify",
+            "version": "v4.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cocur/slugify.git",
+                "reference": "7c6e088228b9f082050876ae8b0cd287b117b840"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cocur/slugify/zipball/7c6e088228b9f082050876ae8b0cd287b117b840",
+                "reference": "7c6e088228b9f082050876ae8b0cd287b117b840",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0"
+            },
+            "conflict": {
+                "symfony/config": "<3.4 || >=4,<4.3",
+                "symfony/dependency-injection": "<3.4 || >=4,<4.3",
+                "symfony/http-kernel": "<3.4 || >=4,<4.3",
+                "twig/twig": "<2.12.1"
+            },
+            "require-dev": {
+                "laravel/framework": "^5.0|^6.0|^7.0|^8.0",
+                "latte/latte": "~2.2",
+                "league/container": "^2.2.0",
+                "mikey179/vfsstream": "~1.6.8",
+                "mockery/mockery": "^1.3",
+                "nette/di": "~2.4",
+                "pimple/pimple": "~1.1",
+                "plumphp/plum": "~0.1",
+                "symfony/config": "^3.4 || ^4.3 || ^5.0 || ^6.0",
+                "symfony/dependency-injection": "^3.4 || ^4.3 || ^5.0 || ^6.0",
+                "symfony/http-kernel": "^3.4 || ^4.3 || ^5.0 || ^6.0",
+                "symfony/phpunit-bridge": "^5.4 || ^6.0",
+                "twig/twig": "^2.12.1 || ~3.0",
+                "zendframework/zend-modulemanager": "~2.2",
+                "zendframework/zend-servicemanager": "~2.2",
+                "zendframework/zend-view": "~2.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cocur\\Slugify\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florian Eckerstorfer",
+                    "email": "florian@eckerstorfer.co",
+                    "homepage": "https://florian.ec"
+                },
+                {
+                    "name": "Ivo Bathke",
+                    "email": "ivo.bathke@gmail.com"
+                }
+            ],
+            "description": "Converts a string into a slug.",
+            "keywords": [
+                "slug",
+                "slugify"
+            ],
+            "support": {
+                "issues": "https://github.com/cocur/slugify/issues",
+                "source": "https://github.com/cocur/slugify/tree/v4.5.1"
+            },
+            "time": "2023-09-17T07:26:20+00:00"
+        },
+        {
+            "name": "cviebrock/eloquent-sluggable",
+            "version": "11.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cviebrock/eloquent-sluggable.git",
+                "reference": "8fafec4b3c61e1b87ec9cbe728a75ce3b6ca1c06"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/8fafec4b3c61e1b87ec9cbe728a75ce3b6ca1c06",
+                "reference": "8fafec4b3c61e1b87ec9cbe728a75ce3b6ca1c06",
+                "shasum": ""
+            },
+            "require": {
+                "cocur/slugify": "^4.3",
+                "illuminate/config": "^11.0",
+                "illuminate/database": "^11.0",
+                "illuminate/support": "^11.0",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4.4",
+                "orchestra/testbench": "^9.0",
+                "pestphp/pest": "^2.28"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Cviebrock\\EloquentSluggable\\ServiceProvider"
+                    ]
+                },
+                "branch-alias": {
+                    "dev-master": "11.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Cviebrock\\EloquentSluggable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Colin Viebrock",
+                    "email": "colin@viebrock.ca"
+                }
+            ],
+            "description": "Easy creation of slugs for your Eloquent models in Laravel",
+            "homepage": "https://github.com/cviebrock/eloquent-sluggable",
+            "keywords": [
+                "eloquent",
+                "eloquent-sluggable",
+                "laravel",
+                "lumen",
+                "slug",
+                "sluggable"
+            ],
+            "support": {
+                "issues": "https://github.com/cviebrock/eloquent-sluggable/issues",
+                "source": "https://github.com/cviebrock/eloquent-sluggable/tree/11.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/cviebrock",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-03-13T02:44:01+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -3928,6 +4076,157 @@
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
+            "name": "ralphjsmit/laravel-helpers",
+            "version": "1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralphjsmit/laravel-helpers.git",
+                "reference": "840b4979a92c7b676d25f56430823f12481f2914"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralphjsmit/laravel-helpers/zipball/840b4979a92c7b676d25f56430823f12481f2914",
+                "reference": "840b4979a92c7b676d25f56430823f12481f2914",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.4",
+                "illuminate/contracts": "^8.73|^9.0|^10.0|^11.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "require-dev": {
+                "livewire/livewire": "^2.9|^3.4",
+                "nesbot/carbon": "^2.66|^3.0",
+                "nunomaduro/collision": "^5.10|^6.1|^7.0|^8.0",
+                "orchestra/testbench": "^6.22|^7.0|^8.0|^9.0",
+                "pestphp/pest": "^1.21|^2.34",
+                "pestphp/pest-plugin-laravel": "^1.1|^2.3",
+                "phpunit/phpunit": "^9.5|^10.5",
+                "spatie/invade": "^1.0|^2.0",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "RalphJSmit\\Helpers\\HelpersServiceProvider"
+                    ],
+                    "aliases": {
+                        "Helpers": "RalphJSmit\\Helpers\\Facades\\Helpers"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Laravel/Support/helpers.php",
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "RalphJSmit\\Helpers\\": "src",
+                    "RalphJSmit\\Helpers\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph J. Smit",
+                    "email": "rjs@ralphjsmit.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A package containing handy helpers for your Laravel-application.",
+            "homepage": "https://github.com/ralphjsmit/laravel-helpers",
+            "keywords": [
+                "laravel",
+                "laravel-helpers",
+                "ralphjsmit"
+            ],
+            "support": {
+                "issues": "https://github.com/ralphjsmit/laravel-helpers/issues",
+                "source": "https://github.com/ralphjsmit/laravel-helpers/tree/1.9.0"
+            },
+            "time": "2024-03-14T08:30:30+00:00"
+        },
+        {
+            "name": "ralphjsmit/laravel-seo",
+            "version": "1.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralphjsmit/laravel-seo.git",
+                "reference": "c7a9e903e946aec4271078af4e990b336be74998"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralphjsmit/laravel-seo/zipball/c7a9e903e946aec4271078af4e990b336be74998",
+                "reference": "c7a9e903e946aec4271078af4e990b336be74998",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.0|^10.0|^11.0",
+                "php": "^8.0",
+                "ralphjsmit/laravel-helpers": "^1.9",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.16",
+                "nesbot/carbon": "^2.66|^3.0",
+                "nunomaduro/collision": "^5.10|^6.0|^7.0|^8.0",
+                "orchestra/testbench": "^7.0|^8.0|^9.0",
+                "pestphp/pest": "^1.21|^2.0",
+                "pestphp/pest-plugin-laravel": "^1.1|^2.0",
+                "phpunit/phpunit": "^9.5|^10.5",
+                "spatie/laravel-ray": "^1.26",
+                "spatie/pest-plugin-test-time": "^1.0|^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "RalphJSmit\\Laravel\\SEO\\LaravelSEOServiceProvider"
+                    ],
+                    "aliases": {
+                        "SEOManager": "RalphJSmit\\Laravel\\SEO\\Facades\\SEOManager"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "RalphJSmit\\Laravel\\SEO\\": "src",
+                    "RalphJSmit\\Laravel\\SEO\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph J. Smit",
+                    "email": "rjs@ralphjsmit.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A package to handle the SEO in any Laravel application, big or small.",
+            "homepage": "https://github.com/ralphjsmit/laravel-seo",
+            "keywords": [
+                "laravel",
+                "laravel-seo",
+                "ralphjsmit"
+            ],
+            "support": {
+                "issues": "https://github.com/ralphjsmit/laravel-seo/issues",
+                "source": "https://github.com/ralphjsmit/laravel-seo/tree/1.6.2"
+            },
+            "time": "2024-06-15T14:21:44+00:00"
+        },
+        {
             "name": "ramsey/collection",
             "version": "2.0.0",
             "source": {
@@ -4107,6 +4406,66 @@
                 }
             ],
             "time": "2024-04-27T21:32:50+00:00"
+        },
+        {
+            "name": "spatie/laravel-package-tools",
+            "version": "1.16.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-package-tools.git",
+                "reference": "ddf678e78d7f8b17e5cdd99c0c3413a4a6592e53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/ddf678e78d7f8b17e5cdd99c0c3413a4a6592e53",
+                "reference": "ddf678e78d7f8b17e5cdd99c0c3413a4a6592e53",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.28|^10.0|^11.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5",
+                "orchestra/testbench": "^7.7|^8.0",
+                "pestphp/pest": "^1.22",
+                "phpunit/phpunit": "^9.5.24",
+                "spatie/pest-plugin-test-time": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\LaravelPackageTools\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Tools for creating Laravel packages",
+            "homepage": "https://github.com/spatie/laravel-package-tools",
+            "keywords": [
+                "laravel-package-tools",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-package-tools/issues",
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.16.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-03-20T07:29:11+00:00"
         },
         {
             "name": "symfony/clock",
@@ -9582,5 +9941,5 @@
         "php": "^8.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
