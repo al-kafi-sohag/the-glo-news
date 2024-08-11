@@ -39,10 +39,13 @@
                                                 <td>
                                                     {{ $n->title }}
                                                     @if($n->is_main)
-                                                        <span class="badge badge-warning">main</span>
+                                                        <span class="badge badge-danger">main</span>
                                                     @endif
                                                     @if($n->is_featured)
                                                         <span class="badge badge-info">featured</span>
+                                                    @endif
+                                                    @if($n->is_trending)
+                                                        <span class="badge badge-warning">trending</span>
                                                     @endif
                                                 </td>
                                                 <td>

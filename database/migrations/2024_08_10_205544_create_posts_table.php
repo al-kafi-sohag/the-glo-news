@@ -27,6 +27,7 @@ return new class extends Migration
             $table->tinyInteger('is_main')->default(0);
             $table->tinyInteger('is_featured')->default(0);
             $table->tinyInteger('is_popular')->default(0);
+            $table->tinyInteger('is_trending')->default(0);
             $table->tinyInteger('status')->default(0);
 
             $table->unsignedBigInteger('author_id');

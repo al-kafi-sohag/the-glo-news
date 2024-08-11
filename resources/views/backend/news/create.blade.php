@@ -98,7 +98,7 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <label for="author">{{ __('Author') }} <span class="text-danger">*</span></label>
                                             <select name="author" id="author" class="form-control select">
                                                 @foreach ($authors as $author)
@@ -107,7 +107,7 @@
                                             </select>
                                             @include('backend.partials.form-error', ['field' => 'author'])
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
                                             <label for="main">{{ __('Main News') }} <span class="text-danger">*</span></label>
                                             <div class="input-group align-items-center">
                                                 <input type="radio" class="btn-check" name="main" id="main-yes" autocomplete="off"  value="1" checked>
@@ -119,8 +119,8 @@
                                             <small>{{ __('The previous news will be removed from main') }}</small>
                                             @include('backend.partials.form-error', ['field' => 'main'])
                                         </div>
-                                        <div class="col-md-3">
-                                            <label for="featured">{{ __('Featured') }} <span class="text-danger">*</span></label>
+                                        <div class="col-md-2">
+                                            <label for="featured">{{ __('Featured News') }} <span class="text-danger">*</span></label>
                                             <div class="input-group align-items-center">
                                                 <input type="radio" class="btn-check" name="featured" id="featured-yes" autocomplete="off" checked value="1">
                                                 <label class="btn btn-outline-success w-50" for="featured-yes">Yes</label>
@@ -130,7 +130,18 @@
                                             </div>
                                             @include('backend.partials.form-error', ['field' => 'featured'])
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
+                                            <label for="trending">{{ __('Trending News') }} <span class="text-danger">*</span></label>
+                                            <div class="input-group align-items-center">
+                                                <input type="radio" class="btn-check" name="trending" id="trending-yes" autocomplete="off"  value="1" checked>
+                                                <label class="btn btn-outline-success w-50" for="trending-yes">Yes</label>
+
+                                                <input type="radio" class="btn-check" name="trending" id="trending-no" autocomplete="off" value="0">
+                                                <label class="btn btn-outline-danger w-50" for="trending-no">No</label>
+                                            </div>
+                                            @include('backend.partials.form-error', ['field' => 'trending'])
+                                        </div>
+                                        <div class="col-md-2">
                                             <label for="status">{{ __('Status') }} <span class="text-danger">*</span></label>
                                             <div class="input-group align-items-center">
                                                 <input type="radio" class="btn-check" name="status" id="status-yes" autocomplete="off" value="1" checked>

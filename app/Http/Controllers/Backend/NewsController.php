@@ -43,8 +43,14 @@ class NewsController extends Controller
         $news->description = $request->description;
         $news->image = '';
         $news->author_id = $request->author;
+
+        if($request->main == '1'){
+            $this->unMainAll();
+        }
+
         $news->is_main = $request->main == '1' ? 1 : 0;
         $news->is_featured = $request->featured == '1' ? 1 : 0;
+        $news->is_trending = $request->trending == '1' ? 1 : 0;
         $news->status = $request->status == '1' ? 1 : 0;
         $news->created_by = auth()->user()->id;
 
@@ -54,7 +60,8 @@ class NewsController extends Controller
 
         foreach($request->category as $cat){
             $subCats = SubCategory::where('c_id', $cat)->activated()->latest()->get()->pluck('id')->toArray();
-            $common = array_intersect($subCats, $request->sub_category);
+
+            $common = array_intersect($subCats, $request->sub_category ?? []);
             if (!empty($common)) {
                 foreach($common as $subcat){
                     $save = new PostCategory();
@@ -94,6 +101,11 @@ class NewsController extends Controller
         sweetalert()->success("News created successfully");
         return redirect()->route('b.news.index');
 
+    }
+
+    private function unMainAll(): void
+    {
+        Post::where('is_main', 1)->update(['is_main' => 0]);
     }
 
 }
