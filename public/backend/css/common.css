@@ -56,3 +56,17 @@ table.dataTable th.dt-type-numeric{
     object-fit: cover;
     margin: 1rem 0rem;
 }
+
+.ck-editor__editable_inline:not(.ck-comment__input *) {
+    height: 20rem;
+    overflow-y: auto;
+}
+
+.select2-container .select2-selection--single, .select2-container .select2-selection--multiple {
+    min-height: 2.5rem !important;
+    border: 1px solid #ced4da !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    top: 70% !important;
+}
