@@ -118,6 +118,20 @@
                                         <td>${data.sub_category.title}</td>
                                     </tr>
                                     <tr>
+                                        <th class="text-nowrap">Featured</th>
+                                        <th>:</th>
+                                        <td><span class="${data.sub_category.featuredBg}">${data.sub_category.featuredTitle}</span></td>
+                                    </tr>
+                                    <tr>
+                                    <th class="text-nowrap">Latest</th>
+                                        <th>:</th>
+                                        <td><span class="${data.sub_category.latestBg}">${data.sub_category.latestTitle}</span></td>
+                                    </tr>
+                                    <th class="text-nowrap">Header</th>
+                                        <th>:</th>
+                                        <td><span class="${data.sub_category.headerBg}">${data.sub_category.headerTitle}</span></td>
+                                    </tr>
+                                    <tr>
                                         <th class="text-nowrap">Logo</th>
                                         <th>:</th>
                                         <td>

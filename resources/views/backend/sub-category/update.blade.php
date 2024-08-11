@@ -45,6 +45,24 @@
                                         @include('backend.partials.form-error', ['field' => 'title'])
                                     </div>
                                     <div class="form-group">
+                                        <label for="featured">{{ __('Featured') }} <span class="text-danger">*</span></label><br>
+                                        <input type="checkbox" name="featured" value="1" {{ $subcategories->is_featured==1 ? 'checked': '' }} data-toggle="toggle" data-on="True" data-off="False" data-on-color="badge-success" data-off-color="badge-danger">
+
+                                        @include('backend.partials.form-error', ['field' => 'featured'])
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="latest">{{ __('Latest') }} <span class="text-danger">*</span></label><br>
+                                        <input type="checkbox" name="latest" value="1" {{ $subcategories->is_latest==1 ? 'checked': '' }} data-toggle="toggle" data-on="True" data-off="False" data-on-color="badge-success" data-off-color="badge-danger">
+
+                                        @include('backend.partials.form-error', ['field' => 'latest'])
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="header">{{ __('Header') }} <span class="text-danger">*</span></label><br>
+                                        <input type="checkbox" name="header" value="1" {{ $subcategories->is_header==1 ? 'checked': '' }} data-toggle="toggle" data-on="True" data-off="False" data-on-color="badge-success" data-off-color="badge-danger">
+
+                                        @include('backend.partials.form-error', ['field' => 'header'])
+                                    </div>
+                                    <div class="form-group">
                                         <label for="image">{{ __('Image') }} <span class="text-muted">({{ __('optional') }})</span></label>
                                         <br>
                                         <div>
@@ -78,3 +96,13 @@
     <script src="{{ asset('backend/js/filepond/filepond.jquery.js') }}"></script>
     <script src="{{ asset('backend/js/filepond.js') }}"></script>
 @endpush
+@push('script')
+<script>
+    $(document).ready(function() {
+        $('input[name="featured"]').bootstrapToggle();
+        $('input[name="latest"]').bootstrapToggle();
+        $('input[name="header"]').bootstrapToggle();
+    });
+</script>
+@endpush
+

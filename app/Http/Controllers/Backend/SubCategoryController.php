@@ -61,8 +61,14 @@ class SubCategoryController
 
     public function update_store(SubCategoryRequset $request, $id):RedirectResponse
     {
+        $featured = $request->featured ?? 0;
+        $latest = $request->latest ?? 0;
+        $header = $request->header ?? 0;
         $save = SubCategory::findOrFail($id);
         $save->title = $request->title;
+        $save->is_featured = $featured;
+        $save->is_header = $header;
+        $save->is_latest = $latest;
         $save->c_id = $request->category;
         $save->updated_by = auth()->user()->id;
         $save->save();
@@ -99,6 +105,12 @@ class SubCategoryController
         $sub_category->created_time=timeFormate($sub_category->created_at);
         $sub_category->updated_time=($sub_category->created_at != $sub_category->updated_at) ? timeFormate($sub_category->updated_at):'null';
         $sub_category->img=storage_url($sub_category->img);
+        $sub_category->featuredBg=$sub_category->featuredBg();
+        $sub_category->featuredTitle=$sub_category->featuredTitle();
+        $sub_category->latestBg=$sub_category->latestBg();
+        $sub_category->latestTitle=$sub_category->latestTitle();
+        $sub_category->headerBg=$sub_category->headerBg();
+        $sub_category->headerTitle=$sub_category->headerTitle();
 
 
         return response()->json(['sub_category'=>$sub_category]);
