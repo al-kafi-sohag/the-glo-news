@@ -39,6 +39,15 @@
                                                 <td>{{ $subcategory->category->title }}</td>
                                                 <td>
                                                     {{ $subcategory->title }}
+                                                    @if($subcategory->is_featured)
+                                                        <span class="badge badge-danger">featured</span>
+                                                    @endif
+                                                    @if($subcategory->is_latest)
+                                                        <span class="badge badge-info">latest</span>
+                                                    @endif
+                                                    @if($subcategory->is_header)
+                                                        <span class="badge badge-warning">header</span>
+                                                    @endif
                                                 </td>
                                                 <td>
                                                     <img src="{{ storage_url($subcategory->img) }}" class="tbl-img"
@@ -118,6 +127,14 @@
                                         <td>${data.sub_category.title}</td>
                                     </tr>
                                     <tr>
+                                        <th class="text-nowrap">Logo</th>
+                                        <th>:</th>
+                                        <td>
+                                            <img src="${data.sub_category.img}" class="tbl-img" alt="${ data.sub_category.title }">
+
+                                     </td>
+                                    </tr>
+                                    <tr>
                                         <th class="text-nowrap">Featured</th>
                                         <th>:</th>
                                         <td><span class="${data.sub_category.featuredBg}">${data.sub_category.featuredTitle}</span></td>
@@ -134,14 +151,6 @@
                                     <th class="text-nowrap">Status</th>
                                         <th>:</th>
                                         <td><span class="${data.sub_category.statusBg}">${data.sub_category.statusTitle}</span></td>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-nowrap">Logo</th>
-                                        <th>:</th>
-                                        <td>
-                                            <img src="${data.sub_category.img}" class="tbl-img" alt="${ data.sub_category.title }">
-
-                                     </td>
                                     </tr>
                                     <tr>
                                         <th class="text-nowrap">Created At</th>

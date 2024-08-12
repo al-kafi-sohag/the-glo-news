@@ -16,7 +16,11 @@ class CategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|max:255|min:3'
+            'title' => 'required|max:255|min:3',
+            'featured' => 'required|boolean',
+            'latest' => 'required|boolean',
+            'header' => 'required|boolean',
+            'status' => 'required|in:0,1',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());

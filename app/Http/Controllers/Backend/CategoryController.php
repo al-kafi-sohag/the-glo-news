@@ -61,12 +61,12 @@ class CategoryController extends Controller
                 $save->save();
             } catch (\Throwable $th) {
                 sweetalert()->error("Something went wrong with the image");
-                return redirect()->route('b.category.index');
+                return redirect()->route('b.category.update',$save->id);
             }
         }
 
         sweetalert()->success("Category $save->title created successfully");
-        return redirect()->route('b.category.update', $save->id);
+        return redirect()->route('b.category.index');
     }
 
     public function update($id): View

@@ -45,66 +45,6 @@
                                         @include('backend.partials.form-error', ['field' => 'title'])
                                     </div>
                                     <div class="form-group">
-                                        <div class="input-group">
-                                            <label for="featured">{{ __('Featured') }} <span
-                                                    class="text-danger">*</span></label>
-                                            <div class="input-group align-items-center">
-                                                <input type="radio" class="btn-check" name="featured" value="1" {{ $subcategories->is_featured == 1 ? 'checked' : '' }}
-                                                    id="featured-yes" autocomplete="off">
-                                                <label class="btn btn-outline-success w-50" for="featured-yes">Yes</label>
-
-                                                <input type="radio" class="btn-check" name="featured" value="0" {{ $subcategories->is_featured == 0 ? 'checked' : '' }}
-                                                    id="featured-no" autocomplete="off">
-                                                <label class="btn btn-outline-danger w-50" for="featured-no">No</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <label for="latest">{{ __('Latest') }} <span
-                                                    class="text-danger">*</span></label>
-                                            <div class="input-group align-items-center">
-                                                <input type="radio" class="btn-check" name="latest" value="1" {{ $subcategories->is_latest == 1 ? 'checked' : '' }}
-                                                    id="latest-yes" autocomplete="off">
-                                                <label class="btn btn-outline-success w-50" for="latest-yes">Yes</label>
-
-                                                <input type="radio" class="btn-check" name="latest" value="0" {{ $subcategories->is_latest == 0 ? 'checked' : '' }}
-                                                    id="latest-no" autocomplete="off">
-                                                <label class="btn btn-outline-danger w-50" for="latest-no">No</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <label for="status">{{ __('Status') }} <span
-                                                    class="text-danger">*</span></label>
-                                            <div class="input-group align-items-center">
-                                                <input type="radio" class="btn-check" name="status" value="1" {{ $subcategories->status == 1 ? 'checked' : '' }}
-                                                    id="status-yes" autocomplete="off">
-                                                <label class="btn btn-outline-success w-50" for="status-yes">Yes</label>
-
-                                                <input type="radio" class="btn-check" name="status" value="0" {{ $subcategories->status == 0 ? 'checked' : '' }}
-                                                    id="status-no" autocomplete="off">
-                                                <label class="btn btn-outline-danger w-50" for="status-no">No</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <label for="header">{{ __('Header') }} <span
-                                                    class="text-danger">*</span></label>
-                                            <div class="input-group align-items-center">
-                                                <input type="radio" class="btn-check" name="header" value="1" {{ $subcategories->is_header == 1 ? 'checked' : '' }}
-                                                    id="header-yes" autocomplete="off">
-                                                <label class="btn btn-outline-success w-50" for="header-yes">Yes</label>
-
-                                                <input type="radio" class="btn-check" name="header" value="0" {{ $subcategories->is_header == 0 ? 'checked' : '' }}
-                                                    id="header-no" autocomplete="off">
-                                                <label class="btn btn-outline-danger w-50" for="header-no">No</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="image">{{ __('Image') }} <span class="text-muted">({{ __('optional') }})</span></label>
                                         <br>
                                         <div>
@@ -114,7 +54,72 @@
 
                                         @include('backend.partials.form-error', ['field' => 'image'])
                                     </div>
+                                    <div class="row">
+                                        <div class="form-group col-6">
+                                            <div class="input-group">
+                                                <label for="featured">{{ __('Featured') }} <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="input-group align-items-center">
+                                                    <input type="radio" class="btn-check" name="featured" value="1" {{ $subcategories->is_featured == 1 ? 'checked' : '' }}
+                                                        id="featured-yes" autocomplete="off">
+                                                    <label class="btn btn-outline-success w-50" for="featured-yes">Yes</label>
 
+                                                    <input type="radio" class="btn-check" name="featured" value="0" {{ $subcategories->is_featured == 0 ? 'checked' : '' }}
+                                                        id="featured-no" autocomplete="off">
+                                                    <label class="btn btn-outline-danger w-50" for="featured-no">No</label>
+                                                </div>
+                                            </div>
+                                            @include('backend.partials.form-error', ['field' => 'featured'])
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <div class="input-group">
+                                                <label for="latest">{{ __('Latest') }} <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="input-group align-items-center">
+                                                    <input type="radio" class="btn-check" name="latest" value="1" {{ $subcategories->is_latest == 1 ? 'checked' : '' }}
+                                                        id="latest-yes" autocomplete="off">
+                                                    <label class="btn btn-outline-success w-50" for="latest-yes">Yes</label>
+
+                                                    <input type="radio" class="btn-check" name="latest" value="0" {{ $subcategories->is_latest == 0 ? 'checked' : '' }}
+                                                        id="latest-no" autocomplete="off">
+                                                    <label class="btn btn-outline-danger w-50" for="latest-no">No</label>
+                                                </div>
+                                            </div>
+                                            @include('backend.partials.form-error', ['field' => 'latest'])
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <div class="input-group">
+                                                <label for="header">{{ __('Header') }} <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="input-group align-items-center">
+                                                    <input type="radio" class="btn-check" name="header" value="1" {{ $subcategories->is_header == 1 ? 'checked' : '' }}
+                                                        id="header-yes" autocomplete="off">
+                                                    <label class="btn btn-outline-success w-50" for="header-yes">Yes</label>
+
+                                                    <input type="radio" class="btn-check" name="header" value="0" {{ $subcategories->is_header == 0 ? 'checked' : '' }}
+                                                        id="header-no" autocomplete="off">
+                                                    <label class="btn btn-outline-danger w-50" for="header-no">No</label>
+                                                </div>
+                                            </div>
+                                            @include('backend.partials.form-error', ['field' => 'header'])
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <div class="input-group">
+                                                <label for="status">{{ __('Status') }} <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="input-group align-items-center">
+                                                    <input type="radio" class="btn-check" name="status" value="1" {{ $subcategories->status == 1 ? 'checked' : '' }}
+                                                        id="status-yes" autocomplete="off">
+                                                    <label class="btn btn-outline-success w-50" for="status-yes">Yes</label>
+
+                                                    <input type="radio" class="btn-check" name="status" value="0" {{ $subcategories->status == 0 ? 'checked' : '' }}
+                                                        id="status-no" autocomplete="off">
+                                                    <label class="btn btn-outline-danger w-50" for="status-no">No</label>
+                                                </div>
+                                            </div>
+                                            @include('backend.partials.form-error', ['field' => 'status'])
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success w-100 submitBtn">
                                             {{ __('Update') }}

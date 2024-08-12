@@ -52,12 +52,12 @@ class SubCategoryController
                 $save->save();
             } catch (\Throwable $th) {
                 sweetalert()->error("Something went wrong with the image");
-                return redirect()->route('b.sub_category.index');
+                return redirect()->route('b.sub_category.update');
             }
         }
 
         sweetalert()->success("Sub category $save->title created successfully");
-        return redirect()->route('b.sub_category.update', $save->id);
+        return redirect()->route('b.sub_category.index');
     }
     public function update($id): View
     {

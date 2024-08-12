@@ -22,9 +22,9 @@ class Category extends BaseModel
     }
     public function featuredTitle(){
         if($this->is_featured == 1){
-            return 'True';
+            return 'Yes';
         }else{
-            return 'False';
+            return 'No';
         }
     }
     public function latestBg(){
@@ -36,9 +36,9 @@ class Category extends BaseModel
     }
     public function latestTitle(){
         if($this->is_latest == 1){
-            return 'True';
+            return 'Yes';
         }else{
-            return 'False';
+            return 'No';
         }
     }
     public function headerBg(){
@@ -50,9 +50,9 @@ class Category extends BaseModel
     }
     public function headerTitle(){
         if($this->is_header == 1){
-            return 'True';
+            return 'Yes';
         }else{
-            return 'False';
+            return 'No';
         }
     }
     public function statusBg(){
