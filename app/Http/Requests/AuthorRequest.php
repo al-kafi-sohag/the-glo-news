@@ -9,7 +9,7 @@ class AuthorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            
+            'type' => 'required|numeric',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());
@@ -19,6 +19,7 @@ class AuthorRequest extends FormRequest
     {
         return [
             'name' => 'required|unique:authors,name',
+
         ];
     }
 

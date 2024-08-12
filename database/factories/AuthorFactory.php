@@ -11,6 +11,7 @@ class AuthorFactory extends Factory
         return [
             'name' => $this->faker->name,
             'status' => $this->faker->boolean,
+            'type' =>1,
         ];
     }
 }
