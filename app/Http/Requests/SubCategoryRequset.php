@@ -18,6 +18,10 @@ class SubCategoryRequset extends FormRequest
         return [
             'title' => 'required|max:255|min:3',
             'category' => 'required|exists:categories,id',
+            'featured' => 'required|boolean',
+            'latest' => 'required|boolean',
+            'header' => 'required|boolean',
+            'status' => 'required|in:0,1',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());
