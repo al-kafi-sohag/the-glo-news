@@ -31,21 +31,21 @@
                                             <label for="type">{{ __('Reporter Type') }} <span
                                                 class="text-danger">*</span></label>
                                                 <select name="type" class="form-control" id="type">
-                                                    <option value="1" {{ $author->type == 1 ? 'selected' : '' }} >Staff Reporter</option>
-                                                    <option value="2" {{ $author->type == 2 ? 'selected' : '' }} >Senior Reporter</option>
-                                                    <option value="3" {{ $author->type == 3 ? 'selected' : '' }} >Junior Staff Reporter</option>
-                                                    <option value="4" {{ $author->type == 4 ? 'selected' : '' }}>Correspondent</option>
-                                                    <option value="5" {{ $author->type == 5 ? 'selected' : '' }}>Investigative Reporter</option>
-                                                    <option value="6" {{ $author->type == 6 ? 'selected' : '' }}>Political Reporter</option>
-                                                    <option value="7" {{ $author->type == 7 ? 'selected' : '' }}>Crime Reporter</option>
-                                                    <option value="8" {{ $author->type == 8 ? 'selected' : '' }}>Entertainment Reporter</option>
-                                                    <option value="9" {{ $author->type == 9 ? 'selected' : '' }}>Sports Reporter</option>
-                                                    <option value="10" {{ $author->type == 10 ? 'selected' : '' }}>Technology Reporter</option>
-                                                    <option value="11" {{ $author->type == 11 ? 'selected' : '' }}>Health Reporter</option>
-                                                    <option value="12" {{ $author->type == 12 ? 'selected' : '' }}>Business Reporter</option>
-                                                    <option value="13" {{ $author->type == 13 ? 'selected' : '' }}>Feature Writer/Reporter</option>
-                                                    <option value="14" {{ $author->type == 14 ? 'selected' : '' }}>Photojournalist</option>
-                                                    <option value="15" {{ $author->type == 15 ? 'selected' : '' }}>Video Journalist (VJ)</option>
+                                                    <option value="1" {{ $author->type == 1 ? 'selected' : '' }} >{{ __('Staff Reporter') }}</option>
+                                                    <option value="2" {{ $author->type == 2 ? 'selected' : '' }} >{{ __('Senior Reporter') }}</option>
+                                                    <option value="3" {{ $author->type == 3 ? 'selected' : '' }} >{{ __('Junior Staff Reporter') }}</option>
+                                                    <option value="4" {{ $author->type == 4 ? 'selected' : '' }}>{{ __('Correspondent') }}</option>
+                                                    <option value="5" {{ $author->type == 5 ? 'selected' : '' }}>{{ __('Investigative Reporter') }}</option>
+                                                    <option value="6" {{ $author->type == 6 ? 'selected' : '' }}>{{ __('Political Reporter') }}</option>
+                                                    <option value="7" {{ $author->type == 7 ? 'selected' : '' }}>{{ __('Crime Reporter') }}</option>
+                                                    <option value="8" {{ $author->type == 8 ? 'selected' : '' }}>{{ __('Entertainment Reporter') }}</option>
+                                                    <option value="9" {{ $author->type == 9 ? 'selected' : '' }}>{{ __('Sports Reporter') }}</option>
+                                                    <option value="10" {{ $author->type == 10 ? 'selected' : '' }}>{{ __('Technology Reporter') }}</option>
+                                                    <option value="11" {{ $author->type == 11 ? 'selected' : '' }}>{{ __('Health Reporter') }}</option>
+                                                    <option value="12" {{ $author->type == 12 ? 'selected' : '' }}>{{ __('Business Reporter') }}</option>
+                                                    <option value="13" {{ $author->type == 13 ? 'selected' : '' }}>{{ __('Feature Writer/Reporter') }}</option>
+                                                    <option value="14" {{ $author->type == 14 ? 'selected' : '' }}>{{ __('Photojournalist') }}</option>
+                                                    <option value="15" {{ $author->type == 15 ? 'selected' : '' }}>{{ __('Video Journalist (VJ)') }}</option>
                                                 </select>
                                             @include('backend.partials.form-error', [
                                                 'field' => 'reporter_type',
@@ -57,11 +57,11 @@
                                             <div class="input-group align-items-center">
                                                 <input type="radio" class="btn-check" name="status" value="1"
                                                     id="status-yes" autocomplete="off"  {{ $author->status == 1 ? 'checked' : '' }} >
-                                                <label class="btn btn-outline-success w-50 m-0" for="status-yes">Active</label>
+                                                <label class="btn btn-outline-success w-50 m-0" for="status-yes">{{ __('Active') }}</label>
 
                                                 <input type="radio" class="btn-check" name="status" value="0"
                                                     id="status-no" autocomplete="off" {{ $author->status == 0 ? 'checked' : '' }}>
-                                                <label class="btn btn-outline-danger w-50 m-0" for="status-no">Deactive</label>
+                                                <label class="btn btn-outline-danger w-50 m-0" for="status-no">{{ __('Deactive') }}</label>
                                             </div>
                                             @include('backend.partials.form-error', ['field' => 'status'])
                                         </div>
