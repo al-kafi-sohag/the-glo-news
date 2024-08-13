@@ -31,12 +31,12 @@ class Post extends BaseModel
 
     public function categories(): HasMany
     {
-        return $this->hasMany(PostCategory::class, 'id', 'post_id');
+        return $this->hasMany(PostCategory::class, 'post_id', 'id');
     }
 
     public function subCategories(): HasMany
     {
-        return $this->hasMany(PostCategory::class, 'id', 'post_id');
+        return $this->hasMany(PostCategory::class, 'post_id', 'id');
     }
 
     public function author(): BelongsTo

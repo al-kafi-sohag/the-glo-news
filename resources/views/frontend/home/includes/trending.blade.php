@@ -4,7 +4,7 @@
         <ul id="trending_news" class="newsticker">
             @foreach ($trending_news as $tn)
             <li>
-                <a title="{{ $tn->title }}" href="">{{  strLimit($tn->title, 150)  }}</a>
+                <a title="{{ $tn->title }}" href="{{ route('f.news', $tn->slug) }}">{{  strLimit($tn->title, 150)  }}</a>
             </li>
             @endforeach
         </ul>
