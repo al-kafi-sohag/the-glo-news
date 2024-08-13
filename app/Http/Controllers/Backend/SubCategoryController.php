@@ -29,17 +29,14 @@ class SubCategoryController extends Controller
     }
     public function store(SubCategoryRequset $request): RedirectResponse
     {
-        $featured = $request->featured ?? 0;
-        $latest = $request->latest ?? 0;
-        $header = $request->header ?? 0;
-        $status = $request->status ?? 0;
+
         $save = new SubCategory;
         $save->title = $request->title;
         $save->c_id = $request->category;
-        $save->is_featured = $featured;
-        $save->is_header = $header;
-        $save->is_latest = $latest;
-        $save->status = $status;
+        $save->is_featured = $request->featured ?? 0;
+        $save->is_header = $request->header ?? 0;
+        $save->is_latest = $request->latest ?? 0;
+        $save->status = $request->status ?? 0;
         $save->created_by = auth()->user()->id;
         $save->save();
 
@@ -73,17 +70,14 @@ class SubCategoryController extends Controller
 
     public function update_store(SubCategoryRequset $request, $id):RedirectResponse
     {
-        $featured = $request->featured ?? 0;
-        $latest = $request->latest ?? 0;
-        $header = $request->header ?? 0;
-        $status = $request->status ?? 0;
+
         $save = SubCategory::findOrFail($id);
         $save->title = $request->title;
-        $save->is_featured = $featured;
-        $save->is_header = $header;
-        $save->is_latest = $latest;
-        $save->status = $status;
         $save->c_id = $request->category;
+        $save->is_featured = $request->featured ?? 0;
+        $save->is_header = $request->header ?? 0;
+        $save->is_latest = $request->latest ?? 0;
+        $save->status = $request->status ?? 0;
         $save->updated_by = auth()->user()->id;
         $save->save();
 

@@ -1,4 +1,4 @@
-@extends('backend.layouts.app', ['pageSlug' => 'sub - category'])
+@extends('backend.layouts.app', ['pageSlug' => 'sub-category'])
 
 @section('title', 'Sub - category')
 
@@ -25,6 +25,7 @@
                                             <th>{{ __('Category Title') }}</th>
                                             <th>{{ __('Sub - Category Title') }}</th>
                                             <th>{{ __('Logo') }}</th>
+                                            <th>{{ __('Status') }}</th>
                                             <th>{{ __('Created at') }}</th>
                                             <th>{{ __('Created by') }}</th>
                                             <th class="text-center">{{ __('Action') }}</th>
@@ -53,11 +54,12 @@
                                                     <img src="{{ storage_url($subcategory->img) }}" class="tbl-img"
                                                         alt="{{ $subcategory->title }}">
                                                 </td>
+                                                <td><span class="{{$subcategory->statusBg()}}">{{$subcategory->statusTitle()}}</span></td>
                                                 <td>
                                                     {{ timeFormate($subcategory->created_at) }}
                                                 </td>
                                                 <td>
-                                                    {{ $subcategory->created_user->name ?? 'system' }}
+                                                    {{ $subcategory->created_user ? $subcategory->created_user->name : 'system' }}
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="btn-group" role="group" aria-label="Basic example">
@@ -160,7 +162,7 @@
                                     <tr>
                                         <th class="text-nowrap">Created By</th>
                                         <th>:</th>
-                                        <td>${data.sub_category.created_user.name ?? 'system'}</td>
+                                        <td>${data.sub_category.created_user ? data.sub_category.created_user.name : 'system'}</td>
                                     </tr>
                                     <tr>
                                         <th class="text-nowrap">Updated At</th>
