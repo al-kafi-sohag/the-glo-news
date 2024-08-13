@@ -29,7 +29,7 @@
 
                                     <div class="form-group">
                                         <label for="title">{{ __('Title') }} <span class="text-danger">*</span></label>
-                                        <input type="name" class="form-control" id="title"
+                                        <input type="text" class="form-control" id="title"
                                             placeholder="Enter category name" name="title">
 
                                         @include('backend.partials.form-error', ['field' => 'title'])
