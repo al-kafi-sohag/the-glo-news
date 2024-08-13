@@ -23,6 +23,7 @@
                                         <tr>
                                             <th>{{ __('Sl') }}</th>
                                             <th>{{ __('Name') }}</th>
+                                            <th>{{ __('Type') }}</th>
                                             <th>{{ __('Status') }}</th>
                                             <th>{{ __('Created at') }}</th>
                                             <th>{{ __('Created by') }}</th>
@@ -34,12 +35,13 @@
                                             <tr>
                                                 <td>{{$loop->iteration}}</td>
                                                 <td>{{$author->name}}</td>
+                                                <td>{{$author->type()}}</td>
                                                 <td><span class="{{$author->statusBg()}}">{{$author->statusTitle()}}</span></td>
                                                 <td>
                                                     {{ timeFormate($author->created_at) }}
                                                 </td>
                                                 <td>
-                                                    {{ $author->created_user->name ?? 'system' }}
+                                                    {{ $author->created_user ? $author->created_user->name : 'system' }}
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="btn-group" role="group" aria-label="Basic example">
@@ -103,6 +105,11 @@
                                     <th>:</th>
                                     <td>${data.author.name}</td>
                                 </tr>
+                                 <tr>
+                                    <th class="text-nowrap">Type</th>
+                                    <th>:</th>
+                                    <td>${data.author.reporterType}</td>
+                                </tr>
                                 <tr>
                                     <th class="text-nowrap">Status</th>
                                     <th>:</th>
@@ -116,7 +123,7 @@
                                 <tr>
                                     <th class="text-nowrap">Created By</th>
                                     <th>:</th>
-                                    <td>${data.author.created_user.name ?? 'system'}</td>
+                                    <td>${data.author.created_user? data.author.created_user.name : 'system'}</td>
                                 </tr>
                                 <tr>
                                     <th class="text-nowrap">Updated At</th>

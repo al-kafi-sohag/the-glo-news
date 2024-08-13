@@ -37,11 +37,21 @@
                                                 </td>
                                                 <td>
                                                     {{ $category->title }}
+                                                    @if($category->is_featured)
+                                                        <span class="badge badge-danger">featured</span>
+                                                    @endif
+                                                    @if($category->is_latest)
+                                                        <span class="badge badge-info">latest</span>
+                                                    @endif
+                                                    @if($category->is_header)
+                                                        <span class="badge badge-warning">header</span>
+                                                    @endif
                                                 </td>
                                                 <td>
                                                     <img src="{{ storage_url($category->img) }}" class="tbl-img"
                                                         alt="{{ $category->title }}">
                                                 </td>
+                                                <td><span class="{{$category->statusBg()}}">{{$category->statusTitle()}}</span></td>
                                                 <td>
                                                     {{ timeFormate($category->created_at) }}
                                                 </td>
@@ -117,6 +127,24 @@
                                             <img src="${data.category.img}" class="tbl-img" alt="${ data.category.title }">
 
                                      </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-nowrap">Featured</th>
+                                        <th>:</th>
+                                        <td><span class="${data.category.featuredBg}">${data.category.featuredTitle}</span></td>
+                                    </tr>
+                                    <tr>
+                                    <th class="text-nowrap">Latest</th>
+                                        <th>:</th>
+                                        <td><span class="${data.category.latestBg}">${data.category.latestTitle}</span></td>
+                                    </tr>
+                                    <th class="text-nowrap">Header</th>
+                                        <th>:</th>
+                                        <td><span class="${data.category.headerBg}">${data.category.headerTitle}</span></td>
+                                    </tr>
+                                    <th class="text-nowrap">Status</th>
+                                        <th>:</th>
+                                        <td><span class="${data.category.statusBg}">${data.category.statusTitle}</span></td>
                                     </tr>
                                     <tr>
                                         <th class="text-nowrap">Created At</th>
