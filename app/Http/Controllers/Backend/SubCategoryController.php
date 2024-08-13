@@ -49,7 +49,7 @@ class SubCategoryController extends Controller
 
                 $from_path = $temp_file->path . '/' . $temp_file->filename;
                 $to_path = 'images/sub-category/' . $save->id . '/' . $temp_file->filename;
-                Storage::move($from_path, 'public/'.$to_path);
+                Storage::move($from_path, $to_path);
                 Storage::deleteDirectory($temp_file->path);
 
                 $save->img = $to_path;
@@ -94,7 +94,7 @@ class SubCategoryController extends Controller
                 $from_path = $temp_file->path . '/' . $temp_file->filename;
                 $to_path = 'images/sub-category/' . $save->id . '/' . $temp_file->filename;
 
-                Storage::move($from_path, 'public/'.$to_path);
+                Storage::move($from_path, $to_path);
                 Storage::deleteDirectory($temp_file->path);
 
                 $save->img = $to_path;
