@@ -17,7 +17,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-10 m-auto">
-                                <form action="{{route('b.author.update',$author->id)}}" method="POST" enctype="multipart/form-data">
+                                <form action="{{route('b.author.update',$author->id)}}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-group">
