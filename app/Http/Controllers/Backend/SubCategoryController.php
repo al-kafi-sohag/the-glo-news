@@ -44,7 +44,7 @@ class SubCategoryController
 
                 $from_path = $temp_file->path . '/' . $temp_file->filename;
                 $to_path = 'images/sub-category/' . $save->id . '/' . $temp_file->filename;
-
+                Storage::setVisibility($to_path, 'public');
                 Storage::move($from_path, 'public/'.$to_path);
                 Storage::deleteDirectory($temp_file->path);
 
