@@ -35,17 +35,12 @@ class CategoryController extends Controller
     {
 
 
-
-        $featured = $request->featured ?? 0;
-        $latest = $request->latest ?? 0;
-        $header = $request->header ?? 0;
-        $status = $request->status ?? 0;
         $save = new Category;
         $save->title = $request->title;
-        $save->is_featured = $featured;
-        $save->is_header = $header;
-        $save->is_latest = $latest;
-        $save->status = $status;
+        $save->is_featured = $request->featured ?? 0;
+        $save->is_header = $request->header ?? 0;
+        $save->is_latest = $request->latest ?? 0;
+        $save->status = $request->status ?? 0;
         $save->created_by = auth()->user()->id;
         $save->save();
 
@@ -80,16 +75,12 @@ class CategoryController extends Controller
     public function update_store(CategoryRequest $request, $id):RedirectResponse
     {
 
-        $featured = $request->featured ?? 0;
-        $latest = $request->latest ?? 0;
-        $header = $request->header ?? 0;
-        $status = $request->status ?? 0;
         $save = Category::findOrFail($id);
         $save->title = $request->title;
-        $save->is_featured = $featured;
-        $save->is_latest = $latest;
-        $save->is_header = $header;
-        $save->status = $status;
+        $save->is_featured = $request->featured ?? 0;
+        $save->is_header = $request->header ?? 0;
+        $save->is_latest = $request->latest ?? 0;
+        $save->status = $request->status ?? 0;
         $save->updated_by = auth()->user()->id;
         $save->save();
 

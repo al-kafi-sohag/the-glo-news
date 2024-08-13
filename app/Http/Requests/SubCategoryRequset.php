@@ -16,7 +16,7 @@ class SubCategoryRequset extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|max:255|min:3',
+            'title' => 'required|max:255|min:3|unique:sub_categories,title',
             'category' => 'required|exists:categories,id',
             'featured' => 'required|boolean',
             'latest' => 'required|boolean',

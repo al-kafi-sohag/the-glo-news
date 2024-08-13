@@ -57,7 +57,7 @@
                                                     {{ timeFormate($category->created_at) }}
                                                 </td>
                                                 <td>
-                                                    {{ $category->created_user->name ?? 'system' }}
+                                                    {{ $category->created_user ? $category->created_user->name : 'system' }}
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="btn-group" role="group" aria-label="Basic example">
@@ -155,7 +155,7 @@
                                     <tr>
                                         <th class="text-nowrap">Created By</th>
                                         <th>:</th>
-                                        <td>${data.category.created_user.name ?? 'system'}</td>
+                                        <td>${data.category.created_user ? data.category.created_user.name : 'system'}</td>
                                     </tr>
                                     <tr>
                                         <th class="text-nowrap">Updated At</th>
