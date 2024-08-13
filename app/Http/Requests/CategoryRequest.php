@@ -16,11 +16,10 @@ class CategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|max:255|min:3',
             'featured' => 'required|boolean',
             'latest' => 'required|boolean',
             'header' => 'required|boolean',
-            'status' => 'required|in:0,1',
+            'status' => 'required|boolean',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());
@@ -29,14 +28,14 @@ class CategoryRequest extends FormRequest
     protected function store(): array
     {
         return [
-
+            'title' => 'required|max:255|min:3|unique:categories,title',
         ];
     }
 
     protected function update(): array
     {
         return [
-
+            'title' => 'required|max:255|min:3|unique:categories,title,' . $this->route('id'),
         ];
     }
 }

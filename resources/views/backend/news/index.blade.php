@@ -83,4 +83,7 @@
 @include('backend.partials.datatable', ['columns_to_show' => [0, 1, 2, 3, 4, 5]])
 
 @push('script')
+<script>
+    const details = {'url':`{{ route('b.news.delete', ['id'=>'_id']) }}`}
+</script>
 @endpush
