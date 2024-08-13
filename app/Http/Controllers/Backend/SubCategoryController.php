@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\SubCategoryRequset;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -10,8 +11,12 @@ use App\Models\Category;
 use App\Models\TmpFile;
 use Illuminate\Support\Facades\Storage;
 
-class SubCategoryController
+class SubCategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index():View
     {
         $data['subcategories'] = SubCategory::with(['category', 'created_user'])->latest()->get();
@@ -41,8 +46,7 @@ class SubCategoryController
 
                 $from_path = $temp_file->path . '/' . $temp_file->filename;
                 $to_path = 'images/sub-category/' . $save->id . '/' . $temp_file->filename;
-
-                Storage::move($from_path, 'public/'.$to_path);
+                Storage::move($from_path, $to_path);
                 Storage::deleteDirectory($temp_file->path);
 
                 $save->img = $to_path;
@@ -84,7 +88,7 @@ class SubCategoryController
                 $from_path = $temp_file->path . '/' . $temp_file->filename;
                 $to_path = 'images/sub-category/' . $save->id . '/' . $temp_file->filename;
 
-                Storage::move($from_path, 'public/'.$to_path);
+                Storage::move($from_path, $to_path);
                 Storage::deleteDirectory($temp_file->path);
 
                 $save->img = $to_path;
