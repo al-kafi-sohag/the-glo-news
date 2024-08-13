@@ -7009,8 +7009,11 @@ ul.post_filter li a.selected
 
 .one_half img, .one_third img, .one_fourth img, .one_fifth img, .two_third img
 {
-    max-width: 100% !important;
-    height: auto;
+    height: 6rem;
+    width: 100%;
+    object-fit: contain;
+    /* max-width: 100% !important; */
+    /* height: auto; */
 }
 
 .animated
@@ -9189,4 +9192,12 @@ textarea.input {
 
 .breadcrumb {
     display: none;
+}
+
+.w-40{
+    width: 40% !important;
+}
+
+.w-60{
+    width: 60% !important;
 }

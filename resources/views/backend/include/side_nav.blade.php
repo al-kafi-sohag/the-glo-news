@@ -48,6 +48,13 @@
                         <p>{{ __('Author') }}</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('b.news.index') }}"
+                        class="nav-link {{ $pageSlug == 'news' ? 'active' : '' }}">
+                        <i class="fa-solid fa-newspaper"></i>
+                        <p>{{ __('News') }}</p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

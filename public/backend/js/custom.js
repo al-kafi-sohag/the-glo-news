@@ -20,4 +20,10 @@ $(document).ready(function(){
         let url=details['url'].replace('_id',$(this).data('id'))
         confirmDelete(url);
     });
+
+    $.ajaxSetup({
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+    });
 });

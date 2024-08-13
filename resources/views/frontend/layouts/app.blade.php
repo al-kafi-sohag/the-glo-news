@@ -9,7 +9,7 @@
     <title>
         @yield('title', config('app.name')) | {{ config('app.name') }}
     </title>
-
+    {!! seo() !!}
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 

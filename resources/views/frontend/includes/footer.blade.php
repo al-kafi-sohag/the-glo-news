@@ -55,7 +55,7 @@
                 <li class="menu-item"><a href="shop_fullwidth.html">Cart</a></li>
                 <li class="menu-item"><a href="contact.html">Contact</a></li>
                 <li class="menu-item">
-                    <a target="_blank" rel="noopener noreferrer" href="https://themeforest.net/user/max-themes/portfolio">Purchase Template</a>
+                    <a target="_blank" href="{{ route('login') }}">Login</a>
                 </li>
             </ul>
         </div>

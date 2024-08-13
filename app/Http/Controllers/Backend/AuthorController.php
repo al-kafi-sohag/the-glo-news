@@ -26,8 +26,11 @@ class AuthorController extends Controller
     }
     public function store(AuthorRequest $request): RedirectResponse
     {
+        $status = $request->status ?? 0;
         $save = new Author();
         $save->name = $request->name;
+        $save->type = $request->type;
+        $save->status = $status;
         $save->created_by = auth()->user()->id;
         $save->save();
         sweetalert()->success("Author $save->name created successfully");
@@ -42,8 +45,11 @@ class AuthorController extends Controller
 
     public function update_store(AuthorRequest $request, $id):RedirectResponse
     {
+        $status = $request->status ?? 0;
         $save = Author::findOrFail($id);
         $save->name = $request->name;
+        $save->type = $request->type;
+        $save->status = $status;
         $save->updated_by = auth()->user()->id;
         $save->save();
         sweetalert()->success("Author $save->name updated successfully");
@@ -73,6 +79,7 @@ class AuthorController extends Controller
         $author->updated_time=($author->created_at != $author->updated_at) ? timeFormate($author->updated_at):'null';
         $author->statusBg=$author->statusBg();
         $author->statusTitle=$author->statusTitle();
+        $author->reporterType=$author->type();
 
         return response()->json(['author'=>$author]);
     }
