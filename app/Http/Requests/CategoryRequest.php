@@ -20,7 +20,7 @@ class CategoryRequest extends FormRequest
             'featured' => 'required|boolean',
             'latest' => 'required|boolean',
             'header' => 'required|boolean',
-            'status' => 'required|in:0,1',
+            'status' => 'required|boolean',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());

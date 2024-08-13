@@ -24,6 +24,7 @@
                                             <th>{{ __('Sl') }}</th>
                                             <th>{{ __('Title') }}</th>
                                             <th>{{ __('Logo') }}</th>
+                                            <th>{{ __('Status') }}</th>
                                             <th>{{ __('Created at') }}</th>
                                             <th>{{ __('Created by') }}</th>
                                             <th class="text-center">{{ __('Action') }}</th>

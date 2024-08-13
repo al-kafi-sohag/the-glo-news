@@ -22,18 +22,14 @@ return new class extends Migration
 
 
     public function down()
-    {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->tinyInteger('is_featured')->default(0)->change();
-            $table->dropColumn('is_latest');
-            $table->dropColumn('is_header');
-        });
+{
+    Schema::table('categories', function (Blueprint $table) {
+        $table->dropColumn(['is_latest', 'is_header']);
+    });
 
-        Schema::table('sub_categories', function (Blueprint $table) {
-            $table->tinyInteger('is_featured')->default(0)->change();
-            $table->dropColumn('is_latest');
-            $table->dropColumn('is_header');
-        });
-    }
+    Schema::table('sub_categories', function (Blueprint $table) {
+        $table->dropColumn(['is_latest', 'is_header']);
+    });
+}
 
 };

@@ -34,6 +34,8 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request): RedirectResponse
     {
 
+
+
         $featured = $request->featured ?? 0;
         $latest = $request->latest ?? 0;
         $header = $request->header ?? 0;
@@ -77,6 +79,7 @@ class CategoryController extends Controller
 
     public function update_store(CategoryRequest $request, $id):RedirectResponse
     {
+
         $featured = $request->featured ?? 0;
         $latest = $request->latest ?? 0;
         $header = $request->header ?? 0;
