@@ -16,7 +16,6 @@ class SubCategoryRequset extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|max:255|min:3',
             'category' => 'required|exists:categories,id',
             'featured' => 'required|boolean',
             'latest' => 'required|boolean',
@@ -30,14 +29,14 @@ class SubCategoryRequset extends FormRequest
     protected function store(): array
     {
         return [
-
+            'title' => 'required|max:255|min:3|unique:sub_categories,title',
         ];
     }
 
     protected function update(): array
     {
         return [
-
+            'title' => 'required|max:255|min:3|unique:sub_categories,title,' . $this->route('id'),
         ];
     }
 }
