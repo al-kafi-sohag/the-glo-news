@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FileControlController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Frontend\HomePageController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -80,5 +81,11 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'b.'], fu
     // });
 
 
+
+    Route::get('/storage-link', function () {
+        Artisan::call('storage:link', [
+            '--daemon' => true,
+        ]);
+    });
 
 });
