@@ -48,7 +48,7 @@
                                                     <option value="15" {{ $author->type == 15 ? 'selected' : '' }}>{{ __('Video Journalist (VJ)') }}</option>
                                                 </select>
                                             @include('backend.partials.form-error', [
-                                                'field' => 'reporter_type',
+                                                'field' => 'type',
                                             ])
                                         </div>
                                         <div class="form-group col-6">
