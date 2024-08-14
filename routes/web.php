@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FileControlController;
+use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Frontend\SingleNewsPageController;
@@ -91,6 +92,19 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'b.'], fu
 
     Route::get('/cache-clear', function () {
         Artisan::call('optimize:clear');
+    });
+
+
+
+    Route::controller(AdminController::class)->prefix('admin')->name('admin.')->group(function () {
+        Route::get('index', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::post('create', 'store')->name('create');
+        Route::get('update/{id}', 'update')->name('update');
+        Route::get('status/{id}', 'status')->name('status.update');
+        Route::put('update/{id}', 'update_store')->name('update');
+        Route::get('delete/{id}', 'delete')->name('delete');
+        Route::get('details/{id}', 'details')->name('details');
     });
 
 });

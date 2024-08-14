@@ -28,6 +28,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('b.admin.index') }}"
+                        class="nav-link {{ $pageSlug == 'admin' ? 'active' : '' }}">
+                        <i class="fas fa-user"></i>
+                        <p>{{ __('Admin') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('b.category.index') }}"
                         class="nav-link {{ $pageSlug == 'category' ? 'active' : '' }}">
                         <i class="fa-solid fa-list"></i>
