@@ -179,6 +179,18 @@ class NewsController extends Controller
         return redirect()->route('b.news.index');
 
     }
+
+    public function status($id){
+        $news = Post::findOrFail($id);
+        if($news->status ==1){
+            $news->status = 0;
+        }else{
+            $news->status = 1;
+        }
+        $news->save();
+        sweetalert()->success("News $news->name status updated successfully");
+        return redirect()->route('b.news.index');
+    }
     public function delete($id){
         $news = Post::findOrFail($id);
         $news->delete();
