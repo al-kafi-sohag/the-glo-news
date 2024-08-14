@@ -25,7 +25,7 @@
                                             <th>{{ __('Title') }}</th>
                                             <th>{{ __('Author') }}</th>
                                             <th>{{ __('Status') }}</th>
-                                            <th>{{ __('Created at') }}</th>
+                                            <th>{{ __('Post date') }}</th>
                                             <th>{{ __('Created by') }}</th>
                                             <th class="text-center">{{ __('Action') }}</th>
                                         </tr>
@@ -55,7 +55,7 @@
                                                     <span class="badge bg-{{ $n->statusBg() }}">{{ $n->statusTitle() }}</span>
                                                 </td>
                                                 <td>
-                                                    {{ timeFormate($n->created_at) }}
+                                                    {{ timeFormate($n->post_date) }}
                                                 </td>
                                                 <td>
                                                     {{ $n->created_user->name ?? 'system' }}
