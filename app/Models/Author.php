@@ -49,6 +49,8 @@ class Author extends  BaseModel
             return 'Photojournalist';
         case 15:
             return 'Video Journalist (VJ)';
+        default:
+            return 'Unknown Reporter Type';
     }
 }
 

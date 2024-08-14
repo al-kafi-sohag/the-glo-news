@@ -17,7 +17,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-10 m-auto">
-                                <form action="{{route('b.author.update',$author->id)}}" method="POST" enctype="multipart/form-data">
+                                <form action="{{route('b.author.update',$author->id)}}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-group">
@@ -48,7 +48,7 @@
                                                     <option value="15" {{ $author->type == 15 ? 'selected' : '' }}>{{ __('Video Journalist (VJ)') }}</option>
                                                 </select>
                                             @include('backend.partials.form-error', [
-                                                'field' => 'reporter_type',
+                                                'field' => 'type',
                                             ])
                                         </div>
                                         <div class="form-group col-6">

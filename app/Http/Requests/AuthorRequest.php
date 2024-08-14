@@ -9,7 +9,7 @@ class AuthorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'type' => 'required|numeric',
+            'type' => 'required|integer',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());
