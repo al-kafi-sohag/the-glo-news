@@ -225,54 +225,5 @@
 
         </div>
     </div>
-    <div class="sidebar_wrapper">
-        <div class="sidebar">
-            <div class="content">
-                <ul class="sidebar_widget">
-                    <li id="grand_news_category-5" class="widget Grand_News_Category">
-                        <h2 class="widgettitle"><span>Categories</span></h2>
-                        <div class="category_description">Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis</div>
-                        <ul class="category">
-                            <li>
-                                <a href="singleblog.html" class="category_title">Business</a>
-                                <div class="category_count">9</div>
-                            </li>
-                            <li>
-                                <a href="singleblog.html" class="category_title">Computing</a>
-                                <div class="category_count">5</div>
-                            </li>
-                            <li>
-                                <a href="singleblog.html.html" class="category_title">Energy</a>
-                                <div class="category_count">7</div>
-                            </li>
-                            <li>
-                                <a href="singleblog.html" class="category_title">Gadgets</a>
-                                <div class="category_count">2</div>
-                            </li>
-                            <li>
-                                <a href="singleblog.html" class="category_title">Mobile</a>
-                                <div class="category_count">5</div>
-                            </li>
-                            <li>
-                                <a href="singleblog.html" class="category_title">Robotic</a>
-                                <div class="category_count">6</div>
-                            </li>
-                            <li>
-                                <a href="singleblog.html.html" class="category_title">Start Up</a>
-                                <div class="category_count">6</div>
-                            </li>
-                            <li>
-                                <a href="singleblog.html" class="category_title">Top News</a>
-                                <div class="category_count">4</div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li id="grand_news_custom_ads-5" class="widget Grand_News_Custom_Ads">
-                        <div class="ads_label">- Advertisement -</div>
-                        <img src="{{ asset('frontend/img/300x250ads.png') }}" alt="" />
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    @include('frontend.home.includes.featured_categories')
 </div>

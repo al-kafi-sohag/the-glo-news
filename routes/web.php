@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FileControlController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Frontend\HomePageController;
+use App\Http\Controllers\Frontend\SingleNewsPageController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +20,7 @@ Auth::routes();
 
 Route::group(['as' => 'f.'], function () {
     Route::get('/', [HomePageController::class, 'index'])->name('home');
+    Route::get('/{slug}', [SingleNewsPageController::class, 'index'])->name('news');
 
 });
 

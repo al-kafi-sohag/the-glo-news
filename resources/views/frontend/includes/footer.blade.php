@@ -55,7 +55,11 @@
                 <li class="menu-item"><a href="shop_fullwidth.html">Cart</a></li>
                 <li class="menu-item"><a href="contact.html">Contact</a></li>
                 <li class="menu-item">
+                    @if (auth()->user())
+                    <a target="_blank" href="{{ route('b.dashboard') }}">Dashboard</a>
+                    @else
                     <a target="_blank" href="{{ route('login') }}">Login</a>
+                    @endif
                 </li>
             </ul>
         </div>

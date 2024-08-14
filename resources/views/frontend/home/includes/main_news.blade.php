@@ -18,11 +18,11 @@
                 {{ optional($main_news->author)->name }}
             </span>
             <span class="post_info_date">
-                <a href="singleblog.html">{{ newsTimeFormate($main_news->created_at) }}</a>
+                <a href="{{ route('f.news', $main_news->slug) }}">{{ newsTimeFormate($main_news->created_at) }}</a>
             </span>
         </div>
         <h2>
-            <a href="" title="{{ $main_news->title }}">
+            <a href="{{ route('f.news', $main_news->slug) }}" title="{{ $main_news->title }}">
                 {{ strLimit($main_news->title) }}
             </a>
         </h2>

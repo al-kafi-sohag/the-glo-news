@@ -102,7 +102,7 @@
                                             <label for="author">{{ __('Author') }} <span class="text-danger">*</span></label>
                                             <select name="author" id="author" class="form-control select">
                                                 @foreach ($authors as $author)
-                                                    <option value="{{ $author->id }}" {{ $author->id==old('author') ? 'selected': '' }}> {{ $author->name }} </option>
+                                                    <option value="{{ $author->id }}" {{ $author->id==old('author') ? 'selected': '' }}> {{ $author->name .' ('. $author->type() .')' }} </option>
                                                 @endforeach
                                             </select>
                                             @include('backend.partials.form-error', ['field' => 'author'])

@@ -18,6 +18,16 @@ class Category extends BaseModel
         return $this->hasMany(SubCategory::class, 'c_id');
     }
 
+    public function header_subCategories(): HasMany
+    {
+        return $this->hasMany(SubCategory::class, 'c_id')->where('is_header', 1);
+    }
+
+    public function posts(): HasMany
+    {
+        return $this->hasMany(PostCategory::class, 'category_id');
+    }
+
 
     public function activeSubCategories(): HasMany
     {

@@ -2190,7 +2190,7 @@ body.single-galleries #page_content_wrapper .inner .inner_wrapper
 .post.type-post
 {
     margin-bottom: 35px;
-    float: left;
+    /* float: left; */
     position: relative;
 }
 
@@ -2865,7 +2865,7 @@ body.search-results .post_type_icon
 .gravatar img
 {
     max-width: 100% !important;
-    height: auto;
+    height: auto !important;
 }
 
 #about_the_author .header span
@@ -9200,4 +9200,8 @@ textarea.input {
 
 .w-60{
     width: 60% !important;
+}
+
+.ml-1{
+    margin-left: .25rem !important;
 }
