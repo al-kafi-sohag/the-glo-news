@@ -104,6 +104,18 @@ class CategoryController extends Controller
         sweetalert()->success("Category $save->title updated successfully");
         return redirect()->route('b.category.index');
     }
+
+    public function status($id){
+        $category = Category::findOrFail($id);
+        if($category->status ==1){
+            $category->status = 0;
+        }else{
+            $category->status = 1;
+        }
+        $category->save();
+        sweetalert()->success("Category $category->name status updated successfully");
+        return redirect()->route('b.category.index');
+    }
     public function delete($id){
         $category = Category::findOrFail($id);
         $category->delete();
