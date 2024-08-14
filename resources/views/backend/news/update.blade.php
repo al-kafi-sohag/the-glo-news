@@ -91,14 +91,6 @@
                                                         'field' => 'sub_category.*',
                                                     ])
                                                 </div>
-                                                {{-- <div class="col-md-4">
-                                                    <label for="post_date">{{ __('Post Date') }} <span
-                                                        class="text-danger">*</span></label>
-                                                            <input type="date" id="post_date" name="post_date" class="form-control" value="{{ old('post_date') ?? $news->post_date }}">
-                                                    @include('backend.partials.form-error', [
-                                                        'field' => 'sub_category',
-                                                    ])
-                                                </div> --}}
                                                 <div class="col-md-4">
                                                     <label for="post_date">{{ __('Post Date') }} <span class="text-danger">*</span></label>
                                                     <input type="date" id="post_date" name="post_date" class="form-control" value="{{ $news->post_date }}">

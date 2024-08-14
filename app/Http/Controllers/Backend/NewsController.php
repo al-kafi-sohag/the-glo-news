@@ -116,6 +116,7 @@ class NewsController extends Controller
     {
         $news = Post::with(['categories','subCategories'])->findOrFail($id);
         $news->title = $request->title;
+        $news->post_date = $request->post_date;
         $news->description = $request->description;
         $news->image = '';
         $news->author_id = $request->author;
