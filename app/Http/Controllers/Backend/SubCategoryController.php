@@ -101,6 +101,21 @@ class SubCategoryController extends Controller
         sweetalert()->success("Sub category $save->title updated successfully");
         return redirect()->route('b.sub_category.index');
     }
+
+
+    public function status($id){
+        $sub_category = SubCategory::findOrFail($id);
+        if($sub_category->status ==1){
+            $sub_category->status = 0;
+        }else{
+            $sub_category->status = 1;
+        }
+        $sub_category->save();
+        sweetalert()->success("Sub category $sub_category->title updated successfully");
+        return redirect()->route('b.sub_category.index');
+    }
+
+
     public function delete($id){
         $sub_category = SubCategory::findOrFail($id);
         $sub_category->delete();
