@@ -64,6 +64,7 @@
                                                         <a href="javascript:void(0)" data-id="{{ $category->id }}" class="btn btn-secondary view" title="View details"><i class="fa-solid fa-eye"></i></a>
                                                         <a href="{{ route('b.category.update', $category->id) }}" title="Update item" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
                                                         <a href="javascript:void(0)" class="btn btn-danger delete" data-id="{{ $category->id }}" title="Delete item"><i class="fa-solid fa-trash-can"></i></a>
+                                                        <a href="{{route('b.category.status.update',$category->id)}}" class="btn {{$category->statusIcon()}}"><i class="fa-solid fa-power-off"></i></a>
                                                       </div>
                                                 </td>
                                             </tr>

@@ -31,6 +31,7 @@ class NewsRequest extends FormRequest
             'featured' => 'required|boolean',
             'status' => 'required|boolean',
             'trending' => 'required|boolean',
+            'post_date' => 'required',
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());

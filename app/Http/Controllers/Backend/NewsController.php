@@ -40,6 +40,7 @@ class NewsController extends Controller
     {
         $news = new Post();
         $news->title = $request->title;
+        $news->post_date = $request->post_date;
         $news->description = $request->description;
         $news->image = '';
         $news->author_id = $request->author;
@@ -115,6 +116,7 @@ class NewsController extends Controller
     {
         $news = Post::with(['categories','subCategories'])->findOrFail($id);
         $news->title = $request->title;
+        $news->post_date = $request->post_date;
         $news->description = $request->description;
         $news->image = '';
         $news->author_id = $request->author;
@@ -176,6 +178,18 @@ class NewsController extends Controller
         sweetalert()->success("News updated successfully");
         return redirect()->route('b.news.index');
 
+    }
+
+    public function status($id){
+        $news = Post::findOrFail($id);
+        if($news->status ==1){
+            $news->status = 0;
+        }else{
+            $news->status = 1;
+        }
+        $news->save();
+        sweetalert()->success("News $news->name status updated successfully");
+        return redirect()->route('b.news.index');
     }
     public function delete($id){
         $news = Post::findOrFail($id);

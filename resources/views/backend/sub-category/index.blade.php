@@ -40,13 +40,13 @@
                                                 <td>{{ $subcategory->category->title }}</td>
                                                 <td>
                                                     {{ $subcategory->title }}
-                                                    @if($subcategory->is_featured)
+                                                    @if ($subcategory->is_featured)
                                                         <span class="badge badge-danger">featured</span>
                                                     @endif
-                                                    @if($subcategory->is_latest)
+                                                    @if ($subcategory->is_latest)
                                                         <span class="badge badge-info">latest</span>
                                                     @endif
-                                                    @if($subcategory->is_header)
+                                                    @if ($subcategory->is_header)
                                                         <span class="badge badge-warning">header</span>
                                                     @endif
                                                 </td>
@@ -54,7 +54,9 @@
                                                     <img src="{{ storage_url($subcategory->img) }}" class="tbl-img"
                                                         alt="{{ $subcategory->title }}">
                                                 </td>
-                                                <td><span class="{{$subcategory->statusBg()}}">{{$subcategory->statusTitle()}}</span></td>
+                                                <td><span
+                                                        class="{{ $subcategory->statusBg() }}">{{ $subcategory->statusTitle() }}</span>
+                                                </td>
                                                 <td>
                                                     {{ timeFormate($subcategory->created_at) }}
                                                 </td>
@@ -64,11 +66,17 @@
                                                 <td class="text-center">
                                                     <div class="btn-group" role="group" aria-label="Basic example">
                                                         <a href="javascript:void(0)" class="btn btn-secondary view"
-                                                        data-id="{{ $subcategory->id }}" title="View details"><i class="fa-solid fa-eye"></i></a>
+                                                            data-id="{{ $subcategory->id }}" title="View details"><i
+                                                                class="fa-solid fa-eye"></i></a>
                                                         <a href="{{ route('b.sub_category.update', $subcategory->id) }}"
-                                                            title="Update item" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                            title="Update item" class="btn btn-info"><i
+                                                                class="fa-solid fa-pen-to-square"></i></a>
                                                         <a href="javascript:void(0)" data-id= "{{ $subcategory->id }}"
-                                                            title="Delete item" class="btn btn-danger delete"><i class="fa-solid fa-trash-can"></i></a>
+                                                            title="Delete item" class="btn btn-danger delete"><i
+                                                                class="fa-solid fa-trash-can"></i></a>
+                                                        <a href="{{ route('b.sub_category.status.update', $subcategory->id) }}"
+                                                            class="btn {{ $subcategory->statusIcon() }}"><i
+                                                                class="fa-solid fa-power-off"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -82,31 +90,32 @@
             </div>
         </div>
     </div>
-     {{-- Sub-Category Details Modal  --}}
-     <div class="modal view_modal fade" id="subCategoryModal" tabindex="-1" role="dialog" aria-labelledby="subCategoryModalLabel"
-     aria-hidden="true">
-     <div class="modal-dialog modal-lg" role="document">
-         <div class="modal-content">
-             <div class="modal-header">
-                 <h5 class="modal-title" id="subCategoryModalLabel">{{ __('Sub Category Details') }}</h5>
-                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                 </button>
-             </div>
-             <div class="modal-body modal_data">
-             </div>
-         </div>
-     </div>
- </div>
+    {{-- Sub-Category Details Modal  --}}
+    <div class="modal view_modal fade" id="subCategoryModal" tabindex="-1" role="dialog"
+        aria-labelledby="subCategoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="subCategoryModalLabel">{{ __('Sub Category Details') }}</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body modal_data">
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @include('backend.partials.datatable', ['columns_to_show' => [0, 1, 2, 3, 4]])
 
 @push('script')
-
-<script>
-    const details = {'url':`{{ route('b.sub_category.delete', ['id'=>'_id']) }}`}
-</script>
+    <script>
+        const details = {
+            'url': `{{ route('b.sub_category.delete', ['id' => '_id']) }}`
+        }
+    </script>
 
 
     <script>
