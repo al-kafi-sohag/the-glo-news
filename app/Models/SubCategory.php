@@ -74,4 +74,11 @@ class SubCategory extends BaseModel
             return 'Deactive';
         }
     }
+    public function statusIcon(){
+        if($this->status == 1){
+            return 'btn-warning';
+        }else{
+            return 'btn-success';
+        }
+    }
 }

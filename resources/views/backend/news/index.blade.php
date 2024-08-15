@@ -25,7 +25,7 @@
                                             <th>{{ __('Title') }}</th>
                                             <th>{{ __('Author') }}</th>
                                             <th>{{ __('Status') }}</th>
-                                            <th>{{ __('Created at') }}</th>
+                                            <th>{{ __('Post date') }}</th>
                                             <th>{{ __('Created by') }}</th>
                                             <th class="text-center">{{ __('Action') }}</th>
                                         </tr>
@@ -55,7 +55,7 @@
                                                     <span class="badge bg-{{ $n->statusBg() }}">{{ $n->statusTitle() }}</span>
                                                 </td>
                                                 <td>
-                                                    {{ timeFormate($n->created_at) }}
+                                                    {{ timeFormate($n->post_date) }}
                                                 </td>
                                                 <td>
                                                     {{ $n->created_user->name ?? 'system' }}
@@ -65,6 +65,7 @@
                                                         <a href="javascript:void(0)" data-id="{{ $n->id }}" class="btn btn-secondary view" title="View details"><i class="fa-solid fa-eye"></i></a>
                                                         <a href="{{ route('b.news.update', $n->id) }}" title="Update item" title="Edit information" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
                                                         <a href="javascript:void(0)" class="btn btn-danger delete" data-id="{{ $n->id }}" title="Delete data"><i class="fa-solid fa-trash-can"></i></a>
+                                                        <a href="{{route('b.news.status.update',$n->id)}}" class="btn {{$n->statusIcon()}}"><i class="fa-solid fa-power-off"></i></a>
                                                       </div>
                                                 </td>
                                             </tr>
