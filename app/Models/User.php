@@ -44,4 +44,37 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function created_user()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function updated_user()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
+    }
+
+    public function statusBg(){
+        if($this->status == 1){
+            return 'badge badge-success';
+        }else{
+            return 'badge badge-danger';
+        }
+    }
+    public function statusTitle(){
+        if($this->status == 1){
+            return 'Active';
+        }else{
+            return 'Deactive';
+        }
+    }
+    public function statusIcon(){
+        if($this->status == 1){
+            return 'btn-warning';
+        }else{
+            return 'btn-success';
+        }
+    }
 }
