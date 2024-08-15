@@ -20,21 +20,23 @@
 
     @stack('link_css')
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="{{ asset('backend/vendor/css/bootstrap/bootstrap.min.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="{{ asset('backend/admin/dist/css/adminlte.min.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('backend/vendor/css/icon/ionicons.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('backend/admin/dist/css/adminlte.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('backend/vendor/css/font_awesome/all.min.css') }}" >
+    <link rel="stylesheet" href="{{ asset('backend/vendor/css/font_awesome/brands.min.css') }}" >
+    <link rel="stylesheet" href="{{ asset('backend/vendor/css/font_awesome/fontawesome.min.css') }}" >
+    <link rel="stylesheet" href="{{ asset('backend/vendor/css/font_awesome/solid.min.css') }}" > --}}
 
     <link rel="stylesheet" href="{{ asset('backend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/admin/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/css/common.css') }}">
-
 
     @stack('link_css')
     @stack('css')
@@ -56,9 +58,7 @@
 
     </div>
     <script src="{{ asset('backend/admin/plugins/jquery/jquery.min.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+    <script src="{{ asset('backend/vendor/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('backend/admin/dist/js/adminlte.js') }}"></script>
     <script src="{{ asset('backend/js/loading.js') }}"></script>
 
