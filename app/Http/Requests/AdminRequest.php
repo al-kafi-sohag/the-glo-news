@@ -10,7 +10,6 @@ class AdminRequest extends FormRequest
     {
         return [
             'name' => 'required|max:20|string|min:3',
-            'email' => 'required|email|unique:users,email,' . $this->route('id'),
             'status' => 'required|boolean',
         ]
         +
@@ -19,6 +18,7 @@ class AdminRequest extends FormRequest
     protected function store(): array
     {
         return [
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8|confirmed',
             'password_confirmation' => 'required|string|min:8',
         ];
@@ -26,6 +26,7 @@ class AdminRequest extends FormRequest
     protected function update(): array
     {
         return [
+            'email' => 'required|email|unique:users,email,' . $this->route('id'),
             'password' => 'nullable|string|min:8|confirmed',
             'password_confirmation' => 'nullable|string|min:8',
         ];

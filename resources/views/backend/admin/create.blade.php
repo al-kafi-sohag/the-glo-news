@@ -1,6 +1,6 @@
 @extends('backend.layouts.app', ['pageSlug' => 'admin-management'])
 
-@section('title', 'Admin')
+@section('title', 'Admin - management')
 @section('content')
     <div class="container-fluid mt-2">
         <div class="row justify-content-center">
