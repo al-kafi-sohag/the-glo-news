@@ -27,7 +27,7 @@
             <li id="" class="">
                 <ul class="">
                     <li>
-                        <a href="">Home</a>
+                        <a href="{{ route('f.home') }}">Home</a>
                     </li>
                     <li>
                         <a href="">About Us</a>
@@ -36,7 +36,7 @@
                         <a href="">Advertisement</a>
                     </li>
                     <li>
-                        <a href="">Contact Us</a>
+                        <a href="{{ route('f.contact') }}">Contact Us</a>
                     </li>
                 </ul>
             </li>
