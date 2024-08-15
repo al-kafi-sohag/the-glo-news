@@ -6,11 +6,12 @@ use Illuminate\Support\Facades\Schema;
 use App\Http\Traits\AuditColumnsTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
+
 return new class extends Migration
 {
 
     use AuditColumnsTrait,SoftDeletes;
-
 
     public function up()
     {
@@ -24,10 +25,13 @@ return new class extends Migration
         });
     }
 
+
+
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('status');
         });
     }
+
 };
