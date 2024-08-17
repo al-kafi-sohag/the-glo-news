@@ -10,7 +10,7 @@
         <div class="page_title_wrapper">
             <div class="page_title_inner">
                 <div class="post_info_cat">
-                    <div class="breadcrumb"><a href="index.html">Home</a> » Contact</div>
+                    <div class="breadcrumb"><a href="{{ route('f.home') }}">Home</a></div>
                 </div>
                 <h1><span>Contact</span></h1>
             </div>
@@ -153,8 +153,8 @@
 
 
 
-    <br class="clear" />
-    <div id="footer_mailchimp_subscription" class="one withsmallpadding ppb_mailchimp_subscription withbg">
+    {{-- <br class="clear" /> --}}
+    {{-- <div id="footer_mailchimp_subscription" class="one withsmallpadding ppb_mailchimp_subscription withbg">
         <div class="standard_wrapper">
             <h2 class="ppb_title">Stay Updated</h2>
             <form id="mc4wp-form-2" class="mc4wp-form mc4wp-form-618" method="post" data-id="618"
@@ -182,7 +182,7 @@
                 <div class="mc4wp-response"></div>
             </form>
         </div>
-    </div>
+    </div> --}}
 @endsection
 
 @push('link_script')
