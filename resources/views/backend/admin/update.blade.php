@@ -1,6 +1,6 @@
-@extends('backend.layouts.app', ['pageSlug' => 'admin'])
+@extends('backend.layouts.app', ['pageSlug' => 'admin-management'])
 
-@section('title', 'Admin')
+@section('title', 'Admin - management')
 @section('content')
     <div class="container-fluid mt-2">
         <div class="row justify-content-center">
@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-header">
                         <span class="float-left card-title">
-                            <h4>{{ __('Create new author') }}</h4>
+                            <h4>{{ __('Update admin') }}</h4>
                         </span>
                         <span class="float-right">
                             <a href="{{ route('b.admin.index') }}" class="btn btn-info">{{ __('Back') }}</a>
@@ -23,7 +23,7 @@
                                     <div class="form-group">
                                         <label for="name">{{ __('Name') }} <span class="text-danger">*</span></label>
                                         <input type="name" class="form-control" id="name"
-                                            placeholder="Enter Author Name" name="name" value="{{ old('name') ?? $admin->name }}">
+                                            placeholder="Enter Admin Name" name="name" value="{{ old('name') ?? $admin->name }}">
 
                                         @include('backend.partials.form-error', ['field' => 'name'])
                                     </div>

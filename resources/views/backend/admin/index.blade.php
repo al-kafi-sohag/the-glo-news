@@ -1,6 +1,6 @@
-@extends('backend.layouts.app', ['pageSlug' => 'admin'])
+@extends('backend.layouts.app', ['pageSlug' => 'admin-management'])
 
-@section('title', 'Admin')
+@section('title', 'Admin - management')
 
 @section('content')
     <div class="container-fluid mt-2">
@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-header">
                         <span class="float-left">
-                            <h4>{{ __('Author List') }}</h4>
+                            <h4>{{ __('Admin List') }}</h4>
                         </span>
                         <span class="float-right">
                             <a href="{{ route('b.admin.create') }}" class="btn btn-info">{{ __('Create') }}</a>
@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-     {{-- Author Details Modal  --}}
+     {{-- Admin Details Modal  --}}
      <div class="modal view_modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="adminModalLabel"
      aria-hidden="true">
      <div class="modal-dialog modal-lg" role="document">
