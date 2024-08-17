@@ -148,7 +148,7 @@ jQuery.fn.setNav = function(){
 		    	jQuery('#mobile_main_menu.mobile_main_nav').css('display', 'none');
 		    	jQuery('.mobile_menu_wrapper div #sub_menu').remove();
 
-		        var subMenuHTML = '<li><a href="#" id="menu_back" class="'+menuLevel+'" data-parent="'+parentMenu+'">'+jQuery('#pp_back').val()+'</a></li>';
+		        var subMenuHTML = '<li><a href="#" id="menu_back" class="'+menuLevel+'" data-parent="'+parentMenu+'">'+'Back'+'</a></li>';
 		        subMenuHTML += jQuerysublist.html();
 
 		    	menuContainerClass.append('<ul id="sub_menu" class="nav '+menuLevel+'"></ul>');

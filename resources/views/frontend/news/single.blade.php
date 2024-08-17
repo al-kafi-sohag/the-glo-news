@@ -3,7 +3,6 @@
 @section('title', $news->title)
 
 @push('css')
-<link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.css">
 @endpush
 
 @section('content')
@@ -43,7 +42,7 @@
                                 <img src="{{ storage_url($news->image) }}" alt="{{ $news->title }}" class="" style="width: 40rem;height: 25rem !important;object-fit:contain" />
                             </div>
 
-                            <div class="description">
+                            <div class="description ck ck-content">
                                 {!! $news->description !!}
                             </div>
 
