@@ -30,7 +30,7 @@ class WelcomeEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'markdown.view.name',
+            view: 'emails.welcome',
         );
     }
 

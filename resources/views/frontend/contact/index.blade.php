@@ -76,16 +76,15 @@
                             <ul></ul>
                         </div>
 
-                        <form method="post"
-                            action="{{ route('f.submit') }}">
+                        <form method="post" action="{{ route('f.submit') }}">
+                        @csrf
+                            <input type="text" name="name" id="Name" placeholder="Name:" class="input" />
 
-                            <input type="text" name="Name" id="Name" placeholder="Name:" class="input" />
+                            <input type="text" name="city" id="City" placeholder="City:" class="input" />
 
-                            <input type="text" name="City" id="City" placeholder="City:" class="input" />
+                            <input type="text" name="email" id="Email" placeholder="Email:" class="input" />
 
-                            <input type="text" name="Email" id="Email" placeholder="Email:" class="input" />
-
-                            <textarea name="Message" rows="20" cols="20" id="Message" placeholder="Message:" class="input"></textarea>
+                            <textarea name="message" rows="20" cols="20" id="Message" placeholder="Message:" class="input"></textarea>
 
                             <input type="submit" name="submit" value="Submit" class="submit-button" />
                         </form>
