@@ -50,7 +50,7 @@
         <div class="message">
             {{-- <p>Dear {{ $mailData['name'] }},</p> --}}
             <p>Dear Admin,</p>
-            <p>Thank you for providing your details Your Company Name.</p>
+            <p>We have received a contact request. The details are given below:</p>
             <table class="table table-striped">
                 <tr>
                     <th class="text-nowrap">Name</th>
@@ -74,7 +74,7 @@
                 </tr>
             </table>
             <p>Please contact as soon as possible.</p>
-            <p>Best regrets,</p>
+            <p>Best regards,</p>
             <p>{{ config('app.name') }}</p>
             <p>This is a software generated email.</p>
         </div>
