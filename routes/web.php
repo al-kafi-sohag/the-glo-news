@@ -24,6 +24,7 @@ Route::group(['as' => 'f.'], function () {
     Route::get('/', [HomePageController::class, 'index'])->name('home');
     Route::get('/news/{slug}', [SingleNewsPageController::class, 'index'])->name('news');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+    Route::post('/submit', [ContactController::class, 'contact_submit'])->name('submit');
 
 });
 

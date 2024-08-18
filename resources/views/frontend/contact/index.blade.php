@@ -77,7 +77,7 @@
                         </div>
 
                         <form method="post"
-                            action="https://max-themes.net/demos/gnews/demo2/contactform/contactengine.php">
+                            action="{{ route('f.submit') }}">
 
                             <input type="text" name="Name" id="Name" placeholder="Name:" class="input" />
 
