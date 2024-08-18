@@ -10,7 +10,8 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Frontend\SingleNewsPageController;
-use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\ContactUsController;
+use App\Http\Controllers\frontend\MultipleNewsController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +24,11 @@ Auth::routes();
 Route::group(['as' => 'f.'], function () {
     Route::get('/', [HomePageController::class, 'index'])->name('home');
     Route::get('/news/{slug}', [SingleNewsPageController::class, 'index'])->name('news');
-    Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+    Route::get('/contact', [ContactUsController::class, 'index'])->name('contact');
+
+    Route::controller(MultipleNewsController::class)->prefix('multi-news')->name('multi_news.')->group(function () {
+        Route::get('/category/{category_id}/{subcategory_id?}', 'index')->name('index');
+    });
 
 });
 
