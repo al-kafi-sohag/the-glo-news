@@ -24,7 +24,12 @@ Auth::routes();
 Route::group(['as' => 'f.'], function () {
     Route::get('/', [HomePageController::class, 'index'])->name('home');
     Route::get('/news/{slug}', [SingleNewsPageController::class, 'index'])->name('news');
-    Route::get('/contact', [ContactUsController::class, 'index'])->name('contact');
+
+
+    Route::controller(ContactUsController::class)->prefix('contact-us')->name('contact.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/submit', 'contact_submit')->name('submit');
+    });
 
     Route::controller(MultipleNewsController::class)->prefix('multi-news')->name('multi_news.')->group(function () {
         Route::get('/category/{category_id}/{subcategory_id?}', 'index')->name('index');
