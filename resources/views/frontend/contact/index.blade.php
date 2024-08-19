@@ -76,16 +76,15 @@
                             <ul></ul>
                         </div>
 
-                        <form method="post"
-                            action="https://max-themes.net/demos/gnews/demo2/contactform/contactengine.php">
+                        <form method="post" action="{{ route('f.contact.submit') }}">
+                        @csrf
+                            <input type="text" name="name" id="Name" placeholder="Name:" class="input" />
 
-                            <input type="text" name="Name" id="Name" placeholder="Name:" class="input" />
+                            <input type="text" name="city" id="City" placeholder="City:" class="input" />
 
-                            <input type="text" name="City" id="City" placeholder="City:" class="input" />
+                            <input type="text" name="email" id="Email" placeholder="Email:" class="input" />
 
-                            <input type="text" name="Email" id="Email" placeholder="Email:" class="input" />
-
-                            <textarea name="Message" rows="20" cols="20" id="Message" placeholder="Message:" class="input"></textarea>
+                            <textarea name="message" rows="20" cols="20" id="Message" placeholder="Message:" class="input"></textarea>
 
                             <input type="submit" name="submit" value="Submit" class="submit-button" />
                         </form>
@@ -149,40 +148,6 @@
     </div>
     <br class="clear" />
     <br />
-
-
-
-
-    <br class="clear" />
-    <div id="footer_mailchimp_subscription" class="one withsmallpadding ppb_mailchimp_subscription withbg">
-        <div class="standard_wrapper">
-            <h2 class="ppb_title">Stay Updated</h2>
-            <form id="mc4wp-form-2" class="mc4wp-form mc4wp-form-618" method="post" data-id="618"
-                data-name="Subscribe">
-                <div class="mc4wp-form-fields">
-                    <div class="subscribe_tagline">
-                        Get the recent popular stories straight into your inbox
-                    </div>
-
-                    <div class="subscribe_form">
-                        <p>
-                            <input type="email" name="EMAIL" placeholder="Email" required="" />
-                        </p>
-
-                        <p>
-                            <input type="submit" value="Sign up" />
-                        </p>
-                    </div>
-                </div>
-                <label style="display: none !important;">Leave this field empty if you're human: <input type="text"
-                        name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" /></label>
-                <input type="hidden" name="_mc4wp_timestamp" value="1654935580" /><input type="hidden"
-                    name="_mc4wp_form_id" value="618" /><input type="hidden" name="_mc4wp_form_element_id"
-                    value="mc4wp-form-2" />
-                <div class="mc4wp-response"></div>
-            </form>
-        </div>
-    </div>
 @endsection
 
 @push('link_script')

@@ -10,9 +10,9 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Frontend\SingleNewsPageController;
-use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\ContactUsController;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route; 
 use Illuminate\Support\Facades\Auth;
 
 
@@ -23,7 +23,12 @@ Auth::routes();
 Route::group(['as' => 'f.'], function () {
     Route::get('/', [HomePageController::class, 'index'])->name('home');
     Route::get('/news/{slug}', [SingleNewsPageController::class, 'index'])->name('news');
-    Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+    
+
+    Route::controller(ContactUsController::class)->prefix('contact-us')->name('contact.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/submit', 'contact_submit')->name('submit');
+    });
 
 });
 
