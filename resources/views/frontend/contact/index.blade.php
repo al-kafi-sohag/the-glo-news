@@ -10,7 +10,7 @@
         <div class="page_title_wrapper">
             <div class="page_title_inner">
                 <div class="post_info_cat">
-                    <div class="breadcrumb"><a href="index.html">Home</a> » Contact</div>
+                    <div class="breadcrumb"><a href="{{ route('f.home') }}">Home</a></div>
                 </div>
                 <h1><span>Contact</span></h1>
             </div>
