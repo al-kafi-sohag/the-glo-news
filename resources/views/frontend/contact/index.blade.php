@@ -77,16 +77,27 @@
                         </div>
 
                         <form method="post" action="{{ route('f.contact.submit') }}">
-                        @csrf
-                            <input type="text" name="name" id="Name" placeholder="Name:" class="input" />
-
-                            <input type="text" name="city" id="City" placeholder="City:" class="input" />
-
-                            <input type="text" name="email" id="Email" placeholder="Email:" class="input" />
-
-                            <textarea name="message" rows="20" cols="20" id="Message" placeholder="Message:" class="input"></textarea>
-
-                            <input type="submit" name="submit" value="Submit" class="submit-button" />
+                            @csrf
+                            <div class="form-group">
+                                <input type="text" name="name" id="Name" placeholder="Name:" class="input"
+                                    value="{{ old('name') }}" />
+                                @include('backend.partials.form-error', ['field' => 'name'])
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="city" id="City" placeholder="City:" class="input" value="{{ old('city') }}" />
+                                @include('backend.partials.form-error', ['field' => 'city'])
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="Email" placeholder="Email:" class="input" value="{{ old('email') }}" />
+                                @include('backend.partials.form-error', ['field' => 'email'])
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" rows="20" cols="20" id="Message" placeholder="Message:" class="input" value="{{ old('message') }}" ></textarea>
+                                @include('backend.partials.form-error', ['field' => 'message'])
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" value="Submit" class="submit-button" />
+                            </div>
                         </form>
                     </div>
 
