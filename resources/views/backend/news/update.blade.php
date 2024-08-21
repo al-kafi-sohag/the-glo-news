@@ -146,6 +146,20 @@
                                             @include('backend.partials.form-error', ['field' => 'tags'])
                                             @include('backend.partials.form-error', ['field' => 'tags.*'])
                                         </div>
+                                        <div class="col-md-6">
+                                            <label for="reference">{{ __('Reference') }} <span
+                                                    class="text-danger">*</span></label>
+                                            <select name="references[]" id="reference" class="form-control select-tag" multiple>
+                                                @foreach (json_decode($news->references) as $reference)
+                                                    <option value="{{ $reference }}" selected>
+                                                        {{ $reference }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            <small>{{ __('Tag is used for searching purposes') }}</small>
+                                            @include('backend.partials.form-error', ['field' => 'references'])
+                                            @include('backend.partials.form-error', ['field' => 'references.*'])
+                                        </div>
                                     </div>
 
                                     <div class="form-group row">

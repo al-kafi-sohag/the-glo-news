@@ -57,6 +57,7 @@ class NewsController extends Controller
 
         $news->keywords = json_encode($request->keywords);
         $news->tags = json_encode($request->tags);
+        $news->references = json_encode($request->references);
         $news->save();
 
         foreach($request->category as $cat){
@@ -133,6 +134,7 @@ class NewsController extends Controller
 
         $news->keywords = json_encode($request->keywords);
         $news->tags = json_encode($request->tags);
+        $news->references = json_encode($request->references);
         $news->save();
 
         foreach($request->category as $cat){
