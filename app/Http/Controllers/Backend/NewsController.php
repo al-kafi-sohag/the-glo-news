@@ -57,6 +57,7 @@ class NewsController extends Controller
 
         $news->keywords = json_encode($request->keywords);
         $news->tags = json_encode($request->tags);
+        $news->references = json_encode($request->references);
         $news->save();
 
         foreach($request->category as $cat){
@@ -133,6 +134,7 @@ class NewsController extends Controller
 
         $news->keywords = json_encode($request->keywords);
         $news->tags = json_encode($request->tags);
+        $news->references = json_encode($request->references);
         $news->save();
 
         foreach($request->category as $cat){
@@ -158,18 +160,19 @@ class NewsController extends Controller
         }
 
 
+
         if(isset($request->image) && !empty($request->image)){
             try {
                 $temp_file = TmpFile::findOrFail($request->image);
 
                 $from_path = $temp_file->path . '/' . $temp_file->filename;
-                $to_path = 'images/news/' . $save->id . '/' . $temp_file->filename;
+                $to_path = 'images/news/' . $news->id . '/' . $temp_file->filename;
 
                 Storage::move($from_path, $to_path);
                 Storage::deleteDirectory($temp_file->path);
 
-                $save->img = $to_path;
-                $save->save();
+                $news->image = $to_path;
+                $news->save();
             } catch (\Throwable $th) {
                 sweetalert()->error("Something went wrong with the image");
                 return redirect()->back();

@@ -36,8 +36,9 @@
                                                     <label for="image">{{ __('Thumbnail Image') }} <span
                                                             class="text-danger">*</span></label><br>
                                                     <div>
-                                                        <img src="{{ storage_url($news->img) }}" alt="{{ $news->title }}"
+                                                        <img src="{{ storage_url($news->image) }}" alt="{{ $news->title }}"
                                                             class="display-image">
+
                                                     </div>
                                                     <input type="file" name="image" id="image" class="image-upload"
                                                         data-file="{{ $news->img ? storage_url($news->img) : null }}">
@@ -145,6 +146,21 @@
                                             <small>{{ __('Tag is used for searching purposes') }}</small>
                                             @include('backend.partials.form-error', ['field' => 'tags'])
                                             @include('backend.partials.form-error', ['field' => 'tags.*'])
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="reference">{{ __('Reference') }} <span
+                                                    class="text-danger">*</span></label>
+                                            <select name="references[]" id="reference" class="form-control select-tag" multiple>
+
+                                                @foreach (json_decode($news->references) as $reference)
+                                                    <option value="{{ $reference }}" selected>
+                                                        {{ $reference }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            <small>{{ __('Tag is used for searching purposes') }}</small>
+                                            @include('backend.partials.form-error', ['field' => 'references'])
+                                            @include('backend.partials.form-error', ['field' => 'references.*'])
                                         </div>
                                     </div>
 
