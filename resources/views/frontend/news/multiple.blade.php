@@ -1,22 +1,14 @@
 @extends('frontend.layouts.app')
 
-
 @section('title',)
 
-
-@push('css')
-@endpush
-
 @section('content')
-
-
-
 
 <div id="page_caption" class="  ">
     <div class="page_title_wrapper">
         <div class="page_title_inner">
             <div class="post_info_cat">
-                <div class="breadcrumb"><a href="{{route('f.home')}}">Home</a> » Multiple News</div>
+                <div class="breadcrumb"><a href="{{route('f.home')}}">Home</a> » {{ $category->Name }}</div>
             </div>
             <h1><span>Multiple News</span></h1>
         </div>
@@ -50,7 +42,7 @@
                                             <span class="post_info_author">
                                                 <a href="#">{{$n->post->author->name}}</a>
                                             </span>
-                                            <span class="post_info_date">{{date('M d, Y', strtotime($n->post->post_date))}}</span>
+                                            <span class="post_info_date">{{ newsTimeFormate($n->post->post_date ) }}</span>
                                         </div>
                                     </div>
                                 </div>
