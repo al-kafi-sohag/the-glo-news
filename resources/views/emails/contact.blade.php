@@ -68,8 +68,8 @@
                     <td>{{ $mailData['email'] }}</td>
                 </tr>
                 <tr>
-                    <th class="text-nowrap">Message</th>
-                    <th>:</th>
+                    <th class="text-nowrap"  style="vertical-align: top;">Message</th>
+                    <th style="vertical-align: top;">:</th>
                     <td>{{ $mailData['message'] }}</td>
                 </tr>
             </table>
