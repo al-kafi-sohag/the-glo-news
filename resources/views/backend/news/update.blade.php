@@ -158,7 +158,7 @@
                                                     </option>
                                                 @endforeach
                                             </select>
-                                            <small>{{ __('Tag is used for searching purposes') }}</small>
+                                            <small>{{ __('Tag is used for source purposes') }}</small>
                                             @include('backend.partials.form-error', ['field' => 'references'])
                                             @include('backend.partials.form-error', ['field' => 'references.*'])
                                         </div>
