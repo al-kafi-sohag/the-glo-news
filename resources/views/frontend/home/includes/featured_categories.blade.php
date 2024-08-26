@@ -10,7 +10,7 @@
 
                         @foreach ($featured_categories as $fc)
                         <li>
-                            <a href="singleblog.html" class="category_title">{{ $fc->title }}</a>
+                            <a href="{{ route('f.category.index', $fc->id) }}" class="category_title">{{ $fc->title }}</a>
                             <div class="category_count">{{ $fc->posts_count }}</div>
                         </li>
                         @endforeach
