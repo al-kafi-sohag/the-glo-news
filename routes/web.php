@@ -31,8 +31,8 @@ Route::group(['as' => 'f.'], function () {
         Route::post('/submit', 'contact_submit')->name('submit');
     });
 
-    Route::controller(MultipleNewsController::class)->prefix('multi-news')->name('multi_news.')->group(function () {
-        Route::get('/category/{category_id}/{subcategory_id?}', 'index')->name('index');
+    Route::controller(MultipleNewsController::class)->prefix('category')->name('category.')->group(function () {
+        Route::get('/{category_id}/{subcategory_id?}', 'index')->name('index');
     });
 
 });
