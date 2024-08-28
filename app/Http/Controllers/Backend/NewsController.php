@@ -107,7 +107,7 @@ class NewsController extends Controller
 
     public function update($id): View
     {
-        $data['news'] = Post::findOrFail($id);
+        $data['news'] = Post::with(['categories', 'subCategories'])->findOrFail($id);
         $data['categories'] = Category::with(['activeSubCategories'])->activated()->latest()->get();
         $data['authors'] = Author::activated()->latest()->get();
         return view('backend.news.update', $data);
