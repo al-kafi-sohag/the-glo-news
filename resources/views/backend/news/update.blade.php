@@ -169,7 +169,6 @@
                                                     @endforeach
                                                 @endif
                                             </select>
-                                            <small>{{ __('Tag is used for searching purposes') }}</small>
                                             @include('backend.partials.form-error', [
                                                 'field' => 'references',
                                             ])

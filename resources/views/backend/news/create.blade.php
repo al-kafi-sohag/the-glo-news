@@ -140,7 +140,6 @@
                                             <select name="references[]" id="reference" class="form-control select-tag" multiple>
 
                                             </select>
-                                            <small>{{ __('Teference is used for source purposes') }}</small>
                                             @include('backend.partials.form-error', ['field' => 'references'])
                                             @include('backend.partials.form-error', ['field' => 'references.*'])
                                         </div>
