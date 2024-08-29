@@ -3,22 +3,24 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\PostCategory;
+use App\Models\SubCategory;
 use Illuminate\View\View;
 use App\Models\Category;
+use App\Models\Post;
+use App\Models\PostCategory;
 use Illuminate\Http\Request;
 
 class MultipleNewsController extends Controller
 {
-    public function index($category_id, $sub_category_id = false): View
+    public function index($category_slug, $sub_category_slug = false): View
     {
-        $data['category'] = Category::findOrFail($category_id);
-        $query = PostCategory::with(['category','subCategory','post.author'])->where('category_id',$category_id);
-        if($sub_category_id){
-            $query->where('subcategory_id',$sub_category_id);
+        $data['category'] = Category::with('subCategories')->where('slug', $category_slug)->activated()->first();
+        $data['sub_category']  = SubCategory::with('category')->where('slug', $sub_category_slug)->activated()->first();
+        $query=PostCategory::with('post.author', 'category', 'subCategory')->where('category_id', $data['category']->id);
+        if($data['sub_category']){
+            $query->where('subcategory_id',$data['sub_category']->id);
         }
         $data['news'] = $query->get();
-        $data['category'] = Category::findOrFail($category_id);
         return view('frontend.news.multiple',$data);
     }
 }
