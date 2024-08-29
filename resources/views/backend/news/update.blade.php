@@ -123,7 +123,7 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="keyword">{{ __('Keyword') }} <span
                                                     class="text-danger">*</span></label>
                                             <select name="keywords[]" id="keyword" class="form-control select-tag"
@@ -142,7 +142,7 @@
                                                 'field' => 'keywords.*',
                                             ])
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="tag">{{ __('Tag') }} <span
                                                     class="text-danger">*</span></label>
                                             <select name="tags[]" id="tag" class="form-control select-tag" multiple>
@@ -156,7 +156,7 @@
                                             @include('backend.partials.form-error', ['field' => 'tags'])
                                             @include('backend.partials.form-error', ['field' => 'tags.*'])
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="reference">{{ __('Reference') }} <span
                                                     class="text-danger">*</span></label>
                                             <select name="references[]" id="reference" class="form-control select-tag"
