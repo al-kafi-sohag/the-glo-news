@@ -29,16 +29,16 @@
                                 @foreach ($headerCategories as $hc)
                                     @if ($hc->header_subCategories->count() > 0)
                                     <li class="menu-item menu-item-has-children arrow">
-                                        <a href="{{ route('f.category.index', $hc->id) }}">{{ $hc->title }}</a>
+                                        <a href="{{ route('f.category.index', $hc->slug) }}">{{ $hc->title }}</a>
                                         <ul class="sub-menu">
                                             @foreach ($hc->header_subCategories as $hsc)
                                                 <li class="menu-item">
-                                                    <a href="{{ route('f.category.index', [$hc->id, $hsc->id]) }}">{{ $hsc->title }}</a>
+                                                    <a href="{{ route('f.category.index', [$hc->slug, $hsc->slug]) }}">{{ $hsc->title }}</a>
                                                 </li>
                                             @endforeach
                                         </ul>
                                     @else
-                                        <li class="menu-item"><a href="{{ route('f.category.index', $hc->id) }}">{{ $hc->title }}</a></li>
+                                        <li class="menu-item"><a href="{{ route('f.category.index', $hc->slug) }}">{{ $hc->title }}</a></li>
                                     @endif
                                 @endforeach
                             </ul>

@@ -35,6 +35,7 @@
         <link rel="stylesheet" href="{{ asset('frontend/css/left-fullwidth.css') }}" type="text/css" media="all" />
         <link rel="stylesheet" href="{{ asset('frontend/css/left-fullwidth-grid.css') }}" type="text/css" media="all" />
         <link rel="stylesheet" href="{{ asset('frontend/css/grid.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}" type="text/css" media="all" />
 
     @stack('link_css')
     @stack('css')

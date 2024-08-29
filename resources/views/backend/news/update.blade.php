@@ -67,8 +67,10 @@
                                                     <select name="category[]" id="category" class="form-control select"
                                                         multiple>
                                                         @foreach ($categories as $category)
-                                                            <option value="{{ $category->id }}">
-                                                                {{ $category->title }}({{ $category->activeSubCategories->count() }})
+                                                            <option value="{{ $category->id }}"
+                                                                @if (in_array($category->id, $news->categories->pluck('id')->toArray())) selected @endif>
+                                                                {{ $category->title }}
+                                                                ({{ $category->activeSubCategories->count() }})
                                                             </option>
                                                         @endforeach
                                                     </select>
@@ -84,6 +86,11 @@
                                                             class="text-muted">(optional)</span></label>
                                                     <select name="sub_category[]" id="sub_category"
                                                         class="form-control select" multiple>
+                                                        @foreach ($news->subCategories as $subCategory)
+                                                            <option value="{{ $subCategory->id }}" selected>
+                                                                {{ $subCategory->title }}
+                                                            </option>
+                                                        @endforeach
                                                     </select>
                                                     @include('backend.partials.form-error', [
                                                         'field' => 'sub_category',
@@ -93,8 +100,10 @@
                                                     ])
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label for="post_date">{{ __('Post Date') }} <span class="text-danger">*</span></label>
-                                                    <input type="date" id="post_date" name="post_date" class="form-control" value="{{ $news->post_date }}">
+                                                    <label for="post_date">{{ __('Post Date') }} <span
+                                                            class="text-danger">*</span></label>
+                                                    <input type="date" id="post_date" name="post_date"
+                                                        class="form-control" value="{{ $news->post_date }}">
                                                     @include('backend.partials.form-error', [
                                                         'field' => 'post_date',
                                                     ])
@@ -150,17 +159,23 @@
                                         <div class="col-md-6">
                                             <label for="reference">{{ __('Reference') }} <span
                                                     class="text-danger">*</span></label>
-                                            <select name="references[]" id="reference" class="form-control select-tag" multiple>
-
-                                                @foreach (json_decode($news->references) as $reference)
-                                                    <option value="{{ $reference }}" selected>
-                                                        {{ $reference }}
-                                                    </option>
-                                                @endforeach
+                                            <select name="references[]" id="reference" class="form-control select-tag"
+                                                multiple>
+                                                @if (isset($news->references))
+                                                    @foreach (json_decode($news->references) as $reference)
+                                                        <option value="{{ $reference }}" selected>
+                                                            {{ $reference }}
+                                                        </option>
+                                                    @endforeach
+                                                @endif
                                             </select>
                                             <small>{{ __('Tag is used for searching purposes') }}</small>
-                                            @include('backend.partials.form-error', ['field' => 'references'])
-                                            @include('backend.partials.form-error', ['field' => 'references.*'])
+                                            @include('backend.partials.form-error', [
+                                                'field' => 'references',
+                                            ])
+                                            @include('backend.partials.form-error', [
+                                                'field' => 'references.*',
+                                            ])
                                         </div>
                                     </div>
 
@@ -310,7 +325,7 @@
 
                             $('#sub_category').append(
                                 `<option value="${subcategory.id}">${subcategory.title}</option>`
-                                );
+                            );
                         });
                     }
                 });

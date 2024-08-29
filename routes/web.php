@@ -32,7 +32,7 @@ Route::group(['as' => 'f.'], function () {
     });
 
     Route::controller(MultipleNewsController::class)->prefix('category')->name('category.')->group(function () {
-        Route::get('/{category_id}/{subcategory_id?}', 'index')->name('index');
+        Route::get('/{category_slug}/{sub_category_slug?}', 'index')->name('index');
     });
 
 });
