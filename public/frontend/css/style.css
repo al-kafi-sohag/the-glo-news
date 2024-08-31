@@ -6568,10 +6568,12 @@ ul.post_filter li a.selected
 .ppb_blog_grid_with_posts .two_third.div_wrapper
 {
     height: 500px;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center center;
     position: relative;
     margin: 0;
+
 }
 
 .ppb_blog_grid_with_posts.ppb_blog_video .two_third.div_wrapper, .ppb_blog_grid_with_posts.ppb_blog_video .one_third.last
@@ -9162,15 +9164,18 @@ p.price span.amount,
 .filter a {
     padding-bottom: 5px;
     font-size: 14px;
-    text-transform: uppercase
+    text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0px;
     color: #000;
 }
 
 .filter a.active {
-    color: #08a100 !important;
-    border-bottom: 3px solid #08a100;
+    color: #fff !important;
+    /* border-bottom: 3px solid #08a100; */
+    background-color: #08a100;
+    padding: 7px 10px;
+    border-radius: 5px;
 }
 
 .input {

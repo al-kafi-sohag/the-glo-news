@@ -426,7 +426,7 @@
 
 	.two_cols.mixed .hentry:first-child .post_header h5
 	{
-		font-size: 26px;
+		font-size: 16px;
 	}
 
 	.footer_bar_wrapper
@@ -448,7 +448,7 @@
 
 	#toTop
 	{
-		bottom: 58px;
+		bottom: 8px;
 	}
 
 	#mobile_nav_icon
@@ -576,10 +576,10 @@
 		font-size: 14px;
 	}
 
-	.newsticker_nav
+	/* .newsticker_nav
 	{
 		display: none;
-	}
+	} */
 
 	.ppb_blog5_grid_classic .one_half.last .post_header h2
 	{

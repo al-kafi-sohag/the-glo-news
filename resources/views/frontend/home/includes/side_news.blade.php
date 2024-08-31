@@ -10,7 +10,7 @@
                 </div>
                 <div class="post_header_title two_third last w-60">
                     <h5>
-                        <a href="" title="{{ $fn->title }}">
+                        <a href="{{ route('f.news', $fn->slug) }}" title="{{ $fn->title }}">
                             {{ strLimit($fn->title) }}
                         </a>
                     </h5>

@@ -14,7 +14,7 @@
         width: 40%;
     }
     .footer_bar .footer_bar_wrapper #toTop {
-        bottom: 45px;
+        right: 8px;
     }
 }
 @media (min-width: 768px) and (max-width: 992px) {
@@ -28,6 +28,7 @@
     }
     .inner_wrapper .sidebar_content .filter{
         float: none;
+        margin-bottom: 18px;
     }
     .one_third .post_wrapper .post_content_wrapper .post_header.search {
         display: block;
@@ -37,8 +38,14 @@
 @media (max-width: 576px) {
     .inner_wrapper .sidebar_content .filter{
         float: none;
+        margin-bottom: 18px;
     }
     .one_third .post_wrapper .post_content_wrapper .post_header.search {
         gap: 10px;
+    }
+    .newsticker_label {
+        padding-right: 7px;
+        padding-left: 7px;
+        font-size: 14px;
     }
 }
