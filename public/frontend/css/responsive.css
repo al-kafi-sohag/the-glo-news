@@ -49,3 +49,12 @@
         font-size: 14px;
     }
 }
+@media (max-width: 425px) {
+    .inner_wrapper .sidebar_content .ppb_subtitle_left .single_subtitle{
+        text-align: center;
+    }
+    .inner_wrapper .sidebar_content .filter ul{
+        margin-left: auto;
+    }
+}
+
