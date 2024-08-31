@@ -3,10 +3,10 @@
     <div class="post_info_cat @if($key>0) ml-1 @endif">
         @if($key>0) | @endif
         <span>
-            <a href="">{{ $cat->category->title }}</a>
+            <a href="{{ route('f.category.index', ['category_slug' => $cat->category->slug]) }}">{{ $cat->category->title }}</a>
             @if(isset($cat->subCategory) && !empty(($cat->subCategory)))
                 &nbsp;/
-                <a href="">{{ $cat->subCategory->title }}</a>
+                <a href="{{ route('f.category.index', ['category_slug' => $cat->subCategory->category->slug, 'sub_category_slug' => $cat->subCategory->slug]) }}">{{ $cat->subCategory->title }}</a>
             @endif
         </span>
     </div>
