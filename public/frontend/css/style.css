@@ -7009,11 +7009,8 @@ ul.post_filter li a.selected
 
 .one_half img, .one_third img, .one_fourth img, .one_fifth img, .two_third img
 {
-    height: 6rem;
     width: 100%;
     object-fit: contain;
-    /* max-width: 100% !important; */
-    /* height: auto; */
 }
 
 .animated
