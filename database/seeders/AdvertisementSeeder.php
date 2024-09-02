@@ -14,10 +14,14 @@ class AdvertisementSeeder extends Seeder
             'title' => 'Header Advertisement',
             'key' => 'header',
             'details' => json_encode([
-                'header' => [
-                    'image' => 'frontend/img/728x90ads.png',
-                    'link' => 'https://theglonews.com',
-                ],
+                1 => [
+                    "img" => "images/ads/1/728x90ads.jpg",
+                    "link" => config('app.url'),
+                    "name" => "Header Advertisement Image",
+                    "width" => 728,
+                    "height" => 90,
+                    "aspect_ratio" => "8:1"
+                ]
             ]),
             'status' => 1,
         ]);
@@ -26,10 +30,14 @@ class AdvertisementSeeder extends Seeder
             'title' => 'Homepage Advertisement',
             'key' => 'homepage',
             'details' => json_encode([
-                'right_side' => [
-                    'image' => 'frontend/img/300x250ads.png',
-                    'link' => 'https://theglonews.com',
-                ],
+                1 => [
+                    "img" => "images/ads/1/728x90ads.jpg",
+                    "link" => config('app.url'),
+                    "name" => "Homepage Advertisement Image",
+                    "width" => 300,
+                    "height" => 300,
+                    "aspect_ratio" => "1:1"
+                ]
             ]),
             'status' => 1,
         ]);
@@ -38,10 +46,14 @@ class AdvertisementSeeder extends Seeder
             'title' => 'Multiple News Page Advertisement',
             'key' => 'multiple_news_page',
             'details' => json_encode([
-                'middle_row' => [
-                    'image' => 'frontend/img/300x250ads.png',
-                    'link' => 'https://theglonews.com',
-                ],
+                1 => [
+                    "img" => "images/ads/1/728x90ads.jpg",
+                    "link" => config('app.url'),
+                    "name" => "Multiple News Page Advertisement Image",
+                    "width" => 728,
+                    "height" => 90,
+                    "aspect_ratio" => "8:1"
+                ]
             ]),
             'status' => 1,
         ]);
@@ -50,10 +62,14 @@ class AdvertisementSeeder extends Seeder
             'title' => 'Author News Page Advertisement',
             'key' => 'author_news_page',
             'details' => json_encode([
-                'middle_row' => [
-                    'image' => 'frontend/img/300x250ads.png',
-                    'link' => 'https://theglonews.com',
-                ],
+                1 => [
+                    "img" => "images/ads/1/728x90ads.jpg",
+                    "link" => config('app.url'),
+                    "name" => "Author News Page Advertisement Image",
+                    "width" => 728,
+                    "height" => 90,
+                    "aspect_ratio" => "8:1"
+                ]
             ]),
             'status' => 1,
         ]);
@@ -62,14 +78,14 @@ class AdvertisementSeeder extends Seeder
             'title' => 'Single News Page Advertisement',
             'key' => 'single_news_page',
             'details' => json_encode([
-                'right_side_1' => [
-                    'image' => 'frontend/img/300x250ads.png',
-                    'link' => 'https://theglonews.com',
-                ],
-                'right_side_2' => [
-                    'image' => 'frontend/img/300x250ads.png',
-                    'link' => 'https://theglonews.com',
-                ],
+                1 => [
+                    "img" => "images/ads/1/728x90ads.jpg",
+                    "link" => config('app.url'),
+                    "name" => "Single News Page Advertisement Image",
+                    "width" => 300,
+                    "height" => 300,
+                    "aspect_ratio" => "1:1"
+                ]
             ]),
             'status' => 1,
         ]);

@@ -36,6 +36,13 @@ $(document).ready(function () {
                     },
                     onload: (response) => {
                         disableLoading();
+                        const setName = element.getAttribute('data-setName');
+                        if(element.getAttribute('data-setName')){
+                            const escapedSetName = setName.replace(/[\[\]]/g, '\\$&');
+                            console.log($('input[name=' + escapedSetName + ']'));
+                            $('input[name=' + escapedSetName + ']').val(response);
+                        }
+
                         return response;
                     },
                     onerror: (response) => {

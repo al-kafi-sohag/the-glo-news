@@ -13,8 +13,7 @@
                 <!-- End logo -->
 
                 <div class="ppb_ads pp_ads_global_before_menu">
-                    <div class="ads_label">- Advertisement -</div>
-                    <a href="#"><img src="{{ asset('frontend/img/728x90ads.png') }}" alt="" /></a>
+                    {!! get_ads('header', 1) !!}
                 </div>
             </div>
         </div>

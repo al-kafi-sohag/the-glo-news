@@ -60,8 +60,10 @@
                                                     </div>
                                                 @endif
 
-                                                <input type="file" id="{{ slug($details->name).$key }}" name="{{ slug($details->name) }}[{{ $key }}][img]" class="image-upload"
-                                                data-aspectRatio="{{ $details->aspect_ratio }}" data-width="{{ $details->width }}" data-height="{{ $details->height }}">
+                                                <input type="file" id="{{ slug($details->name).$key }}" name="image" class="image-upload"
+                                                data-aspectRatio="{{ $details->aspect_ratio }}" data-width="{{ $details->width }}" data-height="{{ $details->height }}" data-setName="details[{{ $key }}][img]">
+
+                                                <input type="hidden" name="details[{{ $key }}][img]">
 
                                                 <small class="mt-1 mb-1">
                                                     {{ __('Image should be relative aspect ratio of '.$details->aspect_ratio. ' and should be relatively '.$details->width.'x'.$details->height. 'px') }}
@@ -70,7 +72,7 @@
 
                                             <div class="form-group">
                                                 <label for="link{{ $key }}">{{ __('Advertisement Link') }} <span class="text-danger">*</span> </label>
-                                                <input type="text" class="form-control" id="link{{ $key }}" name="{{ slug($details->name) }}[{{ $key }}][link]"
+                                                <input type="text" class="form-control" id="link{{ $key }}" name="details[{{ $key }}][link]"
                                                     placeholder="Enter {{ $details->name }} link" value="{{ $details->link }}" required>
                                             </div>
                                         @endforeach

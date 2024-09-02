@@ -17,8 +17,9 @@
                     </ul>
                 </li>
                 <li id="grand_news_custom_ads-5" class="widget Grand_News_Custom_Ads">
-                    <div class="ads_label">- Advertisement -</div>
-                    <img src="{{ asset('frontend/img/300x250ads.png') }}" alt="" />
+
+
+                    {!! get_ads('homepage', 1) !!}
                 </li>
             </ul>
         </div>

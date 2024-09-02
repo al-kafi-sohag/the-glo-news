@@ -69,38 +69,26 @@
                 </div>
             </div>
             <div class="adevertisement w-25">
-                <div class="ad-1">
-                    <div class="ads_label">- {{ __('Advertisement') }} -</div>
-                    <img src="{{ asset('frontend/img/300x250ads.png') }}" alt="" />
-                </div>
 
                 <div class="related_news d-inline-block mt-3 mb-3">
                     <h2 class="widgettitle"><span>{{ __('Related News') }}</span></h2>
                     <ul class="posts blog withthumb">
-                        <li>
-                            <div class="post_circle_thumb">
-                                <a href="singleblog.html">
-                                    <div class="post_number">1</div>
-                                    <img src="{{ asset('frontend/img/300x250ads.png') }}" class="tg-lazy" alt="">
-                                </a>
-                            </div>
-                            <a href="singleblog.html">3 Delicious Post-Holiday Detox Recipes, Courtesy of Personal Chef</a>
-                        </li>
-                        <li>
-                            <div class="post_circle_thumb">
-                                <a href="singleblog.html">
-                                    <div class="post_number">1</div>
-                                    <img src="{{ asset('frontend/img/300x250ads.png') }}" class="tg-lazy" alt="">
-                                </a>
-                            </div>
-                            <a href="singleblog.html">3 Delicious Post-Holiday Detox Recipes, Courtesy of Personal Chef</a>
-                        </li>
+
+                        @foreach ($related_news as $rn)
+                            <li>
+                                <div class="post_circle_thumb">
+                                    <a href="{{ route('f.news', $rn->slug) }}">
+                                        <img src="{{ storage_url($rn->image) }}" class="tg-lazy" alt="{{ $rn->title }}">
+                                    </a>
+                                </div>
+                                <a href="{{ route('f.news', $rn->slug) }}">{{ strLimit($rn->title) }}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
 
                 <div class="ad-2">
-                    <div class="ads_label">- {{ __('Advertisement') }} -</div>
-                    <img src="{{ asset('frontend/img/300x250ads.png') }}" alt="" />
+                    {!! get_ads('single_news_page', 1) !!}
                 </div>
             </div>
         </div>

@@ -1,6 +1,16 @@
 @extends('frontend.layouts.app')
 
-@section('title')
+@section('title', $author->name)
+
+@push('css')
+    <style>
+        .ads_wrapper{
+            text-align: center;
+            width: 100%;
+            float: left;
+        }
+    </style>
+@endpush
 
 @section('content')
 
@@ -10,7 +20,7 @@
                 <div class="post_info_cat">
                     <div class="breadcrumb"><a href="{{ route('f.home') }}">Home</a> » {{ $author->name }}</div>
                 </div>
-                <h1><span>{{ $author->name }} </span></h1><span class="repoter_type">({{ $author->type() }})</span>
+                <h1>{{ $author->name }} - {{ $author->type() }}</h1>
             </div>
         </div>
     </div>
@@ -65,24 +75,22 @@
 @endsection
 
 
+
 @push('script')
 <script>
     $(document).ready(function() {
-
         var cols = $('.type-post');
-        // if (cols.length >= 6) {
-            cols.each(function(index) {
-                if ((index + 1) % 6 == 0) {
-                    var adCol = $(`
-                        <a target="_blank" href="{{ get_ads_url($advertisement, 'middle_row') }}">
-                            <div class="ads-div">
-                                <img src="{{ storage_url(get_ads_src($advertisement, 'middle_row')) }}" />
-                            </div>
-                        </a>`);
-                    $(this).after(adCol);
-                }
-            });
-        // }
+        var adCol = $(`{!! get_ads('author_news_page', 1) !!}`);
+        console.log(cols.length);
+
+        cols.each(function(index) {
+            if ((index + 1) % 6 === 0) {
+                $(this).after(adCol.clone());
+            }
+        });
+        if (cols.length < 6) {
+            $('.type-post').last().after(adCol.clone());
+        }
     });
 </script>
 @endpush

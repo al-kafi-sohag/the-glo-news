@@ -37,7 +37,7 @@
                                         <label for="image">{{ __('Image') }} <span
                                                 class="text-muted">({{ __('optional') }})</span></label>
                                         <br>
-                                        <input type="file" id="image" name="image" class="image-upload">
+                                        <input type="file" id="image" name="image" class="image-upload"  data-aspectRatio="1:1" data-width="300">
 
                                         @include('backend.partials.form-error', ['field' => 'image'])
                                     </div>
@@ -123,9 +123,13 @@
 @endsection
 
 @push('link_script')
-    <script src="{{ asset('backend/js/filepond/file-validation-type.js') }}"></script>
-    <script src="{{ asset('backend/js/filepond/image-preview.js') }}"></script>
-    <script src="{{ asset('backend/js/filepond/filepond.min.js') }}"></script>
-    <script src="{{ asset('backend/js/filepond/filepond.jquery.js') }}"></script>
-    <script src="{{ asset('backend/js/filepond.js') }}"></script>
+<script src="{{ asset('backend/js/filepond/file-validation-type.js') }}"></script>
+<script src="{{ asset('backend/js/filepond/image-preview.js') }}"></script>
+<script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
+<script src="{{ asset('backend/js/filepond/filepond.min.js') }}"></script>
+<script src="{{ asset('backend/js/filepond/filepond.jquery.js') }}"></script>
+<script src="{{ asset('backend/js/filepond.js') }}"></script>
 @endpush

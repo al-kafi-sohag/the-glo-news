@@ -35,7 +35,7 @@
                                                     <label for="image">{{ __('Thumbnail Image') }} <span
                                                             class="text-danger">*</span></label>
                                                     <input type="file" name="image" id="image"
-                                                        class="image-upload">
+                                                        class="image-upload" data-aspectRatio="3:2" data-width="800">
                                                     @include('backend.partials.form-error', [
                                                         'field' => 'image',
                                                     ])
