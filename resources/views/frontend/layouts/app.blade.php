@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="zAElhakSlUOTTEvBcSBoD3st8Y98mrWK6XTSmJUmAFE" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>
