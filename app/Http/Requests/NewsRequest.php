@@ -16,7 +16,6 @@ class NewsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => 'required|exists:tmp_files,id',
             'category' => 'required|array|min:1',
             'category.*' => 'exists:categories,id',
             'sub_category' => 'nullable|array',
@@ -43,6 +42,7 @@ class NewsRequest extends FormRequest
     {
         return [
             'title' => 'required|string|min:3|max:255|unique:posts,title',
+            'image' => 'required|exists:tmp_files,id',
         ];
     }
 
@@ -50,6 +50,7 @@ class NewsRequest extends FormRequest
     {
         return [
             'title' => 'required|string|min:3|max:255|unique:posts,title,' . $this->route('id'),
+            'image' => 'nullable|exists:tmp_files,id',
         ];
     }
 }

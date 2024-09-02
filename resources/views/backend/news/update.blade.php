@@ -36,8 +36,8 @@
                                                     <label for="image">{{ __('Thumbnail Image') }} <span
                                                             class="text-danger">*</span></label><br>
                                                     <div>
-                                                        <img src="{{ storage_url($news->image) }}" alt="{{ $news->title }}"
-                                                            class="display-image">
+                                                        <img src="{{ storage_url($news->image) }}"
+                                                            alt="{{ $news->title }}" class="display-image">
 
                                                     </div>
                                                     <input type="file" name="image" id="image" class="image-upload"
@@ -160,7 +160,8 @@
                                             <label for="reference">{{ __('Reference') }}</label>
                                             <select name="references[]" id="reference" class="form-control select-tag"
                                                 multiple>
-                                                @if (isset($news->references))
+
+                                                @if (isset($news->references) && is_array($news->references))
                                                     @foreach (json_decode($news->references) as $reference)
                                                         <option value="{{ $reference }}" selected>
                                                             {{ $reference }}
