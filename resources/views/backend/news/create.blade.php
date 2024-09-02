@@ -248,11 +248,13 @@
     <script src="{{ asset('backend/js/filepond/select2.min.js') }}"></script>
     <script src="{{ asset('backend/js/filepond/file-validation-type.js') }}"></script>
     <script src="{{ asset('backend/js/filepond/image-preview.js') }}"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
     <script src="{{ asset('backend/js/filepond/filepond.min.js') }}"></script>
     <script src="{{ asset('backend/js/filepond/filepond.jquery.js') }}"></script>
     <script src="{{ asset('backend/js/filepond.js') }}"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/ckeditor5-classic-free-full-feature@35.4.1/build/ckeditor.min.js"></script> --}}
-    <script src="{{ asset('backend/js/ckeditor.js') }}"></script>
 @endpush
 
 @push('script')
