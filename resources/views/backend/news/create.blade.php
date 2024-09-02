@@ -3,10 +3,10 @@
 @section('title', 'News')
 
 @push('link_css')
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
-    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.css">
+    <link href="{{ asset('backend/css/filepond/select2.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('backend/css/filepond/filepond.css') }}" rel="stylesheet" />
+    <link href="{{ asset('backend/css/filepond/filepond-plugin-image-preview.css') }}" rel="stylesheet" />
+    <link href="{{ asset('backend/css/filepond/ckeditor5.css') }}" rel="stylesheet" />
 @endpush
 
 @section('content')
@@ -135,8 +135,7 @@
                                             @include('backend.partials.form-error', ['field' => 'tags.*'])
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="references">{{ __('Reference') }} <span
-                                                    class="text-danger">*</span></label>
+                                            <label for="references">{{ __('Reference') }}</label>
                                             <select name="references[]" id="reference" class="form-control select-tag" multiple>
 
                                             </select>
@@ -246,7 +245,7 @@
 @endsection
 
 @push('link_script')
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="{{ asset('backend/js/filepond/select2.min.js') }}"></script>
     <script src="{{ asset('backend/js/filepond/file-validation-type.js') }}"></script>
     <script src="{{ asset('backend/js/filepond/image-preview.js') }}"></script>
     <script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
