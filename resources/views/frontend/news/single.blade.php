@@ -19,7 +19,7 @@
                                         <h1>{{ $news->title }}</h1>
                                         <div class="post_detail post_date">
                                             <span class="post_info_author">
-                                                <a href="">
+                                                <a href="{{ route('f.author.news', optional($news->author)->id) }}">
                                                     <span class="gravatar">
                                                         <img alt="{{ optional($news->author)->name }}"
                                                             src="{{ asset('frontend/img/default/reporter-avatar.jpg') }}"
@@ -50,12 +50,13 @@
                                     {!! $news->description !!}
                                 </div>
 
-                                @if (count(json_decode($news->references)) > 0)
+                                @if (is_array($news->references) && count(json_decode($news->references)) > 0)
                                     <div class="references">
                                         <h6>{{ __('References') }}</h6>
                                         <ul>
                                             @foreach (json_decode($news->references) as $reference)
-                                                <li><a href="{{ $reference }}" target="_blank">{{ $reference }}</a></li>
+                                                <li><a href="{{ $reference }}" target="_blank">{{ $reference }}</a>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -80,8 +81,7 @@
                             <div class="post_circle_thumb">
                                 <a href="singleblog.html">
                                     <div class="post_number">1</div>
-                                    <img src="{{ asset('frontend/img/300x250ads.png') }}" class="tg-lazy"
-                                        alt="">
+                                    <img src="{{ asset('frontend/img/300x250ads.png') }}" class="tg-lazy" alt="">
                                 </a>
                             </div>
                             <a href="singleblog.html">3 Delicious Post-Holiday Detox Recipes, Courtesy of Personal Chef</a>

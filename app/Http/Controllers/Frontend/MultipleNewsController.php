@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\SubCategory;
 use Illuminate\View\View;
 use App\Models\Category;
+use App\Models\Author;
 use App\Models\Post;
 use App\Models\PostCategory;
 use Illuminate\Http\Request;
@@ -26,4 +27,5 @@ class MultipleNewsController extends Controller
         $data['news'] = $query->get();
         return view('frontend.news.multiple',$data);
     }
+    
 }
