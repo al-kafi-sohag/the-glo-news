@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewsRequest;
+use App\Http\Traits\FileUploadTrait;
 use App\Models\Author;
 use App\Models\Category;
 use App\Models\Post;
@@ -18,6 +19,7 @@ use Illuminate\View\View;
 
 class NewsController extends Controller
 {
+    use FileUploadTrait;
     public function __construct()
     {
         $this->middleware('auth');
@@ -82,21 +84,14 @@ class NewsController extends Controller
             }
         }
 
-        if(isset($request->image) && !empty($request->image)){
-            try {
-                $temp_file = TmpFile::findOrFail($request->image);
+        if (isset($request->image) && !empty($request->image)) {
+            $temp_file = TmpFile::findOrFail($request->image);
 
-                $from_path = $temp_file->path . '/' . $temp_file->filename;
-                $to_path = 'images/news/' . $news->id . '/' . $temp_file->filename;
+            $newFilePath = $this->moveAndRenameFile($temp_file, $news, 'images/news', 'image');
 
-                Storage::move($from_path, $to_path);
-                Storage::deleteDirectory($temp_file->path);
-
-                $news->image = $to_path;
-                $news->save();
-            } catch (\Throwable $th) {
+            if ($newFilePath === false) {
                 sweetalert()->error("Something went wrong with the image");
-                return redirect()->route('b.news.update', $save->id);
+                return redirect()->route('b.news.update', $news->id);
             }
         }
 
