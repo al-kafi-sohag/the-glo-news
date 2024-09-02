@@ -8,9 +8,9 @@
         <div class="page_title_wrapper">
             <div class="page_title_inner">
                 <div class="post_info_cat">
-                    <div class="breadcrumb"><a href="{{ route('f.home') }}">Home</a> » {{ $category->title }}</div>
+                    <div class="breadcrumb"><a href="{{ route('f.home') }}">Home</a> » {{ $author->name }}</div>
                 </div>
-                <h1><span>{{ $category->title }}</span></h1>
+                <h1><span>{{ $author->name }}</span></h1>
             </div>
         </div>
     </div>
@@ -26,9 +26,9 @@
                                 <div class="post_content_wrapper">
                                     <div class="post_header">
                                         <div class="post_img static small">
-                                            <a href="{{ route('f.news', $n->post->slug) }}">
+                                            <a href="{{ route('f.news', $n->slug) }}">
                                                 <div class="post_icon_circle"><i class="fa fa-image"></i></div>
-                                                <img src="{{ storage_url($n->post->image) }}" alt="" class=""
+                                                <img src="{{ storage_url($n->image) }}" alt="" class=""
                                                     style="width: 700px; height: 466px;" />
                                             </a>
                                         </div>
@@ -36,18 +36,16 @@
 
                                         <div class="post_header_title">
                                             <h5>
-                                                <a href="{{ route('f.news', $n->post->slug) }}"
-                                                    title="{{ $n->post->title }}">
-                                                    {{ $n->post->title }}
+                                                <a href="{{ route('f.news', $n->slug) }}" title="{{ $n->title }}">
+                                                    {{ $n->title }}
                                                 </a>
                                             </h5>
                                             <div class="post_detail post_date">
                                                 <span class="post_info_author">
                                                     <a
-                                                        href="{{ route('f.author.news', $n->post->author->id) }}">{{ $n->post->author->name }}</a>
+                                                        href="{{ route('f.author.news', $n->author->id) }}">{{ $n->author->name }}</a>
                                                 </span>
-                                                <span
-                                                    class="post_info_date">{{ newsTimeFormate($n->post->post_date) }}</span>
+                                                <span class="post_info_date">{{ newsTimeFormate($n->post_date) }}</span>
                                             </div>
                                         </div>
                                     </div>

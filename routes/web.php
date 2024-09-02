@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\ContactUsController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Frontend\AuthorController as FrontendAuthorController;
 
 
 Auth::routes();
@@ -33,6 +34,9 @@ Route::group(['as' => 'f.'], function () {
 
     Route::controller(MultipleNewsController::class)->prefix('category')->name('category.')->group(function () {
         Route::get('/{category_slug}/{sub_category_slug?}', 'index')->name('index');
+    });
+    Route::controller(FrontendAuthorController::class)->prefix('author')->name('author.')->group(function () {
+        Route::get('/news/{author_id}', 'news')->name('news');
     });
 
 });
