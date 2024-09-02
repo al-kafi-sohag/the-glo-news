@@ -140,7 +140,7 @@
 
 	.ppb_blog_grid_with_posts .one_third.last
 	{
-		height: 35.5rem;
+		max-height: 35.5rem;
 		overflow-y: auto;
 		margin-top: 30px;
 	}

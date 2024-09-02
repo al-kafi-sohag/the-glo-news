@@ -86,6 +86,15 @@
                             </div>
                             <a href="singleblog.html">3 Delicious Post-Holiday Detox Recipes, Courtesy of Personal Chef</a>
                         </li>
+                        <li>
+                            <div class="post_circle_thumb">
+                                <a href="singleblog.html">
+                                    <div class="post_number">1</div>
+                                    <img src="{{ asset('frontend/img/300x250ads.png') }}" class="tg-lazy" alt="">
+                                </a>
+                            </div>
+                            <a href="singleblog.html">3 Delicious Post-Holiday Detox Recipes, Courtesy of Personal Chef</a>
+                        </li>
                     </ul>
                 </div>
 
