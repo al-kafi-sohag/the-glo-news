@@ -65,3 +65,22 @@
     </div>
 
 @endsection
+
+
+@push('script')
+<script>
+    $(document).ready(function() {
+
+        var cols = $('.type-post');
+        // if (cols.length >= 6) {
+            cols.each(function(index) {
+                if ((index + 1) % 6 == 0) {
+                    var adCol = $('<div class="col-md-12">Advertisement Here</div>');
+                    $(this).after(adCol);
+                }
+            });
+        // }
+    });
+</script>
+@endpush
+

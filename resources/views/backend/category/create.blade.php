@@ -23,8 +23,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-10 m-auto">
-                                <form action="{{ route('b.category.create') }}" method="POST"
-                                    enctype="multipart/form-data">
+                                <form action="{{ route('b.category.create') }}" method="POST">
                                     @csrf
 
                                     <div class="form-group">

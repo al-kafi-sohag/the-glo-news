@@ -63,3 +63,26 @@
     </div>
 
 @endsection
+
+
+@push('script')
+<script>
+    $(document).ready(function() {
+
+        var cols = $('.type-post');
+        // if (cols.length >= 6) {
+            cols.each(function(index) {
+                if ((index + 1) % 6 == 0) {
+                    var adCol = $(`
+                        <a target="_blank" href="{{ get_ads_url($advertisement, 'middle_row') }}">
+                            <div class="ads-div">
+                                <img src="{{ storage_url(get_ads_src($advertisement, 'middle_row')) }}" />
+                            </div>
+                        </a>`);
+                    $(this).after(adCol);
+                }
+            });
+        // }
+    });
+</script>
+@endpush

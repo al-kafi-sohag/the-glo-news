@@ -23,3 +23,34 @@ function newsTimeFormate($time)
     $dateFormat = env('DATE_FORMAT', 'M d, Y');
     return date($dateFormat, strtotime($time));
 }
+
+function get_ads_src($ad, $key)
+{
+    if (isset($ad->details) && !empty($ad->details)) {
+        $details = json_decode($ad->details);
+        if (isset($details->{$key}) && !empty($details->{$key})) {
+            if (property_exists($details->{$key}, 'image')) {
+                return $details->{$key}->image;
+            }
+        }
+    }
+    return null;
+}
+
+function get_ads_url($ad, $key)
+{
+    if (isset($ad->details) && !empty($ad->details)) {
+        $details = json_decode($ad->details);
+        if (isset($details->{$key}) && !empty($details->{$key})) {
+            if (property_exists($details->{$key}, 'link')) {
+                return $details->{$key}->link;
+            }
+        }
+    }
+    return null;
+}
+
+function slug($data)
+{
+    return Str::slug($data);
+}

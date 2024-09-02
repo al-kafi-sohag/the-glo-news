@@ -15,7 +15,7 @@
                         </a>
                     </h5>
                     <span class="post_info_date">
-                        <a href="">{{ newsTimeFormate($fn->created_at ) }}</a>
+                        <a href="">{{ newsTimeFormate($fn->post_date ) }}</a>
                     </span>
                 </div>
             </div>

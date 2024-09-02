@@ -49,7 +49,7 @@
                     <div id="logo_right_button">
 
                         <!-- Begin search icon -->
-                        <a href="javascript:void(0);" id="search_icon"><i class="fa fa-search"></i></a>
+                        <a href="javascript:void(0);" id="search_icon"><i class="fa fa-search"  data-bs-toggle="modal" data-bs-target="#searchModal"></i></a>
                         <!-- End side menu -->
 
                         <!-- Begin search icon -->

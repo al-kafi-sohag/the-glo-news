@@ -8,6 +8,8 @@ $(document).ready(function () {
     // Create a FilePond instance
     const ponds = [];
     $('.image-upload').each(function (index, element) {
+        console.log(element.getAttribute('data-aspectRatio'));
+
         var pond = FilePond.create(element, {
             allowImageCrop: true,
 

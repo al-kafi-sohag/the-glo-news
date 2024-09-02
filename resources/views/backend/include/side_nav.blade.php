@@ -62,6 +62,14 @@
                         <p>{{ __('News') }}</p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('b.ads.index') }}"
+                        class="nav-link {{ $pageSlug == 'advertisement' ? 'active' : '' }}">
+                        <i class="fa-solid fa-bullhorn"></i>
+                        <p>{{ __('Advertisement') }}</p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

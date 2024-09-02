@@ -40,6 +40,9 @@
 
     @stack('link_css')
     @stack('css')
+
+    {{-- Google Custom Search Engine --}}
+    <script async src="https://cse.google.com/cse.js?cx=019de7ea5c4d24a73"></script>
 </head>
 
 <body class="home page-template-default page page-id-3595 left_fullwidth">
@@ -65,10 +68,13 @@
     <script type="text/javascript" src="{{ asset('frontend/js/plugins/jquery.tooltipster.min.js') }}" id="tooltipster-js"></script>
     <script type="text/javascript" src="{{ asset('frontend/js/plugins/custom_plugins.js') }}" id="grandnews-custom-plugins-js"></script>
     <script type="text/javascript" src="{{ asset('frontend/js/plugins/custom.js') }}" id="grandnews-custom-script-js"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/search.js') }}"></script>
 
 
     @stack('link_script')
     @stack('script')
+
+    @include('frontend.includes.search-modal')
 </body>
 
 </html>
