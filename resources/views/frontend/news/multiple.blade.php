@@ -10,7 +10,7 @@
             <div class="post_info_cat">
                 <div class="breadcrumb"><a href="{{route('f.home')}}">Home</a> » {{ $category->title }}</div>
             </div>
-            <h1><span>Multiple News</span></h1>
+            <h1><span>{{ $category->title }}</span></h1>
         </div>
     </div>
 </div>
