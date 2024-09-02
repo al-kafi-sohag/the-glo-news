@@ -290,7 +290,9 @@ body.notouch
 {
     -webkit-overflow-scrolling: auto !important;
 }
-
+img{
+    border-radius: 5px;
+}
 .floatleft
 {
     float: left !important;
@@ -6613,9 +6615,9 @@ ul.post_filter li a.selected
 
 .ppb_blog_grid_with_posts .one_third.last
 {
-    height: 500px;
+    max-height: 35.5rem;
     overflow-y: auto;
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
 }
 
 .ppb_blog_grid_with_posts .one_third.last h5

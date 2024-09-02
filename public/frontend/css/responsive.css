@@ -16,10 +16,17 @@
     .footer_bar .footer_bar_wrapper #toTop {
         right: 8px;
     }
+    #footer_menu {
+        margin-right: 10px;
+    }
 }
+
 @media (min-width: 768px) and (max-width: 992px) {
     .inner_wrapper .sidebar_content .ppb_subtitle_left {
         width: 55%;
+    }
+    #footer_menu {
+        margin-right: 40px;
     }
 }
 @media (min-width: 576px) and (max-width: 768px) {
