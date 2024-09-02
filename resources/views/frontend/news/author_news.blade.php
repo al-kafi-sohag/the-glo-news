@@ -10,7 +10,7 @@
                 <div class="post_info_cat">
                     <div class="breadcrumb"><a href="{{ route('f.home') }}">Home</a> » {{ $author->name }}</div>
                 </div>
-                <h1><span>{{ $author->name }}</span></h1>
+                <h1><span>{{ $author->name }} </span></h1><span class="repoter_type">({{ $author->type() }})</span>
             </div>
         </div>
     </div>
