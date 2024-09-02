@@ -38,7 +38,6 @@ class Post extends BaseModel
     {
         return $this->hasMany(PostCategory::class, 'post_id', 'id');
     }
-
     public function author(): BelongsTo
     {
         return $this->belongsTo(Author::class, 'author_id');

@@ -1,11 +1,31 @@
 $(document).ready(function () {
     FilePond.registerPlugin(FilePondPluginImagePreview);
-    FilePond.registerPlugin(FilePondPluginFileValidateType);
+    FilePond.registerPlugin(FilePondPluginImageCrop);
+    FilePond.registerPlugin(FilePondPluginImageResize);
+    FilePond.registerPlugin(FilePondPluginImageTransform);
+    FilePond.registerPlugin(FilePondPluginImageExifOrientation);
 
     // Create a FilePond instance
     const ponds = [];
     $('.image-upload').each(function (index, element) {
         var pond = FilePond.create(element, {
+            allowImageCrop: true,
+            imageCropAspectRatio: '3:2',
+
+            imageResizeTargetWidth: 800,
+
+            imageResizeMode: 'contain',
+            imageResizeUpscale: true,
+
+            allowImageTransform: true,
+            imageTransformOutputMimeType: 'image/jpeg',
+            imageTransformOutputQuality: 100,
+            allowImageResize: true,
+
+            allowImagePreview: true,
+            allowImageExifOrientation: true,
+
+            allowMultiple: false,
             server: {
                 url: '/backend/file-upload',
                 process: {
@@ -29,7 +49,7 @@ $(document).ready(function () {
                 },
                 fetch: null,
                 revert: null,
-            }
+            },
         });
         ponds.push(pond);
     });
