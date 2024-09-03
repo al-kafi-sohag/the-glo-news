@@ -65,4 +65,12 @@ class Post extends BaseModel
         }
     }
 
+    public function scopeTrending($query){
+        return $query->where('is_trending',1);
+    }
+
+    public function scopePopular($query){
+        return $query->where('is_popular',1);
+    }
+
 }

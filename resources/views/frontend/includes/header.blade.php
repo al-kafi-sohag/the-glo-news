@@ -13,8 +13,7 @@
                 <!-- End logo -->
 
                 <div class="ppb_ads pp_ads_global_before_menu">
-                    <div class="ads_label">- Advertisement -</div>
-                    <a href="#"><img src="{{ asset('frontend/img/728x90ads.png') }}" alt="" /></a>
+                    {!! get_ads('header', 1) !!}
                 </div>
             </div>
         </div>
@@ -49,7 +48,7 @@
                     <div id="logo_right_button">
 
                         <!-- Begin search icon -->
-                        <a href="javascript:void(0);" id="search_icon"><i class="fa fa-search"></i></a>
+                        <a href="javascript:void(0);" id="search_icon"><i class="fa fa-search"  data-bs-toggle="modal" data-bs-target="#searchModal"></i></a>
                         <!-- End side menu -->
 
                         <!-- Begin search icon -->

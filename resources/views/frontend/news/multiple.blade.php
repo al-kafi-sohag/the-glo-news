@@ -1,6 +1,16 @@
 @extends('frontend.layouts.app')
 
-@section('title')
+@section('title', $category->title)
+
+@push('css')
+    <style>
+        .ads_wrapper{
+            text-align: center;
+            width: 100%;
+            float: left;
+        }
+    </style>
+@endpush
 
 @section('content')
 
@@ -65,3 +75,24 @@
     </div>
 
 @endsection
+
+
+@push('script')
+<script>
+    $(document).ready(function() {
+        var cols = $('.type-post');
+        var adCol = $(`{!! get_ads('multiple_news_page', 1) !!}`);
+        console.log(cols.length);
+
+        cols.each(function(index) {
+            if ((index + 1) % 6 === 0) {
+                $(this).after(adCol.clone());
+            }
+        });
+        if (cols.length < 6) {
+            $('.type-post').last().after(adCol.clone());
+        }
+    });
+</script>
+@endpush
+

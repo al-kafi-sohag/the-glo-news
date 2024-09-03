@@ -8,6 +8,8 @@ $(document).ready(function () {
     // Create a FilePond instance
     const ponds = [];
     $('.image-upload').each(function (index, element) {
+        console.log(element.getAttribute('data-aspectRatio'));
+
         var pond = FilePond.create(element, {
             allowImageCrop: true,
 
@@ -36,13 +38,6 @@ $(document).ready(function () {
                     },
                     onload: (response) => {
                         disableLoading();
-                        const setName = element.getAttribute('data-setName');
-                        if(element.getAttribute('data-setName')){
-                            const escapedSetName = setName.replace(/[\[\]]/g, '\\$&');
-                            console.log($('input[name=' + escapedSetName + ']'));
-                            $('input[name=' + escapedSetName + ']').val(response);
-                        }
-
                         return response;
                     },
                     onerror: (response) => {

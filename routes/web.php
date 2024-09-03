@@ -7,11 +7,14 @@ use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FileControlController;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\AdvertisementController as BackendAdvertisementController;
 use App\Http\Controllers\Backend\NewsController;
+use App\Http\Controllers\Frontend\AdvertisementController as FrontendAdvertisementController;
 use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Frontend\MultipleNewsController;
 use App\Http\Controllers\Frontend\SingleNewsPageController;
 use App\Http\Controllers\Frontend\ContactUsController;
+use App\Http\Controllers\Frontend\LatestNewsController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +41,12 @@ Route::group(['as' => 'f.'], function () {
     Route::controller(FrontendAuthorController::class)->prefix('author')->name('author.')->group(function () {
         Route::get('/news/{author_id}', 'news')->name('news');
     });
+
+    Route::controller(LatestNewsController::class)->prefix('latest-news')->name('latest.')->group(function () {
+        Route::get('/{type}', 'index')->name('get');
+    });
+
+    Route::get('/get-ad/{key}', [FrontendAdvertisementController::class, 'get'])->name('get.ads');
 
 });
 
@@ -123,6 +132,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'b.'], fu
         Route::put('update/{id}', 'update_store')->name('update');
         Route::get('delete/{id}', 'delete')->name('delete');
         Route::get('details/{id}', 'details')->name('details');
+    });
+
+    Route::controller(BackendAdvertisementController::class)->prefix('advertisement')->name('ads.')->group(function () {
+        Route::get('index', 'index')->name('index');
+        Route::get('update/{id}', 'update')->name('update');
+        Route::post('update/{id}', 'update_store')->name('update');
+        Route::get('status/{id}', 'status')->name('status.update');
     });
 
 });
