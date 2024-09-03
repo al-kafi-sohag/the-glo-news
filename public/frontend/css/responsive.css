@@ -22,10 +22,10 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-    .inner_wrapper{
+    .single_news .inner_wrapper{
         width: 60% !important;
     }
-    .adevertisement{
+    .single_news .adevertisement{
         width: 35% !important;
     }
 }
