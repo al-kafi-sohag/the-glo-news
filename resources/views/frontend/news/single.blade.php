@@ -34,7 +34,7 @@
                                             </span>
                                         </div>
                                         <div class="post_detail post_comment">
-                                            <div class="post_info_view"><i class="fa fa-eye"></i>0.0k&nbsp;Views</div>
+                                            <div class="post_info_view"><i class="fa fa-eye"></i>{{ formatView($news->visitors) }}&nbsp;Views</div>
                                         </div>
                                     </div>
                                 </div>
