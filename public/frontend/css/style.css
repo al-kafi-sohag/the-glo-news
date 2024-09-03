@@ -7422,6 +7422,10 @@ h1.page-title
     padding-top: 0;
 }
 
+#page_content_wrapper .inner .adevertisement{
+    max-height: 35.5rem;
+    overflow-y: auto;
+}
 .woocommerce ul.products li.product, .woocommerce-page ul.products li.product
 {
     width: 30.99%;
