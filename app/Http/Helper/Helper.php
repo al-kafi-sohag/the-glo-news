@@ -47,3 +47,19 @@ function get_ads($key, $position = 1)
     }
     return null;
 }
+
+
+function formatView($num)
+{
+    if ($num >= 1e6) {
+        return number_format($num / 1e6, 1) . 'M';
+    } elseif ($num >= 1e3) {
+        if ($num < 1e4) {
+            return number_format($num / 1e3, 1) . 'k';
+        } else {
+            return number_format($num / 1e3) . 'k';
+        }
+    } else {
+        return $num;
+    }
+}

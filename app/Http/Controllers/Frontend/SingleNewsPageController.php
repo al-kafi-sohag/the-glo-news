@@ -26,6 +26,9 @@ class SingleNewsPageController extends Category
                 $query->whereIn('category_id', $categoryIds);
             })->where('id', '!=', $data['news']->id)->activated()->latest()->get();
 
+
+        $data['news']->increment('visitors', 10);
+
         return view('frontend.news.single', $data);
     }
 }

@@ -70,7 +70,7 @@ class Post extends BaseModel
     }
 
     public function scopePopular($query){
-        return $query->where('is_popular',1);
+        return $query->orderBy('visitors', 'desc');
     }
 
 }

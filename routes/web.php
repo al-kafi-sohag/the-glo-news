@@ -106,12 +106,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'b.'], fu
         Route::post('subcategories', 'subcategories')->name('subcategories');
     });
 
-    // Route::controller(PermissionController::class)->prefix('permission')->name('permission.')->group(function () {
-        // Route::get('index', 'index')->name('permission_list');
-    // });
-
-
-
     Route::get('/migration', function () {
         Artisan::call('migrate:fresh --seed');
     });
