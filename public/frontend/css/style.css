@@ -6575,6 +6575,7 @@ ul.post_filter li a.selected
     background-position: center center;
     position: relative;
     margin: 0;
+    border-radius: 5px;
 }
 
 .ppb_blog_grid_with_posts.ppb_blog_video .two_third.div_wrapper, .ppb_blog_grid_with_posts.ppb_blog_video .one_third.last
