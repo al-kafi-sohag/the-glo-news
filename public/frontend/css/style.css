@@ -271,7 +271,7 @@ body
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     font-size: 14px;
-    line-height: 1.7;
+    line-height: 2.2;
     word-wrap: break-word;
     -webkit-overflow-scrolling: touch;
 }
@@ -6681,9 +6681,9 @@ ul.post_filter li a.selected
     bottom: 0;
     left: 0;
     background: transparent;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(50%,transparent),color-stop(56%,rgba(0,0,0,0.1)),color-stop(93%,rgba(0,0,0,0.6)),to(rgba(0,0,0,0.59)));
+    /* background-image: -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(50%,transparent),color-stop(56%,rgba(0,0,0,0.1)),color-stop(93%,rgba(0,0,0,0.6)),to(rgba(0,0,0,0.59)));
     background-image: -webkit-linear-gradient(transparent 0%,transparent 50%,rgba(0,0,0,0.1) 56%,rgba(0,0,0,0.6) 93%,rgba(0,0,0,0.59) 100%);
-    background-image: linear-gradient(transparent 0%,transparent 50%,rgba(0,0,0,0.1) 56%,rgba(0,0,0,0.6) 93%,rgba(0,0,0,0.59) 100%);
+    background-image: linear-gradient(transparent 0%,transparent 50%,rgba(0,0,0,0.1) 56%,rgba(0,0,0,0.6) 93%,rgba(0,0,0,0.59) 100%); */
 }
 
 .ppb_blog_grid_with_posts .two_third.div_wrapper .post_header
