@@ -75,13 +75,18 @@
                     <ul class="posts blog withthumb">
 
                         @foreach ($related_news as $rn)
-                            <li>
-                                <div class="post_circle_thumb">
+                            <li class="post type-post w-100">
+                                <div class="post_circle_thumb static one_third w-40">
                                     <a href="{{ route('f.news', $rn->slug) }}">
                                         <img src="{{ storage_url($rn->image) }}" class="tg-lazy" alt="{{ $rn->title }}">
                                     </a>
                                 </div>
-                                <a href="{{ route('f.news', $rn->slug) }}">{{ strLimit($rn->title) }}</a>
+                                <h5 class="two_third last w-60">
+                                    <a href="{{ route('f.news', $rn->slug) }}">{{ strLimit($rn->title) }}</a>
+                                </h5>
+                                <span class="post_info_date">
+                                    <a href="">{{ newsTimeFormate($rn->post_date ) }}</a>
+                                </span>
                             </li>
                         @endforeach
                     </ul>

@@ -4487,7 +4487,7 @@ input[type=submit].center, input[type=button].center, a.button.center
 {
     float: left;
     margin: 0 10px 10px 0;
-    width: 90px;
+    width: 85%;
 }
 
 .post_circle_thumb

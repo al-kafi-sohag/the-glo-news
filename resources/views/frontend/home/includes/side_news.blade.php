@@ -4,7 +4,7 @@
         <div class="post_content_wrapper">
             <div class="post_header search d-flex align-items-center justify-content-between">
                 <div class="post_img static one_third w-40">
-                    <a href="">
+                    <a href="{{ route('f.news', $fn->slug) }}" title="{{ $fn->title }}">
                         <img src="{{ storage_url($fn->image) }}" alt="{{ $fn->title }}" class="" />
                     </a>
                 </div>
