@@ -6575,6 +6575,7 @@ ul.post_filter li a.selected
     background-position: center center;
     position: relative;
     margin: 0;
+    border-radius: 5px;
 }
 
 .ppb_blog_grid_with_posts.ppb_blog_video .two_third.div_wrapper, .ppb_blog_grid_with_posts.ppb_blog_video .one_third.last
@@ -7421,6 +7422,10 @@ h1.page-title
     padding-top: 0;
 }
 
+#page_content_wrapper .inner .adevertisement{
+    max-height: 35.5rem;
+    overflow-y: auto;
+}
 .woocommerce ul.products li.product, .woocommerce-page ul.products li.product
 {
     width: 30.99%;
