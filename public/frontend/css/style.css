@@ -6622,7 +6622,19 @@ ul.post_filter li a.selected
     overflow-y: auto;
     /* margin-bottom: 0; */
 }
+.ppb_blog_grid_with_posts .one_third.last::-webkit-scrollbar {
+    width: 4px;
+    height: 0px;
+}
+.ppb_blog_grid_with_posts .one_third.last::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
 
+.ppb_blog_grid_with_posts .one_third.last::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
 .ppb_blog_grid_with_posts .one_third.last h5
 {
     font-size: 15px;
@@ -7426,6 +7438,19 @@ h1.page-title
 #page_content_wrapper .inner .adevertisement .related_news .posts{
     max-height: 35.5rem;
     overflow-y: auto;
+}
+#page_content_wrapper .inner .adevertisement .related_news .posts::-webkit-scrollbar {
+    width: 4px;
+    height: 0px;
+}
+#page_content_wrapper .inner .adevertisement .related_news .posts::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+#page_content_wrapper .inner .adevertisement .related_news .posts::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
 }
 .woocommerce ul.products li.product, .woocommerce-page ul.products li.product
 {
