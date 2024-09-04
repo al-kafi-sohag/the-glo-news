@@ -1938,6 +1938,7 @@ body.js_nav #overlay_background
     list-style: none;
     margin: 0;
     margin: auto;
+    display: flex;
 }
 
 #footer ul.sidebar_widget li ul
@@ -7422,7 +7423,7 @@ h1.page-title
     padding-top: 0;
 }
 
-#page_content_wrapper .inner .adevertisement{
+#page_content_wrapper .inner .adevertisement .related_news .posts{
     max-height: 35.5rem;
     overflow-y: auto;
 }
