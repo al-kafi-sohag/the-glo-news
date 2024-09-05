@@ -2192,7 +2192,7 @@ body.single-galleries #page_content_wrapper .inner .inner_wrapper
 
 .post.type-post
 {
-    margin-bottom: 35px;
+    margin-bottom: 20px;
     /* float: left; */
     position: relative;
 }
@@ -2593,8 +2593,8 @@ body.page-template-blog_f-php .post_excerpt_full
 {
     float: left;
     margin: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 body.single .post_header .post_detail.post_date, body.single .post_header .post_detail.post_comment
@@ -6576,7 +6576,7 @@ ul.post_filter li a.selected
     background-position: center center;
     position: relative;
     margin: 0;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .ppb_blog_grid_with_posts.ppb_blog_video .two_third.div_wrapper, .ppb_blog_grid_with_posts.ppb_blog_video .one_third.last
