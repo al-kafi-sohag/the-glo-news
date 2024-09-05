@@ -9257,7 +9257,14 @@ textarea.input {
     width: 100% !important;
     padding: 0px !important;
 }
+.single_news .inner .adevertisement .related_news .posts .post_title_date h5{
+    font-size: 14px !important;
+    font-size: 1.2rem;
 
+}
+.single_news .inner .adevertisement .related_news .posts .post_title_date h5 a{
+    color: #111111 !important;
+}
 .loading-div{
     display: flex;
     align-items: center;
