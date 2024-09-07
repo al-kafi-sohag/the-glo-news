@@ -1,7 +1,7 @@
 <div class="footer_bar">
     <div id="footer" class="">
         <ul class="sidebar_widget two">
-            <li id="text-3" class="widget widget_text">
+            <li id="text-3" class="widget widget_text d-flex align-items-center">
                 <div class="textwidget">
                     <p><img src="{{ asset('frontend/img/logo_white.png') }}" alt="" style="max-width: 230px; height: auto;"></p>
                     <p>Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla</p>
