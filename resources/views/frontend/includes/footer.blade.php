@@ -53,10 +53,10 @@
     <div class="footer_bar_wrapper">
         <div class="menu-top-menu-container">
             <ul id="footer_menu" class="footer_nav">
-                <li class="menu-item"><a href="index.html">Home</a></li>
+                <li class="menu-item"><a href="{{ route('f.home') }}">Home</a></li>
                 <li class="menu-item"><a href="index.html">About Us</a></li>
                 <li class="menu-item"><a href="index.html">Advertisement</a></li>
-                <li class="menu-item"><a href="contact.html">Contact</a></li>
+                <li class="menu-item"><a href="{{ route('f.contact.index') }}">Contact</a></li>
                 <li class="menu-item">
                     @if (auth()->user())
                     <a target="_blank" href="{{ route('b.dashboard') }}">Dashboard</a>
