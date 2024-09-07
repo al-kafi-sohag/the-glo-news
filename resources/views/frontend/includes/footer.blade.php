@@ -32,7 +32,7 @@
                         <a href="">About Us</a>
                     </li>
                     <li>
-                        <a href="">Advertisement</a>
+                        <a href="{{ route('f.advertisement.index') }}">Advertisement</a>
                     </li>
                     <li>
                         <a href="{{ route('f.contact.index') }}">Contact Us</a>
