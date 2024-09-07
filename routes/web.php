@@ -46,6 +46,12 @@ Route::group(['as' => 'f.'], function () {
         Route::get('/{type}', 'index')->name('get');
     });
 
+    Route::controller(FrontendAdvertisementController::class)->prefix('advertisement')->name('advertisement.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/advertisement', 'advertisement_submit')->name('submit');
+    });
+
+
     Route::get('/get-ad/{key}', [FrontendAdvertisementController::class, 'get'])->name('get.ads');
 
 });
