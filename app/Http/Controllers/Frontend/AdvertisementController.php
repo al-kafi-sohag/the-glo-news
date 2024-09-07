@@ -25,12 +25,12 @@ class AdvertisementController extends Controller
 
         Mail::to('akhtaruzzamansumon7@gmail.com')->send(new AdvertisementMail([
             'title' => $request->title,
-            'subject' => 'New contact us form submitted',
+            'subject' => 'New advertisement form submitted',
             'key' => $request->key,
             'details' => $request->details,
        ]));
        sweetalert()->success("We have received your request. We will get back to you as soon as possible");
-        return redirect()->route('f.contact.index');
+        return redirect()->route('f.advertisement.index');
     }
     public function get($key)
     {
