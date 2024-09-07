@@ -22,7 +22,7 @@ class ContactUsController  extends Controller
     {
 
 
-        Mail::to('demo@mail.com')->send(new ContactSubmitMail([
+        Mail::to('aksohag16@gmail.com')->send(new ContactSubmitMail([
             'name' => $request->name,
             'subject' => 'New contact us form submitted',
             'city' => $request->city,
