@@ -18,7 +18,7 @@
                 {{ optional($main_news->author)->name }}
             </span>
             <span class="post_info_date">
-                <a href="{{ route('f.news', $main_news->slug) }}">{{ newsTimeFormate($main_news->post_date) }}</a>
+                {{ newsTimeFormate($main_news->post_date) }}
             </span>
         </div>
         <h2>

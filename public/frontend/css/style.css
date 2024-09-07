@@ -271,7 +271,7 @@ body
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     font-size: 14px;
-    line-height: 1.7;
+    line-height: 2.2;
     word-wrap: break-word;
     -webkit-overflow-scrolling: touch;
 }
@@ -1938,6 +1938,7 @@ body.js_nav #overlay_background
     list-style: none;
     margin: 0;
     margin: auto;
+    display: flex;
 }
 
 #footer ul.sidebar_widget li ul
@@ -2191,7 +2192,7 @@ body.single-galleries #page_content_wrapper .inner .inner_wrapper
 
 .post.type-post
 {
-    margin-bottom: 35px;
+    margin-bottom: 20px;
     /* float: left; */
     position: relative;
 }
@@ -2592,8 +2593,8 @@ body.page-template-blog_f-php .post_excerpt_full
 {
     float: left;
     margin: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 body.single .post_header .post_detail.post_date, body.single .post_header .post_detail.post_comment
@@ -4486,7 +4487,7 @@ input[type=submit].center, input[type=button].center, a.button.center
 {
     float: left;
     margin: 0 10px 10px 0;
-    width: 90px;
+    width: 85%;
 }
 
 .post_circle_thumb
@@ -6575,7 +6576,7 @@ ul.post_filter li a.selected
     background-position: center center;
     position: relative;
     margin: 0;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .ppb_blog_grid_with_posts.ppb_blog_video .two_third.div_wrapper, .ppb_blog_grid_with_posts.ppb_blog_video .one_third.last
@@ -6621,7 +6622,19 @@ ul.post_filter li a.selected
     overflow-y: auto;
     /* margin-bottom: 0; */
 }
+.ppb_blog_grid_with_posts .one_third.last::-webkit-scrollbar {
+    width: 4px;
+    height: 0px;
+}
+.ppb_blog_grid_with_posts .one_third.last::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
 
+.ppb_blog_grid_with_posts .one_third.last::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
 .ppb_blog_grid_with_posts .one_third.last h5
 {
     font-size: 15px;
@@ -6668,9 +6681,9 @@ ul.post_filter li a.selected
     bottom: 0;
     left: 0;
     background: transparent;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(50%,transparent),color-stop(56%,rgba(0,0,0,0.1)),color-stop(93%,rgba(0,0,0,0.6)),to(rgba(0,0,0,0.59)));
+    /* background-image: -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(50%,transparent),color-stop(56%,rgba(0,0,0,0.1)),color-stop(93%,rgba(0,0,0,0.6)),to(rgba(0,0,0,0.59)));
     background-image: -webkit-linear-gradient(transparent 0%,transparent 50%,rgba(0,0,0,0.1) 56%,rgba(0,0,0,0.6) 93%,rgba(0,0,0,0.59) 100%);
-    background-image: linear-gradient(transparent 0%,transparent 50%,rgba(0,0,0,0.1) 56%,rgba(0,0,0,0.6) 93%,rgba(0,0,0,0.59) 100%);
+    background-image: linear-gradient(transparent 0%,transparent 50%,rgba(0,0,0,0.1) 56%,rgba(0,0,0,0.6) 93%,rgba(0,0,0,0.59) 100%); */
 }
 
 .ppb_blog_grid_with_posts .two_third.div_wrapper .post_header
@@ -7422,9 +7435,22 @@ h1.page-title
     padding-top: 0;
 }
 
-#page_content_wrapper .inner .adevertisement{
+#page_content_wrapper .inner .adevertisement .related_news .posts{
     max-height: 35.5rem;
     overflow-y: auto;
+}
+#page_content_wrapper .inner .adevertisement .related_news .posts::-webkit-scrollbar {
+    width: 4px;
+    height: 0px;
+}
+#page_content_wrapper .inner .adevertisement .related_news .posts::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+#page_content_wrapper .inner .adevertisement .related_news .posts::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
 }
 .woocommerce ul.products li.product, .woocommerce-page ul.products li.product
 {
@@ -9231,7 +9257,14 @@ textarea.input {
     width: 100% !important;
     padding: 0px !important;
 }
+.single_news .inner .adevertisement .related_news .posts .post_title_date h5{
+    font-size: 14px !important;
+    font-size: 1.2rem;
 
+}
+.single_news .inner .adevertisement .related_news .posts .post_title_date h5 a{
+    color: #111111 !important;
+}
 .loading-div{
     display: flex;
     align-items: center;

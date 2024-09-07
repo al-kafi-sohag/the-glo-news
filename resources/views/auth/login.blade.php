@@ -91,7 +91,7 @@
 
                     <div class="input-group mb-3">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="superadmin@email.com" required autocomplete="email" placeholder="Email" autofocus>
-                        
+
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -106,7 +106,7 @@
                     <div class="input-group mb-3">
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="superadmin@email.com" required autocomplete="current-password" placeholder="Password">
 
-                        
+
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -135,14 +135,6 @@
                         </div>
                     </div>
                 </form>
-                <p class="mb-1">
-                    {{-- <a href="forgot-password.html">I forgot my password</a> --}}
-                    @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
-                            </a>
-                    @endif
-                </p>
             </div>
 
         </div>
