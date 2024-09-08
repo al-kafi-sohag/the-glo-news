@@ -50,10 +50,11 @@ Route::group(['as' => 'f.'], function () {
     Route::controller(FrontendAdvertisementController::class)->prefix('advertisement')->name('advertisement.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/advertisement', 'advertisement_submit')->name('submit');
+        Route::get('/get-ad/{key}', 'get')->name('get.ads');
     });
 
 
-    Route::get('/get-ad/{key}', [FrontendAdvertisementController::class, 'get'])->name('get.ads');
+    // Route::get('/get-ad/{key}', [FrontendAdvertisementController::class, 'get'])->name('get.ads');
 
     Route::controller(AboutUsController::class)->prefix('about-us')->name('about.')->group(function () {
         Route::get('/', 'index')->name('index');
