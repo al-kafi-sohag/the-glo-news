@@ -79,17 +79,21 @@
                         <form method="post" action="{{ route('f.advertisement.submit') }}">
                             @csrf
                             <div class="form-group">
-                                <input type="text" name="title" id="title" placeholder="Title:" class="input"
-                                    value="{{ old('title') }}" />
-                                @include('backend.partials.form-error', ['field' => 'title'])
+                                <input type="text" name="name" id="name" placeholder="Name:" class="input"
+                                    value="{{ old('name') }}" />
+                                @include('backend.partials.form-error', ['field' => 'name'])
                             </div>
                             <div class="form-group">
-                                <input type="text" name="key" id="key" placeholder="Key:" class="input" value="{{ old('key') }}" />
-                                @include('backend.partials.form-error', ['field' => 'key'])
+                                <input type="text" name="city" id="City" placeholder="City:" class="input" value="{{ old('city') }}" />
+                                @include('backend.partials.form-error', ['field' => 'city'])
                             </div>
                             <div class="form-group">
-                                <textarea name="details" rows="20" cols="20" id="details" placeholder="details:" class="input" value="{{ old('details') }}" ></textarea>
-                                @include('backend.partials.form-error', ['field' => 'details'])
+                                <input type="email" name="email" id="email" placeholder="Email:" class="input" value="{{ old('email') }}" />
+                                @include('backend.partials.form-error', ['field' => 'email'])
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" rows="20" cols="20" id="message" placeholder="Message:" class="input" value="{{ old('message') }}" ></textarea>
+                                @include('backend.partials.form-error', ['field' => 'message'])
                             </div>
                             <div class="form-group">
                                 <input type="submit" name="submit" value="Submit" class="submit-button" />
