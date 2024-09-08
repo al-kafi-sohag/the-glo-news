@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Advertisement')
+@section('title', 'About Us')
 
 @push('css')
 @endpush
@@ -46,7 +46,24 @@
             </div>
         </div>
         <div class="row">
+            @foreach ($our_members as $member)
             <div class="col-md-4">
+
+                <div class="card text-center mb-3 mt-5">
+
+                    <div class="card-body p-0 pb-4">
+                        <div class="mb-4"><img class="img-fluid" src="https://freefrontend.dev/assets/rectangle-wide.png">
+                        </div>
+                        <h5 class="fw-bold">{{ $member->name }}</h5>
+                        <div class="text-muted">{{ $member->type() }}</div>
+                        <div class="d-flex justify-content-center mt-4">
+                            <a href=""><i class="fa-brands fa-linkedin fs-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            {{-- <div class="col-md-4">
                 <div class="card text-center mb-3">
                     <div class="card-body p-0 pb-4">
                         <div class="mb-4"><img class="img-fluid" src="https://freefrontend.dev/assets/rectangle-wide.png">
@@ -79,24 +96,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-center mb-3">
-                    <div class="card-body p-0 pb-4">
-                        <div class="mb-4"><img class="img-fluid" src="https://freefrontend.dev/assets/rectangle-wide.png">
-                        </div>
-                        <h5 class="fw-bold">John Doe</h5>
-                        <div class="text-muted">
-                            Programmer
-                        </div>
-                        <div class="d-flex justify-content-center mt-4">
-                            <a href="" class="me-4"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="" class="me-4"><i class="fa-brands fa-twitter"></i></a>
-                            <a href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection

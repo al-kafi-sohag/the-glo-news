@@ -58,7 +58,6 @@ Route::group(['as' => 'f.'], function () {
 
     Route::controller(AboutUsController::class)->prefix('about-us')->name('about.')->group(function () {
         Route::get('/', 'index')->name('index');
-        // Route::post('/submit', 'contact_submit')->name('submit');
     });
 
 });
