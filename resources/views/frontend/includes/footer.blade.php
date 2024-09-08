@@ -1,7 +1,7 @@
 <div class="footer_bar">
     <div id="footer" class="">
         <ul class="sidebar_widget two">
-            <li id="text-3" class="widget widget_text">
+            <li id="text-3" class="widget widget_text d-flex align-items-center">
                 <div class="textwidget">
                     <p><img src="{{ asset('frontend/img/logo_white.png') }}" alt="" style="max-width: 230px; height: auto;"></p>
                     <p>Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla</p>
@@ -53,10 +53,10 @@
     <div class="footer_bar_wrapper">
         <div class="menu-top-menu-container">
             <ul id="footer_menu" class="footer_nav">
-                <li class="menu-item"><a href="index.html">Home</a></li>
+                <li class="menu-item"><a href="{{ route('f.home') }}">Home</a></li>
                 <li class="menu-item"><a href="index.html">About Us</a></li>
+                <li class="menu-item"><a href="{{ route('f.contact.index') }}">Contact</a></li>
                 <li class="menu-item"><a href="{{ route('f.advertisement.index') }}">Advertisement</a></li>
-                <li class="menu-item"><a href="">Contact</a></li>
                 <li class="menu-item">
                     @if (auth()->user())
                     <a target="_blank" href="{{ route('b.dashboard') }}">Dashboard</a>
