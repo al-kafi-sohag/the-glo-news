@@ -24,10 +24,11 @@ class AdvertisementController extends Controller
 
 
         Mail::to('akhtaruzzamansumon7@gmail.com')->send(new AdvertisementMail([
-            'title' => $request->title,
+            'name' => $request->name,
             'subject' => 'New advertisement form submitted',
-            'key' => $request->key,
-            'details' => $request->details,
+            'city'=>$request->city,
+            'email' => $request->email,
+            'message' => $request->message,
        ]));
        sweetalert()->success("We have received your request. We will get back to you as soon as possible");
         return redirect()->route('f.advertisement.index');

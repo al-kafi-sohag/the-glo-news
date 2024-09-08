@@ -9,10 +9,12 @@ class AdvertisementMailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'required|string|unique:advertisements,key|max:255',
-            'key'=>'required|string||unique:advertisements,key|max:255',
-            'details'=>'nullable'
 
+            'name' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'required|string|min:10|max:500',
+            
         ]
         +
         ($this->isMethod('POST') ? $this->store() : $this->update());

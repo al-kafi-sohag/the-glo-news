@@ -50,22 +50,27 @@
         <div class="message">
             {{-- <p>Dear {{ $mailData['name'] }},</p> --}}
             <p>Dear Admin,</p>
-            <p>We have received a contact request. The details are given below:</p>
+            <p>We have received a advertisement request. The details are given below:</p>
             <table class="table table-striped">
                 <tr>
-                    <th class="text-nowrap">Title</th>
+                    <th class="text-nowrap">Name</th>
                     <th>:</th>
-                    <td>{{ $mailData['title'] }}</td>
+                    <td>{{ $mailData['name'] }}</td>
                 </tr>
                 <tr>
-                    <th class="text-nowrap">Key</th>
+                    <th class="text-nowrap">City</th>
                     <th>:</th>
-                    <td>{{ $mailData['key'] }}</td>
+                    <td>{{ $mailData['city'] }}</td>
                 </tr>
                 <tr>
-                    <th class="text-nowrap"  style="vertical-align: top;">Details</th>
+                    <th class="text-nowrap">Email</th>
+                    <th>:</th>
+                    <td>{{ $mailData['email'] }}</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap"  style="vertical-align: top;">Message</th>
                     <th style="vertical-align: top;">:</th>
-                    <td>{{ $mailData['details'] }}</td>
+                    <td>{{ $mailData['message'] }}</td>
                 </tr>
             </table>
             <p>Please contact as soon as possible.</p>
