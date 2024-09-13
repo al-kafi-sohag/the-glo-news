@@ -11,7 +11,9 @@ class AboutUsController  extends Controller
 {
     public function index(): View
     {
-        $data['our_members'] = Author::all();
+        // $data['our_members'] = Author::with('author')->where($author)->activated()->first();
+        $data['our_members'] = Author::where('status',1)->get();
+
         return view('frontend.about-us.index', $data);
     }
 
