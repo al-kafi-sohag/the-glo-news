@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\MultipleNewsController;
 use App\Http\Controllers\Frontend\SingleNewsPageController;
 use App\Http\Controllers\Frontend\ContactUsController;
 use App\Http\Controllers\Frontend\LatestNewsController;
+use App\Http\Controllers\Frontend\AboutUsController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -54,6 +55,10 @@ Route::group(['as' => 'f.'], function () {
 
 
     // Route::get('/get-ad/{key}', [FrontendAdvertisementController::class, 'get'])->name('get.ads');
+
+    Route::controller(AboutUsController::class)->prefix('about-us')->name('about.')->group(function () {
+        Route::get('/', 'index')->name('index');
+    });
 
 });
 
