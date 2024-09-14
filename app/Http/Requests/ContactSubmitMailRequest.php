@@ -13,7 +13,7 @@ class ContactSubmitMailRequest extends FormRequest
             'name' => 'required|string|max:255',
             'city' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'message' => 'required|string|min:10|max:500',
+            'message' => 'required|string|min:10|max:10000',
 
         ]
         +
