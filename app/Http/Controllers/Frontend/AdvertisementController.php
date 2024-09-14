@@ -23,7 +23,7 @@ class AdvertisementController extends Controller
     {
 
 
-        Mail::to('akhtaruzzamansumon7@gmail.com')->send(new AdvertisementMail([
+        Mail::to('sohag.laralabs@gmail.com')->send(new AdvertisementMail([
             'name' => $request->name,
             'subject' => 'New advertisement form submitted',
             'city'=>$request->city,
