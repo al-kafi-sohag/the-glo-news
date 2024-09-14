@@ -12,11 +12,9 @@
                 <div class="mt-5 mt-md-0">
                     <span class="text-muted">Our Story</span>
                     <h2 class="display-5 fw-bold">About Us</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris .</p>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt.</p>
+                    <p class="lead">
+                        Theglonews is a truly professional news portal committed to objective journalism. Headquartered in Bangladesh, the site has an international footprint focussing on the latest and breaking news across the globe.
+                    </p>
                 </div>
             </div>
             <div class="col-md-6 offset-md-1 order-1 order-md-2">
