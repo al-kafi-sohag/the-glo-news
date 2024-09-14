@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to Our Platform</title>
+    <title>{{ config('app.name') }}</title>
     <style>
         /* Inline styles for simplicity, consider using CSS classes for larger templates */
         body {
@@ -55,31 +55,34 @@
                 <tr>
                     <th class="text-nowrap">Name</th>
                     <th>:</th>
-                    <td>{{ $mailData['name'] }}</td>
+                    <td style="text-align: left">{{ $mailData['name'] }}</td>
                 </tr>
                 <tr>
                     <th class="text-nowrap">City</th>
                     <th>:</th>
-                    <td>{{ $mailData['city'] }}</td>
+                    <td style="text-align: left">{{ $mailData['city'] }}</td>
                 </tr>
                 <tr>
                     <th class="text-nowrap">Email</th>
                     <th>:</th>
-                    <td>{{ $mailData['email'] }}</td>
+                    <td style="text-align: left">{{ $mailData['email'] }}</td>
                 </tr>
                 <tr>
                     <th class="text-nowrap"  style="vertical-align: top;">Message</th>
                     <th style="vertical-align: top;">:</th>
-                    <td>{{ $mailData['message'] }}</td>
+                    <td style="text-align: left">{{ $mailData['message'] }}</td>
                 </tr>
             </table>
             <p>Please contact as soon as possible.</p>
-            <p>Best regards,</p>
-            <p>{{ config('app.name') }}</p>
-            <p>This is a software generated email.</p>
+            <p>Best regards,
+                <br/>
+                {{ config('app.name') }}
+            </p>
+            <small style="text-align: center">This is a software generated email.</small>
         </div>
 
     </div>
 </body>
 
 </html>
+
