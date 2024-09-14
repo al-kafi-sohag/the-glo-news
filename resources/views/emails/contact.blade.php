@@ -74,9 +74,11 @@
                 </tr>
             </table>
             <p>Please contact as soon as possible.</p>
-            <p>Best regards,</p>
-            <p>{{ config('app.name') }}</p>
-            <p>This is a software generated email.</p>
+            <p>Best regards,
+                <br/>
+                {{ config('app.name') }}
+            </p>
+            <small style="text-align: center">This is a software generated email.</small>
         </div>
 
     </div>
