@@ -7,6 +7,10 @@ use App\Http\Requests\AdminRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use App\Mail\AdminMail;
+use Illuminate\Support\Facades\Mail;
+
+
 
 class AdminController extends Controller
 {
@@ -36,6 +40,16 @@ class AdminController extends Controller
         $save->status = $request->status ?? 0;
         $save->created_by = auth()->user()->id;
         $save->save();
+
+
+
+        Mail::to($save->email)->send(new AdminMail([
+            'name' => $request->name,
+            'subject' => 'Admin create successful',
+            'message' => "Your account has been registered successfully. Your email verfication code is ".otp(),
+       ]));
+
+
 
         sweetalert()->success("Admin $save->name created successfully");
         return redirect()->route('b.admin.index');
