@@ -46,7 +46,7 @@ class AdminController extends Controller
         Mail::to($save->email)->send(new AdminMail([
             'name' => $request->name,
             'subject' => 'Admin create successful',
-            'message' => "Your account has been registered successfully. Your email verfication code is ".otp(),
+            'message' => "Your account has been registered successfully. Your email verification code is: ".otp(),
        ]));
 
 
