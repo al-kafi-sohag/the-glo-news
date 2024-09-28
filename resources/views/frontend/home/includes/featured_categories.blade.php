@@ -10,15 +10,16 @@
 
                         @foreach ($featured_categories as $fc)
                         <li>
-                            <a href="singleblog.html" class="category_title">{{ $fc->title }}</a>
+                            <a href="{{ route('f.category.index', $fc->slug) }}" class="category_title">{{ $fc->title }}</a>
                             <div class="category_count">{{ $fc->posts_count }}</div>
                         </li>
                         @endforeach
                     </ul>
                 </li>
                 <li id="grand_news_custom_ads-5" class="widget Grand_News_Custom_Ads">
-                    <div class="ads_label">- Advertisement -</div>
-                    <img src="{{ asset('frontend/img/300x250ads.png') }}" alt="" />
+
+
+                    {!! get_ads('homepage', 1) !!}
                 </li>
             </ul>
         </div>

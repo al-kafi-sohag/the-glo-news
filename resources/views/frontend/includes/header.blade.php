@@ -5,7 +5,7 @@
             <div class="standard_wrapper">
                 <div id="logo_normal" class="logo_container">
                     <div class="logo_align">
-                        <a id="custom_logo" class="logo_wrapper default" href="index.html">
+                        <a id="custom_logo" class="logo_wrapper default" href="{{ route('f.home') }}">
                             <img src="{{ asset('frontend/img/logo.png') }}" alt="" width="95" height="69" />
                         </a>
                     </div>
@@ -13,8 +13,7 @@
                 <!-- End logo -->
 
                 <div class="ppb_ads pp_ads_global_before_menu">
-                    <div class="ads_label">- Advertisement -</div>
-                    <a href="#"><img src="{{ asset('frontend/img/728x90ads.png') }}" alt="" /></a>
+                    {!! get_ads('header', 1) !!}
                 </div>
             </div>
         </div>
@@ -29,16 +28,16 @@
                                 @foreach ($headerCategories as $hc)
                                     @if ($hc->header_subCategories->count() > 0)
                                     <li class="menu-item menu-item-has-children arrow">
-                                        <a href="">{{ $hc->title }}</a>
+                                        <a href="{{ route('f.category.index', $hc->slug) }}">{{ $hc->title }}</a>
                                         <ul class="sub-menu">
                                             @foreach ($hc->header_subCategories as $hsc)
                                                 <li class="menu-item">
-                                                    <a href="">{{ $hsc->title }}</a>
+                                                    <a href="{{ route('f.category.index', [$hc->slug, $hsc->slug]) }}">{{ $hsc->title }}</a>
                                                 </li>
                                             @endforeach
                                         </ul>
                                     @else
-                                        <li class="menu-item"><a href="">{{ $hc->title }}</a></li>
+                                        <li class="menu-item"><a href="{{ route('f.category.index', $hc->slug) }}">{{ $hc->title }}</a></li>
                                     @endif
                                 @endforeach
                             </ul>
@@ -49,7 +48,7 @@
                     <div id="logo_right_button">
 
                         <!-- Begin search icon -->
-                        <a href="javascript:void(0);" id="search_icon"><i class="fa fa-search"></i></a>
+                        <a href="javascript:void(0);" id="search_icon"><i class="fa fa-search"  data-bs-toggle="modal" data-bs-target="#searchModal"></i></a>
                         <!-- End side menu -->
 
                         <!-- Begin search icon -->

@@ -7,12 +7,19 @@ use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\FileControlController;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\AdvertisementController as BackendAdvertisementController;
 use App\Http\Controllers\Backend\NewsController;
+use App\Http\Controllers\Frontend\AdvertisementController as FrontendAdvertisementController;
 use App\Http\Controllers\Frontend\HomePageController;
+use App\Http\Controllers\Frontend\MultipleNewsController;
 use App\Http\Controllers\Frontend\SingleNewsPageController;
+use App\Http\Controllers\Frontend\ContactUsController;
+use App\Http\Controllers\Frontend\LatestNewsController;
+use App\Http\Controllers\Frontend\AboutUsController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Frontend\AuthorController as FrontendAuthorController;
 
 
 Auth::routes();
@@ -21,7 +28,37 @@ Auth::routes();
 
 Route::group(['as' => 'f.'], function () {
     Route::get('/', [HomePageController::class, 'index'])->name('home');
-    Route::get('/{slug}', [SingleNewsPageController::class, 'index'])->name('news');
+    Route::get('/news/{slug}', [SingleNewsPageController::class, 'index'])->name('news');
+
+
+    Route::controller(ContactUsController::class)->prefix('contact-us')->name('contact.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/submit', 'contact_submit')->name('submit');
+    });
+
+    Route::controller(MultipleNewsController::class)->prefix('category')->name('category.')->group(function () {
+        Route::get('/{category_slug}/{sub_category_slug?}', 'index')->name('index');
+    });
+    Route::controller(FrontendAuthorController::class)->prefix('author')->name('author.')->group(function () {
+        Route::get('/news/{author_id}', 'news')->name('news');
+    });
+
+    Route::controller(LatestNewsController::class)->prefix('latest-news')->name('latest.')->group(function () {
+        Route::get('/{type}', 'index')->name('get');
+    });
+
+    Route::controller(FrontendAdvertisementController::class)->prefix('advertisement')->name('advertisement.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/advertisement', 'advertisement_submit')->name('submit');
+        Route::get('/get-ad/{key}', 'get')->name('get.ads');
+    });
+
+
+    // Route::get('/get-ad/{key}', [FrontendAdvertisementController::class, 'get'])->name('get.ads');
+
+    Route::controller(AboutUsController::class)->prefix('about-us')->name('about.')->group(function () {
+        Route::get('/', 'index')->name('index');
+    });
 
 });
 
@@ -81,14 +118,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'b.'], fu
         Route::post('subcategories', 'subcategories')->name('subcategories');
     });
 
-    // Route::controller(PermissionController::class)->prefix('permission')->name('permission.')->group(function () {
-        // Route::get('index', 'index')->name('permission_list');
-    // });
-
-
-
-    Route::get('/storage-link', function () {
-        Artisan::call('storage:link');
+    Route::get('/migration', function () {
+        Artisan::call('migrate:fresh --seed');
     });
 
 
@@ -107,6 +138,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'b.'], fu
         Route::put('update/{id}', 'update_store')->name('update');
         Route::get('delete/{id}', 'delete')->name('delete');
         Route::get('details/{id}', 'details')->name('details');
+    });
+
+    Route::controller(BackendAdvertisementController::class)->prefix('advertisement')->name('ads.')->group(function () {
+        Route::get('index', 'index')->name('index');
+        Route::get('update/{id}', 'update')->name('update');
+        Route::post('update/{id}', 'update_store')->name('update');
+        Route::get('status/{id}', 'status')->name('status.update');
     });
 
 });

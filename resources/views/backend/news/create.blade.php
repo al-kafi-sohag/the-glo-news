@@ -3,10 +3,10 @@
 @section('title', 'News')
 
 @push('link_css')
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
-    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.css">
+    <link href="{{ asset('backend/css/filepond/select2.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('backend/css/filepond/filepond.css') }}" rel="stylesheet" />
+    <link href="{{ asset('backend/css/filepond/filepond-plugin-image-preview.css') }}" rel="stylesheet" />
+    <link href="{{ asset('backend/css/filepond/ckeditor5.css') }}" rel="stylesheet" />
 @endpush
 
 @section('content')
@@ -35,7 +35,7 @@
                                                     <label for="image">{{ __('Thumbnail Image') }} <span
                                                             class="text-danger">*</span></label>
                                                     <input type="file" name="image" id="image"
-                                                        class="image-upload">
+                                                        class="image-upload" data-aspectRatio="3:2" data-width="800">
                                                     @include('backend.partials.form-error', [
                                                         'field' => 'image',
                                                     ])
@@ -109,7 +109,7 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="keyword">{{ __('Keyword') }} <span
                                                     class="text-danger">*</span></label>
                                             <select name="keywords[]" id="keyword" class="form-control select-tag"
@@ -124,7 +124,7 @@
                                                 'field' => 'keywords.*',
                                             ])
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="tag">{{ __('Tag') }} <span
                                                     class="text-danger">*</span></label>
                                             <select name="tags[]" id="tag" class="form-control select-tag" multiple>
@@ -133,6 +133,14 @@
                                             <small>{{ __('Tag is used for searching purposes') }}</small>
                                             @include('backend.partials.form-error', ['field' => 'tags'])
                                             @include('backend.partials.form-error', ['field' => 'tags.*'])
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="references">{{ __('Reference') }}</label>
+                                            <select name="references[]" id="reference" class="form-control select-tag" multiple>
+
+                                            </select>
+                                            @include('backend.partials.form-error', ['field' => 'references'])
+                                            @include('backend.partials.form-error', ['field' => 'references.*'])
                                         </div>
                                     </div>
 
@@ -237,14 +245,16 @@
 @endsection
 
 @push('link_script')
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="{{ asset('backend/js/filepond/select2.min.js') }}"></script>
     <script src="{{ asset('backend/js/filepond/file-validation-type.js') }}"></script>
     <script src="{{ asset('backend/js/filepond/image-preview.js') }}"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
     <script src="{{ asset('backend/js/filepond/filepond.min.js') }}"></script>
     <script src="{{ asset('backend/js/filepond/filepond.jquery.js') }}"></script>
     <script src="{{ asset('backend/js/filepond.js') }}"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/ckeditor5-classic-free-full-feature@35.4.1/build/ckeditor.min.js"></script> --}}
-    <script src="{{ asset('backend/js/ckeditor.js') }}"></script>
 @endpush
 
 @push('script')

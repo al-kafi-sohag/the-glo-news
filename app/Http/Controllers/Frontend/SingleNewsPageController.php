@@ -18,6 +18,17 @@ class SingleNewsPageController extends Category
             return redirect()->back();
         }
         $data['category'] = Category::with(['subCategories'])->activated()->latest()->get();
+
+        $categoryIds = $data['news']->categories->pluck('id');
+
+        $data['related_news'] = Post::with(['categories', 'categories.category', 'categories.subCategory'])
+            ->whereHas('categories', function ($query) use ($categoryIds) {
+                $query->whereIn('category_id', $categoryIds);
+            })->where('id', '!=', $data['news']->id)->activated()->latest()->get();
+
+
+        $data['news']->increment('visitors', 10);
+
         return view('frontend.news.single', $data);
     }
 }

@@ -1,6 +1,6 @@
 
 @empty(!$main_news)
-<div class="two_third div_wrapper" style="background-image: url({{ storage_url($main_news->image) }});">
+<div class="two_third div_wrapper aspect32" style="background-image: url({{ storage_url($main_news->image) }});">
     <div class="post_header">
         <div class="post_detail post_date">
             <span class="post_info_author">
@@ -18,7 +18,7 @@
                 {{ optional($main_news->author)->name }}
             </span>
             <span class="post_info_date">
-                <a href="{{ route('f.news', $main_news->slug) }}">{{ newsTimeFormate($main_news->created_at) }}</a>
+                {{ newsTimeFormate($main_news->post_date) }}
             </span>
         </div>
         <h2>

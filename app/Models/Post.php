@@ -38,7 +38,6 @@ class Post extends BaseModel
     {
         return $this->hasMany(PostCategory::class, 'post_id', 'id');
     }
-
     public function author(): BelongsTo
     {
         return $this->belongsTo(Author::class, 'author_id');
@@ -64,6 +63,14 @@ class Post extends BaseModel
         }else{
             return 'btn-success';
         }
+    }
+
+    public function scopeTrending($query){
+        return $query->where('is_trending',1);
+    }
+
+    public function scopePopular($query){
+        return $query->orderBy('visitors', 'desc');
     }
 
 }

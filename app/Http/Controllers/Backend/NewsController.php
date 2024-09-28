@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewsRequest;
+use App\Http\Traits\FileUploadTrait;
 use App\Models\Author;
 use App\Models\Category;
 use App\Models\Post;
@@ -18,6 +19,7 @@ use Illuminate\View\View;
 
 class NewsController extends Controller
 {
+    use FileUploadTrait;
     public function __construct()
     {
         $this->middleware('auth');
@@ -57,6 +59,7 @@ class NewsController extends Controller
 
         $news->keywords = json_encode($request->keywords);
         $news->tags = json_encode($request->tags);
+        $news->references = json_encode($request->references);
         $news->save();
 
         foreach($request->category as $cat){
@@ -81,21 +84,14 @@ class NewsController extends Controller
             }
         }
 
-        if(isset($request->image) && !empty($request->image)){
-            try {
-                $temp_file = TmpFile::findOrFail($request->image);
+        if (isset($request->image) && !empty($request->image)) {
+            $temp_file = TmpFile::findOrFail($request->image);
 
-                $from_path = $temp_file->path . '/' . $temp_file->filename;
-                $to_path = 'images/news/' . $news->id . '/' . $temp_file->filename;
+            $newFilePath = $this->moveAndRenameFile($temp_file, $news, 'images/news', 'image');
 
-                Storage::move($from_path, $to_path);
-                Storage::deleteDirectory($temp_file->path);
-
-                $news->image = $to_path;
-                $news->save();
-            } catch (\Throwable $th) {
+            if ($newFilePath === false) {
                 sweetalert()->error("Something went wrong with the image");
-                return redirect()->route('b.news.update', $save->id);
+                return redirect()->route('b.news.update', $news->id);
             }
         }
 
@@ -106,7 +102,7 @@ class NewsController extends Controller
 
     public function update($id): View
     {
-        $data['news'] = Post::findOrFail($id);
+        $data['news'] = Post::with(['categories', 'subCategories'])->findOrFail($id);
         $data['categories'] = Category::with(['activeSubCategories'])->activated()->latest()->get();
         $data['authors'] = Author::activated()->latest()->get();
         return view('backend.news.update', $data);
@@ -133,6 +129,7 @@ class NewsController extends Controller
 
         $news->keywords = json_encode($request->keywords);
         $news->tags = json_encode($request->tags);
+        $news->references = json_encode($request->references);
         $news->save();
 
         foreach($request->category as $cat){
@@ -158,18 +155,19 @@ class NewsController extends Controller
         }
 
 
+
         if(isset($request->image) && !empty($request->image)){
             try {
                 $temp_file = TmpFile::findOrFail($request->image);
 
                 $from_path = $temp_file->path . '/' . $temp_file->filename;
-                $to_path = 'images/news/' . $save->id . '/' . $temp_file->filename;
+                $to_path = 'images/news/' . $news->id . '/' . $temp_file->filename;
 
                 Storage::move($from_path, $to_path);
                 Storage::deleteDirectory($temp_file->path);
 
-                $save->img = $to_path;
-                $save->save();
+                $news->image = $to_path;
+                $news->save();
             } catch (\Throwable $th) {
                 sweetalert()->error("Something went wrong with the image");
                 return redirect()->back();

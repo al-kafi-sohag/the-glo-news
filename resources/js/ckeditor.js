@@ -80,6 +80,12 @@ import {
 
 import 'ckeditor5/ckeditor5.css';
 
+if($('#description').val()){
+    var data = $('#description').val();
+}else{
+    var data = '';
+}
+
 const editorConfig = {
 	toolbar: {
 		items: [
@@ -287,7 +293,7 @@ const editorConfig = {
 		]
 	},
 	initialData:
-		'',
+		data,
 	link: {
 		addTargetToExternalLinks: true,
 		defaultProtocol: 'https://',

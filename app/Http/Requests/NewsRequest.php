@@ -16,7 +16,6 @@ class NewsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => 'required|exists:tmp_files,id',
             'category' => 'required|array|min:1',
             'category.*' => 'exists:categories,id',
             'sub_category' => 'nullable|array',
@@ -26,6 +25,8 @@ class NewsRequest extends FormRequest
             'keywords.*' => 'string|max:255',
             'tags' => 'required|array|min:1',
             'tags.*' => 'string|max:255',
+            'references' => 'nullable|array|min:1',
+            'references.*' => 'url|max:255',
             'author' => 'required|exists:authors,id',
             'main' => 'required|boolean',
             'featured' => 'required|boolean',
@@ -41,6 +42,7 @@ class NewsRequest extends FormRequest
     {
         return [
             'title' => 'required|string|min:3|max:255|unique:posts,title',
+            'image' => 'required|exists:tmp_files,id',
         ];
     }
 
@@ -48,6 +50,7 @@ class NewsRequest extends FormRequest
     {
         return [
             'title' => 'required|string|min:3|max:255|unique:posts,title,' . $this->route('id'),
+            'image' => 'nullable|exists:tmp_files,id',
         ];
     }
 }

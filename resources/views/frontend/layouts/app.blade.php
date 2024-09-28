@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="zAElhakSlUOTTEvBcSBoD3st8Y98mrWK6XTSmJUmAFE" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>
@@ -35,9 +36,13 @@
         <link rel="stylesheet" href="{{ asset('frontend/css/left-fullwidth.css') }}" type="text/css" media="all" />
         <link rel="stylesheet" href="{{ asset('frontend/css/left-fullwidth-grid.css') }}" type="text/css" media="all" />
         <link rel="stylesheet" href="{{ asset('frontend/css/grid.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}" type="text/css" media="all" />
 
     @stack('link_css')
     @stack('css')
+
+    {{-- Google Custom Search Engine --}}
+    <script async src="https://cse.google.com/cse.js?cx=019de7ea5c4d24a73"></script>
 </head>
 
 <body class="home page-template-default page page-id-3595 left_fullwidth">
@@ -63,10 +68,13 @@
     <script type="text/javascript" src="{{ asset('frontend/js/plugins/jquery.tooltipster.min.js') }}" id="tooltipster-js"></script>
     <script type="text/javascript" src="{{ asset('frontend/js/plugins/custom_plugins.js') }}" id="grandnews-custom-plugins-js"></script>
     <script type="text/javascript" src="{{ asset('frontend/js/plugins/custom.js') }}" id="grandnews-custom-script-js"></script>
+    <script type="text/javascript" src="{{ asset('frontend/js/search.js') }}"></script>
 
 
     @stack('link_script')
     @stack('script')
+
+    @include('frontend.includes.search-modal')
 </body>
 
 </html>

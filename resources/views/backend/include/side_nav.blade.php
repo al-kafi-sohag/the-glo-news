@@ -43,7 +43,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('b.sub_category.index') }}"
-                        class="nav-link {{ $pageSlug == 'sub - category' ? 'active' : '' }}">
+                        class="nav-link {{ $pageSlug == 'sub-category' ? 'active' : '' }}">
                         <i class="fa-solid fa-arrow-right-arrow-left"></i>
                         <p>{{ __('Sub Category') }}</p>
                     </a>
@@ -60,6 +60,14 @@
                         class="nav-link {{ $pageSlug == 'news' ? 'active' : '' }}">
                         <i class="fa-solid fa-newspaper"></i>
                         <p>{{ __('News') }}</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('b.ads.index') }}"
+                        class="nav-link {{ $pageSlug == 'advertisement' ? 'active' : '' }}">
+                        <i class="fa-solid fa-bullhorn"></i>
+                        <p>{{ __('Advertisement') }}</p>
                     </a>
                 </li>
             </ul>
