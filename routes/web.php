@@ -24,7 +24,9 @@ use App\Http\Controllers\Frontend\AuthorController as FrontendAuthorController;
 
 Auth::routes();
 
-
+    Route::get('/migration', function () {
+        Artisan::call('migrate:fresh --seed');
+    });
 
 Route::group(['as' => 'f.'], function () {
     Route::get('/', [HomePageController::class, 'index'])->name('home');
@@ -118,9 +120,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'b.'], fu
         Route::post('subcategories', 'subcategories')->name('subcategories');
     });
 
-    Route::get('/migration', function () {
-        Artisan::call('migrate:fresh --seed');
-    });
+
 
 
     Route::get('/cache-clear', function () {
