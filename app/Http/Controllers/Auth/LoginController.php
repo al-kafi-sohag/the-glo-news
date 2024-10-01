@@ -51,12 +51,14 @@ class LoginController extends Controller
             $user = Auth::user();
             if ($user->status != 1) {
                 Auth::logout();
-                return redirect()->back()->withErrors(['error' => 'Your account is not active. Please contact an administrator.']);
+                sweetalert()->error("Your account is deactivated. Please contact administrator");
+                return redirect()->back();
             }
 
             return redirect()->intended($this->redirectTo);
         }
 
-        return back()->withErrors(['error' => 'Invalid credentials']);
+        sweetalert()->error("Invalid credentials");
+        return back();
     }
 }
