@@ -62,7 +62,7 @@
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                                        <a href="javascript:void(0)" data-id="{{ $n->id }}" class="btn btn-secondary view" title="View details"><i class="fa-solid fa-eye"></i></a>
+                                                        <a href="{{ route('f.news', $n->slug) }}" data-id="{{ $n->id }}" class="btn btn-secondary view" title="View details"><i class="fa-solid fa-eye"></i></a>
                                                         <a href="{{ route('b.news.update', $n->id) }}" title="Update item" title="Edit information" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
                                                         <a href="javascript:void(0)" class="btn btn-danger delete" data-id="{{ $n->id }}" title="Delete data"><i class="fa-solid fa-trash-can"></i></a>
                                                         <a href="{{route('b.news.status.update',$n->id)}}" class="btn {{$n->statusIcon()}}"><i class="fa-solid fa-power-off"></i></a>
