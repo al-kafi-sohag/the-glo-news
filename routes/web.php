@@ -119,7 +119,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'b.'], fu
     });
 
     Route::get('/migration', function () {
-        Artisan::call('migrate:fresh');
+        Artisan::call('migrate:fresh --seed');
     });
 
 
