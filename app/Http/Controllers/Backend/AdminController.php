@@ -46,7 +46,7 @@ class AdminController extends Controller
         Mail::to($save->email)->send(new AdminMail([
             'name' => $request->name,
             'subject' => 'Welcome to our platform',
-            'message' => "Your account has been registered successfully. Your username is $request->email. Your password is $request->password. Use this url to login ".config('app.url')."/login",
+            'message' => "Your account has been registered successfully. Your username is '$request->email' & Your password is '$request->password'.  Use this url to login ".config('app.url')."/login",
        ]));
 
 
