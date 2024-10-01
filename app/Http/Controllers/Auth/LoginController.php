@@ -49,7 +49,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)){
             $user = Auth::user();
-            if ($user->status != 1) {
+            if ($user->status != 0) {
                 Auth::logout();
                 sweetalert()->error("Your account is deactivated. Please contact administrator");
                 return redirect()->back();
