@@ -63,3 +63,10 @@ function formatView($num)
         return $num;
     }
 }
+
+
+function otp() {
+    $otp = rand(100000, 999999);
+    return $otp;
+}
+
