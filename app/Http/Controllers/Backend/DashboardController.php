@@ -29,7 +29,16 @@ class DashboardController extends Controller
         $data['authors'] =  Author::get();
         $data['categories'] = Category::get();
         $data['subCategories'] = SubCategory::get();
-        $data['topCategories'] = PostCategory::select('category_id', 'categories.title as name', DB::raw('count(post_id) as total_news'))->join('categories', 'post_categories.category_id', '=', 'categories.id')->groupBy('category_id')->orderBy('total_news', 'desc')->take(5)->get();
+        $data['topCategories'] = PostCategory::select(
+            'category_id',
+            'categories.title as name',
+            DB::raw('count(post_id) as total_news')
+        )
+        ->join('categories', 'post_categories.category_id', '=', 'categories.id')
+        ->groupBy(['category_id', 'categories.title'])
+        ->orderBy('total_news', 'desc')
+        ->take(5)
+        ->get();
         $data['topNews'] =  Post::select('title', 'visitors')->orderBy('visitors', 'desc')->limit(10)->get();
 
         $year = Carbon::now()->year;
@@ -54,11 +63,4 @@ class DashboardController extends Controller
         return view('backend.dashboard.index', $data);
     }
 
-
-    public function showMonthlyPostsChart()
-    {
-
-
-        return response()->json(['months' => $months, 'postCounts' => $postCounts]);
-    }
 }
