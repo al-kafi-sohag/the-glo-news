@@ -1,5 +1,5 @@
 .logo_wrapper img{
     width: 12rem !important;
-    height: auto !important;
-    object-fit: cover !important;
+    height: 5rem !important;
+    object-fit: contain !important;
 }

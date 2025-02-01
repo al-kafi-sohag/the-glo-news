@@ -21,8 +21,8 @@ class ContactUsController  extends Controller
     public function contact_submit(ContactSubmitMailRequest $request):RedirectResponse
     {
 
-
-        Mail::to('firozjourno@gmail.com')->send(new ContactSubmitMail([
+        //firozjourno@gmail.com
+        Mail::to('aksohag16gmail.com')->send(new ContactSubmitMail([
             'name' => $request->name,
             'subject' => 'New contact us form submitted',
             'city' => $request->city,
