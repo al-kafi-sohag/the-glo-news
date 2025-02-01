@@ -290,9 +290,11 @@ body.notouch
 {
     -webkit-overflow-scrolling: auto !important;
 }
+
 img{
     border-radius: 5px;
 }
+
 .floatleft
 {
     float: left !important;
@@ -1483,7 +1485,7 @@ body.js_nav #overlay_background
     content: "\f107";
     float: right;
     margin-left: 8px;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 #menu_wrapper .nav ul li.arrow > a:after, #menu_wrapper div .nav li.arrow > a:after
@@ -3400,7 +3402,6 @@ body.single-post #page_caption.hasbg .page_title_wrapper
     z-index: 0;
 } */
 
-
 #page_caption.hasbg h1:before
 {
     display: none;
@@ -3780,7 +3781,7 @@ body.single .post_content_wrapper  .post_img.post_gallery_featured
     font-size: 14px;
 }
 
-#social_share_wrapper.inline, , .social_share_bubble.inline
+#social_share_wrapper.inline, .social_share_bubble.inline
 {
     text-align: center;
     border:0;
@@ -6622,10 +6623,12 @@ ul.post_filter li a.selected
     overflow-y: auto;
     /* margin-bottom: 0; */
 }
+
 .ppb_blog_grid_with_posts .one_third.last::-webkit-scrollbar {
     width: 4px;
     height: 0px;
 }
+
 .ppb_blog_grid_with_posts .one_third.last::-webkit-scrollbar-thumb {
     background-color: #888;
     border-radius: 10px;
@@ -6635,6 +6638,7 @@ ul.post_filter li a.selected
     background-color: #f1f1f1;
     border-radius: 10px;
 }
+
 .ppb_blog_grid_with_posts .one_third.last h5
 {
     font-size: 15px;
@@ -7439,10 +7443,12 @@ h1.page-title
     max-height: 35.5rem;
     overflow-y: auto;
 }
+
 #page_content_wrapper .inner .adevertisement .related_news .posts::-webkit-scrollbar {
     width: 4px;
     height: 0px;
 }
+
 #page_content_wrapper .inner .adevertisement .related_news .posts::-webkit-scrollbar-thumb {
     background-color: #888;
     border-radius: 10px;
@@ -7452,6 +7458,7 @@ h1.page-title
     background-color: #f1f1f1;
     border-radius: 10px;
 }
+
 .woocommerce ul.products li.product, .woocommerce-page ul.products li.product
 {
     width: 30.99%;
@@ -8722,7 +8729,6 @@ hr,
 .read_next_wrapper,
 #menu_wrapper .nav ul li.catmenu > .catmenu_wrapper,
 #menu_wrapper div .nav li.catmenu > .catmenu_wrapper,
-,
 .woocommerce ul.products li.product,
 .woocommerce-page ul.products li.product,
 .woocommerce ul.products li.product .price,
@@ -9257,14 +9263,16 @@ textarea.input {
     width: 100% !important;
     padding: 0px !important;
 }
+
 .single_news .inner .adevertisement .related_news .posts .post_title_date h5{
     font-size: 14px !important;
     font-size: 1.2rem;
-
 }
+
 .single_news .inner .adevertisement .related_news .posts .post_title_date h5 a{
     color: #111111 !important;
 }
+
 .loading-div{
     display: flex;
     align-items: center;

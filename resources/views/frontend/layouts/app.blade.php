@@ -7,6 +7,8 @@
     <meta name="google-site-verification" content="zAElhakSlUOTTEvBcSBoD3st8Y98mrWK6XTSmJUmAFE" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="icon" type="image/png" href="{{ asset('frontend/img/logo.png') }}">
+
     <title>
         @yield('title', config('app.name')) | {{ config('app.name') }}
     </title>
@@ -37,6 +39,7 @@
         <link rel="stylesheet" href="{{ asset('frontend/css/left-fullwidth-grid.css') }}" type="text/css" media="all" />
         <link rel="stylesheet" href="{{ asset('frontend/css/grid.css') }}" type="text/css" media="all" />
         <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}" type="text/css" media="all">
 
     @stack('link_css')
     @stack('css')

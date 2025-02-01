@@ -6,7 +6,7 @@
                 <div id="logo_normal" class="logo_container">
                     <div class="logo_align">
                         <a id="custom_logo" class="logo_wrapper default" href="{{ route('f.home') }}">
-                            <img src="{{ asset('frontend/img/logo.png') }}" alt="" width="95" height="69" />
+                            <img src="{{ asset('frontend/img/logo.png') }}" alt=""/>
                         </a>
                     </div>
                 </div>
