@@ -30,7 +30,9 @@ jobs:
           port: ${{ secrets.SSH_PORT || 22 }}
           script: |
             cd ~/public_html/
-            git pull origin main
+            git fetch --all
+            git reset --hard origin/main
+            git pull
             composer install --no-dev --optimize-autoloader
             php artisan migrate --force
             php artisan optimize:clear
