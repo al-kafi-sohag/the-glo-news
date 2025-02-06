@@ -4,7 +4,7 @@
     <div class="post_header">
         <div class="post_detail post_date">
             <span class="post_info_author">
-                <span class="gravatar">
+                {{-- <span class="gravatar">
                     <img
                         alt=""
                         src="{{ asset('frontend/img/default/reporter-avatar.jpg') }}"
@@ -14,7 +14,7 @@
                         width="60"
                         loading="lazy"
                     />
-                </span>
+                </span> --}}
                 {{ optional($main_news->author)->name }}
             </span>
             <span class="post_info_date">

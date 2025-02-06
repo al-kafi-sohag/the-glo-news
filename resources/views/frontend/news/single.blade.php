@@ -20,12 +20,12 @@
                                         <div class="post_detail post_date">
                                             <span class="post_info_author">
                                                 <a href="{{ route('f.author.news', optional($news->author)->id) }}">
-                                                    <span class="gravatar">
+                                                    {{-- <span class="gravatar">
                                                         <img alt="{{ optional($news->author)->name }}"
                                                             src="{{ asset('frontend/img/default/reporter-avatar.jpg') }}"
                                                             class="avatar avatar-60 photo" height="60" width="60"
                                                             loading="lazy" />
-                                                    </span>
+                                                    </span> --}}
                                                     {{ optional($news->author)->name }}
                                                     ({{ optional($news->author)->type() }})
                                                 </a>

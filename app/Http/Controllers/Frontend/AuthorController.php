@@ -13,7 +13,7 @@ class AuthorController
     public function news($author_id):View
     {
         $data['author'] = Author::findOrFail($author_id);
-        $data['news'] = Post::with(['categories','subCategories','author'])->activated()->where('author_id',$author_id)->latest()->get();
+        $data['news'] = Post::with(['categories','subCategories','author'])->activated()->where('author_id',$author_id)->latest()->paginate(10);
         return view('frontend.news.author_news',$data);
     }
 }

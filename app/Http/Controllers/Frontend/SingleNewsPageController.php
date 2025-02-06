@@ -24,7 +24,7 @@ class SingleNewsPageController extends Category
         $data['related_news'] = Post::with(['categories', 'categories.category', 'categories.subCategory'])
             ->whereHas('categories', function ($query) use ($categoryIds) {
                 $query->whereIn('category_id', $categoryIds);
-            })->where('id', '!=', $data['news']->id)->activated()->latest()->get();
+            })->where('id', '!=', $data['news']->id)->activated()->orderBy('order', 'asc')->limit(10)->get();
 
 
         $data['news']->increment('visitors', 10);

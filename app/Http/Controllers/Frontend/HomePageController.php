@@ -16,8 +16,8 @@ class HomePageController extends Controller
     public function index() :View
     {
         $data['main_news'] = Post::where('is_main', 1)->activated()->latest()->first();
-        $data['featured_news'] = Post::where('is_featured', 1)->activated()->latest()->limit(10)->get();
-        $data['trending_news'] = Post::where('is_trending', 1)->activated()->latest()->limit(10)->get();
+        $data['featured_news'] = Post::where('is_featured', 1)->activated()->orderBy('order', 'asc')->limit(10)->get();
+        $data['trending_news'] = Post::where('is_trending', 1)->activated()->orderBy('order', 'asc')->limit(10)->get();
 
         $data['categories'] = Category::activated()->latest()->get();
         $data['featured_categories'] = Category::withCount('posts')->where('is_featured', 1)->activated()->latest()->get();

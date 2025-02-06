@@ -63,9 +63,9 @@
                             </div>
                         </div>
                     @endforeach
-                    <div class="pagination">
-                        <div class="pagination_page">1</div>
-                    </div>
+                </div>
+                <div class="pagination-wrapper">
+                    {{ $news->links('pagination::bootstrap-5') }}
                 </div>
 
             </div>

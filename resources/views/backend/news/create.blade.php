@@ -221,6 +221,25 @@
                                             @include('backend.partials.form-error', ['field' => 'status'])
                                         </div>
                                     </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="order">Select Order Number (1-100)</label>
+                                            <select class="form-control @error('order') is-invalid @enderror select" id="order" name="order">
+                                                <option value="">-- Select Order Number --</option>
+                                                @foreach($availableOrders as $order)
+                                                    <option value="{{ $order }}"
+                                                        class="select" @if(in_array($order, $takenOrderNumbers)) data-taken=true @endif
+                                                        @if(old('order') == $order) selected @endif
+                                                    >
+                                                        {{ $order }}
+                                                        @if(in_array($order, $takenOrderNumbers)) (Taken) @endif
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @include('backend.partials.form-error', ['field' => 'order'])
+                                            <small class="form-text text-muted">Selecting a taken order will move the previous news to the end of the order.</small>
+                                        </div>
+                                    </div>
 
                                     <div class="form-group row">
                                         <div></div>

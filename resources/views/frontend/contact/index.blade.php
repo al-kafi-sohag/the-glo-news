@@ -23,50 +23,22 @@
             <div class="inner_wrapper">
                 <div class="sidebar_content full_width nopadding">
                     <div class="sidebar_content page_content">
-                        <p>
+                        {{-- <p>
                             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
                             laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
                             beatae vitae dicta sunt explicabo.
                             Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
-                        </p>
+                        </p> --}}
                         <p>&nbsp;</p>
-                        <div class="one_third" style="">
-                            <h5>New York</h5>
-                            <p></p>
+                        <div class="two_third" style="">
+                            <h5>Dhaka</h5>
+                            <p>Administrator</p>
                             <p>
-                                78 Collective Street, Manhattan<br />
-                                Kingston, United State
+                                House- 1/E, Road- 11, Block-G, <br/> Bashundhara Residential Area, Dhaka- 1229
                             </p>
                             <p>
-                                +78 (0) 231 908 1433<br />
-                                +78 (0) 231 908 1456<br />
-                                <a href="#">mail@grandnewstheme.com</a>
-                            </p>
-                        </div>
-                        <div class="one_third" style="">
-                            <h5>London</h5>
-                            <p></p>
-                            <p>
-                                67 Collective Street, Yorksheer<br />
-                                Kingston, United Kingdom
-                            </p>
-                            <p>
-                                +78 (0) 231 908 1433<br />
-                                +78 (0) 231 908 1456<br />
-                                <a href="#">mail@grandnewstheme.com</a>
-                            </p>
-                        </div>
-                        <div class="one_third last" style="">
-                            <h5>Birmingham</h5>
-                            <p></p>
-                            <p>
-                                89 Collective Street, Manhattan<br />
-                                Kingston, United Kingdom
-                            </p>
-                            <p>
-                                +78 (0) 231 908 1433<br />
-                                +78 (0) 231 908 1456<br />
-                                <a href="#">mail@grandnewstheme.com</a>
+                                <a href="tel:+8801747230572">+8801747230572</a><br />
+                                <a href="mailto:firozjourno@gmail.com">firozjourno@gmail.com</a>
                             </p>
                         </div>
                         <p><br class="clear" /></p>
@@ -143,11 +115,11 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li id="grand_news_instagram-2" class="widget Grand_News_Instagram">
+                                    {{-- <li id="grand_news_instagram-2" class="widget Grand_News_Instagram">
                                         Required plugin "Meks Easy Photo Feed Widget" is required. <a href="#">Please
                                             install the plugin here</a>. or read more detailed instruction about
                                         <a href="#" target="_blank">How to setup the plugin here</a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                         </div>

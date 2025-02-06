@@ -3,3 +3,22 @@
     height: 5rem !important;
     object-fit: contain !important;
 }
+
+.pagination-wrapper .page-item.active .page-link,
+.pagination-wrapper .page-item .page-link {
+    line-height: 1.5rem !important;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true].taken-order,
+.select2-container--default .select2-results__option--highlighted.taken-order,
+.select2-container--default .select2-results__option.taken-order {
+    color: red !important;
+}
+
+.select2-selection__rendered.taken-order {
+    color: red !important;
+}
+
+#order .taken-order{
+    color: red !important;
+}

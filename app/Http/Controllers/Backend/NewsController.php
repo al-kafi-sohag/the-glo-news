@@ -35,6 +35,9 @@ class NewsController extends Controller
     {
         $data['categories'] = Category::with(['activeSubCategories'])->activated()->latest()->get();
         $data['authors'] = Author::activated()->latest()->get();
+
+        $data['takenOrderNumbers'] = Post::whereNotNull('order')->pluck('order')->toArray();
+        $data['availableOrders'] = range(1, 100);
         return view('backend.news.create', $data);
     }
 
@@ -61,6 +64,17 @@ class NewsController extends Controller
         $news->tags = json_encode($request->tags);
         $news->references = json_encode($request->references);
         $news->save();
+
+        if($request->order != null){
+             // Check if the selected order is already taken
+            $existingNews = Post::where('order', $request->order)->first();
+
+            if ($existingNews) {
+                $existingNews->update(['order' => null]);
+            }
+            $news->order = $request->order;
+            $news->save();
+        }
 
         foreach($request->category as $cat){
             $subCats = SubCategory::where('c_id', $cat)->activated()->latest()->get()->pluck('id')->toArray();
@@ -105,6 +119,8 @@ class NewsController extends Controller
         $data['news'] = Post::with(['categories', 'subCategories'])->findOrFail($id);
         $data['categories'] = Category::with(['activeSubCategories'])->activated()->latest()->get();
         $data['authors'] = Author::activated()->latest()->get();
+        $data['takenOrderNumbers'] = Post::whereNotNull('order')->pluck('order')->toArray();
+        $data['availableOrders'] = range(1, 100);
         return view('backend.news.update', $data);
     }
 

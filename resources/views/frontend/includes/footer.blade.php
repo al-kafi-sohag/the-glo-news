@@ -3,8 +3,8 @@
         <ul class="sidebar_widget two">
             <li id="text-3" class="widget widget_text d-flex align-items-center">
                 <div class="textwidget">
-                    <p><img src="{{ asset('frontend/img/logo_white.png') }}" alt="" style="max-width: 230px; height: auto;"></p>
-                    <p>Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla</p>
+                    <a href="{{ route('f.home') }}"><img src="{{ asset('frontend/img/logo_white.png') }}" alt="" style="max-width: 230px; height: auto;"></a>
+                    {{-- <p>Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla</p> --}}
                     <div style="margin-top: 15px;">
                         <div class="social_wrapper shortcode light large">
                             <ul>
