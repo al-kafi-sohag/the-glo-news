@@ -41,7 +41,7 @@ class MultipleNewsController extends Controller
         })
         // ->orderBy('order', 'asc')
         ->latest()
-        ->paginate(10);
+        ->paginate(12);
 
 
         return view('frontend.news.multiple', $data);
