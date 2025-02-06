@@ -67,7 +67,7 @@
                     @endforeach
                 </div>
                 <div class="pagination-wrapper">
-                    {{ $news->links('pagination::bootstrap-5') }}
+                    {{-- {{ $news->links('pagination::bootstrap-5') }} --}}
                 </div>
 
             </div>
