@@ -13,7 +13,7 @@
                     <span class="text-muted">Our Story</span>
                     <h2 class="display-5 fw-bold">About Us</h2>
                     <p class="lead">
-                        Theglonews is a truly professional news portal committed to objective journalism. Headquartered in Bangladesh, the site has an international footprint focussing on the latest and breaking news across the globe.
+                        The Reporter 24 is a truly professional news portal committed to objective journalism. Headquartered in Bangladesh, the site has an international footprint focussing on the latest and breaking news across the globe.
                     </p>
                 </div>
             </div>
