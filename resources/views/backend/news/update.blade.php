@@ -266,13 +266,12 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="order">Select Order Number (1-100)</label>
-                                                <select class="form-control @error('order') is-invalid @enderror select " id="order" name="order">
+                                                <label for="order">Select Order Number (1-100)</label> <small>Current Order: {{ $news->order ?? 'Null' }}</small>
+                                                <select class="form-control @error('order') is-invalid @enderror select" id="order" name="order">
                                                     <option value="">-- Select Order Number --</option>
                                                     @foreach($availableOrders as $order)
                                                         <option value="{{ $order }}"
                                                             @if(in_array($order, $takenOrderNumbers)) class="taken-order" style="color: red;" @endif
-                                                            @if(old('order') == $order) selected @endif
                                                             @if ($news->order == $order) seleted @endif
                                                         >
                                                             {{ $order }}
