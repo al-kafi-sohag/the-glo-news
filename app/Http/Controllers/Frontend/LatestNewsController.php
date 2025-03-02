@@ -15,6 +15,9 @@ class LatestNewsController extends Controller
 
         $query = Post::with('author:id,name')->activated();
 
+        $query->orderByRaw('CASE WHEN `order` IS NOT NULL THEN 0 ELSE 1 END')
+                ->orderBy('order', 'asc');
+
         if($type == 'latest'){
             $query->latest()->take($post_per_page);
         }elseif($type == 'trending'){
