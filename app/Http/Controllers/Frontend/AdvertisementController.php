@@ -22,8 +22,8 @@ class AdvertisementController extends Controller
     public function advertisement_submit(AdvertisementMailRequest $request):RedirectResponse
     {
 
-
-        Mail::to('firozjourno@gmail.com')->send(new AdvertisementMail([
+        //firozjourno@gmail.com
+        Mail::to('aksohag16@gmail.com')->send(new AdvertisementMail([
             'name' => $request->name,
             'subject' => 'New advertisement form submitted',
             'city'=>$request->city,
