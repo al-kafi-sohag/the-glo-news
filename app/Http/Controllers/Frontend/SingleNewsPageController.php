@@ -27,7 +27,7 @@ class SingleNewsPageController extends Category
             })->where('id', '!=', $data['news']->id)->activated()->orderBy('order', 'asc')->limit(10)->get();
 
 
-        $data['news']->increment('visitors', 10);
+        $data['news']->increment('visitors', rand(1, 10));
 
         return view('frontend.news.single', $data);
     }
