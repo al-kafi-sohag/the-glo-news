@@ -6,6 +6,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use RalphJSmit\Laravel\SEO\Support\HasSEO;
 
@@ -46,6 +47,11 @@ class Post extends BaseModel
     public function postCategories(): HasMany
     {
         return $this->hasMany(PostCategory::class, 'post_id', 'id');
+    }
+
+    public function pc():BelongsToMany
+    {
+        return $this->belongsToMany(Category::class, 'post_categories');
     }
 
     public function author(): BelongsTo

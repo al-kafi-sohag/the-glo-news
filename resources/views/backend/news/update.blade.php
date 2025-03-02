@@ -68,7 +68,7 @@
                                                         multiple>
                                                         @foreach ($categories as $category)
                                                             <option value="{{ $category->id }}"
-                                                                @if (in_array($category->id, $news->categories->pluck('id')->toArray())) selected @endif>
+                                                                @if (in_array($category->id, $news->pc->pluck('id')->toArray())) selected @endif>
                                                                 {{ $category->title }}
                                                                 ({{ $category->activeSubCategories->count() }})
                                                             </option>
@@ -86,10 +86,12 @@
                                                             class="text-muted">(optional)</span></label>
                                                     <select name="sub_category[]" id="sub_category"
                                                         class="form-control select" multiple>
-                                                        @foreach ($news->subCategories as $subCategory)
-                                                            <option value="{{ $subCategory->id }}" selected>
-                                                                {{ $subCategory->title }}
+                                                        @foreach ($news->subCategories as $sc)
+                                                            @if(isset($sc->subCategory) && !empty($sc->subCategory))
+                                                            <option value="{{ $sc->subCategory->id }}" selected>
+                                                                {{ $sc->subCategory->title }}
                                                             </option>
+                                                            @endif
                                                         @endforeach
                                                     </select>
                                                     @include('backend.partials.form-error', [
@@ -197,12 +199,12 @@
                                             <div class="input-group align-items-center">
                                                 <input type="radio" class="btn-check" name="main" id="main-yes"
                                                     autocomplete="off" value="1"
-                                                    {{ $news->is_main = 1 ? 'checked' : '' }}>
+                                                    {{ $news->is_main == 1 ? 'checked' : '' }}>
                                                 <label class="btn btn-outline-success w-50" for="main-yes">Yes</label>
 
                                                 <input type="radio" class="btn-check" name="main" id="main-no"
                                                     autocomplete="off" value="0"
-                                                    {{ $news->is_main = 0 ? 'checked' : '' }}>
+                                                    {{ $news->is_main == 0 ? 'checked' : '' }}>
                                                 <label class="btn btn-outline-danger w-50" for="main-no">No</label>
                                             </div>
                                             <small>{{ __('The previous news will be removed from main') }}</small>
@@ -214,12 +216,12 @@
                                             <div class="input-group align-items-center">
                                                 <input type="radio" class="btn-check" name="featured"
                                                     id="featured-yes" autocomplete="off" value="1"
-                                                    {{ $news->is_featured = 1 ? 'checked' : '' }}>
+                                                    {{ $news->is_featured == 1 ? 'checked' : '' }}>
                                                 <label class="btn btn-outline-success w-50" for="featured-yes">Yes</label>
 
                                                 <input type="radio" class="btn-check" name="featured" id="featured-no"
                                                     autocomplete="off" value="0"
-                                                    {{ $news->is_featured = 0 ? 'checked' : '' }}>
+                                                    {{ $news->is_featured == 0 ? 'checked' : '' }}>
                                                 <label class="btn btn-outline-danger w-50" for="featured-no">No</label>
                                             </div>
                                             @include('backend.partials.form-error', [
@@ -232,12 +234,12 @@
                                             <div class="input-group align-items-center">
                                                 <input type="radio" class="btn-check" name="trending"
                                                     id="trending-yes" autocomplete="off" value="1"
-                                                    {{ $news->is_trending = 1 ? 'checked' : '' }}>
+                                                    {{ $news->is_trending == 1 ? 'checked' : '' }}>
                                                 <label class="btn btn-outline-success w-50" for="trending-yes">Yes</label>
 
                                                 <input type="radio" class="btn-check" name="trending" id="trending-no"
                                                     autocomplete="off" value="0"
-                                                    {{ $news->is_trending = 0 ? 'checked' : '' }}>
+                                                    {{ $news->is_trending == 0 ? 'checked' : '' }}>
                                                 <label class="btn btn-outline-danger w-50" for="trending-no">No</label>
                                             </div>
                                             @include('backend.partials.form-error', [
@@ -250,13 +252,13 @@
                                             <div class="input-group align-items-center">
                                                 <input type="radio" class="btn-check" name="status" id="status-yes"
                                                     autocomplete="off" value="1"
-                                                    {{ $news->status = 1 ? 'checked' : '' }}>
+                                                    {{ $news->status == 1 ? 'checked' : '' }}>
                                                 <label class="btn btn-outline-success w-50"
                                                     for="status-yes">Active</label>
 
                                                 <input type="radio" class="btn-check" name="status" id="status-no"
                                                     autocomplete="off" value="0"
-                                                    {{ $news->status = 1 ? 'checked' : '' }}>
+                                                    {{ $news->status == 0 ? 'checked' : '' }}>
                                                 <label class="btn btn-outline-danger w-50"
                                                     for="status-no">Deactive</label>
                                             </div>

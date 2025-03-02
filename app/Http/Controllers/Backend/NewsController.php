@@ -116,17 +116,17 @@ class NewsController extends Controller
 
     public function update($id): View
     {
-        $data['news'] = Post::with(['categories', 'subCategories'])->findOrFail($id);
+        $data['news'] = Post::with(['categories', 'subCategories.subCategory', 'pc'])->findOrFail($id);
         $data['categories'] = Category::with(['activeSubCategories'])->activated()->latest()->get();
         $data['authors'] = Author::activated()->latest()->get();
         $data['takenOrderNumbers'] = Post::whereNotNull('order')->pluck('order')->toArray();
         $data['availableOrders'] = range(1, 100);
+        // dd($data['news']->toArray());
         return view('backend.news.update', $data);
     }
 
     public function update_store(NewsRequest $request, $id): RedirectResponse
     {
-        dd($request->all());
         $news = Post::with(['categories','subCategories'])->findOrFail($id);
         $news->title = $request->title;
         $news->post_date = $request->post_date;
@@ -148,6 +148,18 @@ class NewsController extends Controller
         $news->references = json_encode($request->references);
         $news->save();
 
+        if($request->order != null){
+            // Check if the selected order is already taken
+           $existingNews = Post::where('order', $request->order)->first();
+
+           if ($existingNews) {
+               $existingNews->update(['order' => null]);
+           }
+           $news->order = $request->order;
+           $news->save();
+       }
+
+        PostCategory::where('post_id', $news->id)->delete();
         foreach($request->category as $cat){
             $subCats = SubCategory::where('c_id', $cat)->activated()->latest()->get()->pluck('id')->toArray();
 
