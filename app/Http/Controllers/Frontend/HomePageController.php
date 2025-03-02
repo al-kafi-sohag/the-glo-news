@@ -29,7 +29,7 @@ class HomePageController extends Controller
             ->limit(10)->get();
 
         $data['categories'] = Category::activated()->latest()->get();
-        $data['featured_categories'] = Category::withCount('posts')->where('is_featured', 1)->activated()->latest()->get();
+        $data['featured_categories'] = Category::withCount('posts')->where('is_featured', 1)->activated()->latest()->limit(10)->get();
 
         return view('frontend.home.index', $data);
     }

@@ -29,7 +29,7 @@ class MultipleNewsController extends Controller
         if(isset($data['sub_category'])){
             $query->where('subcategory_id',$data['sub_category']->id);
         }
-        $data['news'] = $query->get();
+        $data['news'] = $query->paginate(9);
         return view('frontend.news.multiple',$data);
     }
 

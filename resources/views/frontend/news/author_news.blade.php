@@ -8,14 +8,14 @@
             text-align: center;
             width: 100%;
         }
-        
+
         /* Updated to use flexbox for the news grid */
         .sidebar_content.full_width.blog_f.three_cols.mixed {
             display: flex;
             flex-wrap: wrap;
             justify-content: flex-start;
         }
-        
+
         .sidebar_content.full_width.blog_f.three_cols.mixed .post.type-post {
             width: 30.33%;
             margin-right: 3%;
@@ -24,14 +24,14 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         /* Make sure the post wrapper fills the entire height */
         .post.type-post .post_wrapper {
             display: flex;
             flex-direction: column;
             height: 100%;
         }
-        
+
         /* Responsive adjustments for smaller screens */
         @media only screen and (max-width: 767px) {
             .sidebar_content.full_width.blog_f.three_cols.mixed .post.type-post {
@@ -39,7 +39,7 @@
                 margin-right: 0;
             }
         }
-        
+
         @media only screen and (min-width: 768px) and (max-width: 1024px) {
             .sidebar_content.full_width.blog_f.three_cols.mixed .post.type-post {
                 width: 47%;
@@ -102,7 +102,7 @@
                     @endforeach
                 </div>
                 <div class="pagination-wrapper">
-                    {{-- {{ $news->links('pagination::bootstrap-5') }} --}}
+                    {{ $news->links('pagination::bootstrap-5') }}
                 </div>
 
             </div>

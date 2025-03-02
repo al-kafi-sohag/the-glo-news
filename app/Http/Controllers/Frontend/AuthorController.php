@@ -19,7 +19,7 @@ class AuthorController
             ->orderByRaw('CASE WHEN `order` IS NOT NULL THEN 0 ELSE 1 END')
             ->orderBy('order', 'asc')
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->paginate(9);
         return view('frontend.news.author_news',$data);
     }
 }
