@@ -7,7 +7,44 @@
         .ads_wrapper{
             text-align: center;
             width: 100%;
-            float: left;
+        }
+        
+        /* Updated to use flexbox for the news grid */
+        .sidebar_content.full_width.blog_f.three_cols.mixed {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        
+        .sidebar_content.full_width.blog_f.three_cols.mixed .post.type-post {
+            width: 30.33%;
+            margin-right: 3%;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Make sure the post wrapper fills the entire height */
+        .post.type-post .post_wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        /* Responsive adjustments for smaller screens */
+        @media only screen and (max-width: 767px) {
+            .sidebar_content.full_width.blog_f.three_cols.mixed .post.type-post {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+        
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            .sidebar_content.full_width.blog_f.three_cols.mixed .post.type-post {
+                width: 47%;
+                margin-right: 3%;
+            }
         }
     </style>
 @endpush
@@ -31,7 +68,7 @@
                 <div class="sidebar_content full_width blog_f three_cols mixed">
                     @foreach ($news as $key => $n)
                         <div id="post-{{ $key }}"
-                            class="post-{{ $key }} post type-post status-publish format-standard has-post-thumbnail hentry category-buzz category-2 Columns category-style tag-food tag-nature">
+                            class="post-{{ $key }} post type-post status-publish format-standard has-post-thumbnail">
                             <div class="post_wrapper">
                                 <div class="post_content_wrapper">
                                     <div class="post_header">
