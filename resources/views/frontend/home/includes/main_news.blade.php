@@ -15,7 +15,9 @@
                         loading="lazy"
                     />
                 </span> --}}
-                {{ optional($main_news->author)->name }}
+                <a href="{{ route('f.author.news', optional($main_news->author)->id) }}">
+                    {{ optional($main_news->author)->name }}
+                </a>
             </span>
             <span class="post_info_date">
                 {{ newsTimeFormate($main_news->post_date) }}

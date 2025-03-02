@@ -75,6 +75,8 @@
                     let result = ``;
                     if(data.news.length > 0) {
                         data.news.forEach(element => {
+                            let author_url = "{{ route('f.author.news', ':id') }}";
+                            author_url = author_url.replace(':id', element.author.id);
                             result += `
                                         <div id="post-${element.id}" class="col-md-6 post type-post status-publish format-standard has-post-thumbnail hentry category-buzz category-food category-style tag-food tag-nature">
                                             <div class="post_wrapper">
@@ -96,7 +98,7 @@
                                                             </h5>
                                                             <div class="post_detail post_date">
                                                                 <span class="post_info_author">
-                                                                    <a href="javascript:void(0)">${element.author.name}</a>
+                                                                    <a href="${author_url}">${element.author.name}</a>
                                                                 </span>
                                                                 <span class="post_info_date">${element.creation_date}</span>
                                                             </div>

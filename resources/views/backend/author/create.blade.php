@@ -48,6 +48,10 @@
                                                     <option value="13" {{ old('type') == 13 ? 'selected' : '' }}>{{ __('Feature Writer/Reporter') }}</option>
                                                     <option value="14" {{ old('type') == 14 ? 'selected' : '' }}>{{ __('Photojournalist') }}</option>
                                                     <option value="15" {{ old('type') == 15 ? 'selected' : '' }}>{{ __('Video Journalist (VJ)') }}</option>
+                                                    <option value="16" {{ old('type') == 16 ? 'selected' : '' }}>{{ __('Staff Correspondent') }}</option>
+                                                    <option value="17" {{ old('type') == 17 ? 'selected' : '' }}>{{ __('Special Correspondent') }}</option>
+                                                    <option value="18" {{ old('type') == 18 ? 'selected' : '' }}>{{ __('Editor') }}</option>
+                                                    <option value="19" {{ old('type') == 19 ? 'selected' : '' }}>{{ __('Head of News') }}</option>
                                                 </select>
                                             @include('backend.partials.form-error', [
                                                 'field' => 'type',

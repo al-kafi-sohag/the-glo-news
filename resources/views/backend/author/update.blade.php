@@ -46,6 +46,10 @@
                                                     <option value="13" {{ $author->type == 13 ? 'selected' : '' }}>{{ __('Feature Writer/Reporter') }}</option>
                                                     <option value="14" {{ $author->type == 14 ? 'selected' : '' }}>{{ __('Photojournalist') }}</option>
                                                     <option value="15" {{ $author->type == 15 ? 'selected' : '' }}>{{ __('Video Journalist (VJ)') }}</option>
+                                                    <option value="16" {{ $author->type == 16 ? 'selected' : '' }}>{{ __('Staff Correspondent') }}</option>
+                                                    <option value="17" {{ $author->type == 17 ? 'selected' : '' }}>{{ __('Special Correspondent') }}</option>
+                                                    <option value="18" {{ $author->type == 18 ? 'selected' : '' }}>{{ __('Editor') }}</option>
+                                                    <option value="19" {{ $author->type == 19 ? 'selected' : '' }}>{{ __('Head of News') }}</option>
                                                 </select>
                                             @include('backend.partials.form-error', [
                                                 'field' => 'type',
