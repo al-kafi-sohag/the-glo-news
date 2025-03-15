@@ -57,6 +57,7 @@
                 <li class="menu-item"><a href="{{ route('f.about.index') }}">About Us</a></li>
                 <li class="menu-item"><a href="{{ route('f.advertisement.index') }}">Advertisement</a></li>
                 <li class="menu-item"><a href="{{ route('f.contact.index') }}">Contact</a></li>
+                <li class="menu-item"><a href="{{ route('f.tc') }}">Terms & Conditions</a></li>
                 <li class="menu-item">
                     @if (auth()->user())
                     <a target="_blank" href="{{ route('b.dashboard') }}">Dashboard</a>

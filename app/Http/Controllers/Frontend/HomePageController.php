@@ -33,4 +33,9 @@ class HomePageController extends Controller
 
         return view('frontend.home.index', $data);
     }
+
+    public function tc() :View
+    {
+        return view('frontend.home.tc');
+    }
 }
