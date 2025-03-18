@@ -27,13 +27,13 @@
     <div class="container py-5 tc-content">
         <div class="card shadow">
             <div class="card-body p-5">
-                <p>Welcome to {{ config('app.name') }}! These Terms and Conditions govern your access to and use of our website, <a href="{{ config('app.url') }}">{{ config('app.url') }}</a>, and any related services provided by us. By using our site, you agree to abide by the following terms. If you do not agree to these terms, please refrain from accessing or using our website.</p>
+                <p>Welcome to {{ config('app.name') }}! These Terms and Conditions govern your access to and use of our website, <a href="{{ config('app.url') }}">www.thereporter24.com</a>, and any related services provided by us. By using our site, you agree to abide by the following terms. If you do not agree to these terms, please refrain from accessing or using our website.</p>
 
                 <h3 class="h5 mt-4 mb-3">1. Acceptance of Terms</h3>
                 <p>By accessing or using {{ config('app.name') }}, you agree to these Terms and Conditions in full. If you disagree with any part of these terms, you must not use our website.</p>
 
                 <h3 class="h5 mt-4 mb-3">2. Use of Website</h3>
-                <p>The content and services offered on <a href="{{ config('app.url') }}">{{ config('app.url') }}</a> are for personal and informational use only. You may not use this website for any unlawful purpose or in any way that may damage or impair the website's functionality. This includes engaging in any activity that could disrupt the site's functionality or servers.</p>
+                <p>The content and services offered on <a href="{{ config('app.url') }}">www.thereporter24.com</a> are for personal and informational use only. You may not use this website for any unlawful purpose or in any way that may damage or impair the website's functionality. This includes engaging in any activity that could disrupt the site's functionality or servers.</p>
 
                 <h3 class="h5 mt-4 mb-3">3. Content Ownership</h3>
                 <p>All content, including but not limited to articles, images, videos, graphics, logos, and trademarks displayed on {{ config('app.name') }}, is owned by or licensed to us and is protected by intellectual property laws. You may not use, copy, distribute, or modify any content from this website without obtaining written permission from the website owner.</p>
