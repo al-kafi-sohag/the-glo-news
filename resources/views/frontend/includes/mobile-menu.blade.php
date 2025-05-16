@@ -17,7 +17,7 @@
                                 @endforeach
                             </ul>
                         @else
-                            <li class="menu-item"><a href="">{{ $hc->title }}</a></li>
+                            <li class="menu-item"><a href="{{ route('f.category.index',$hc->slug) }}">{{ $hc->title }}</a></li>
                         @endif
                     @endforeach
                 </ul>
