@@ -58,7 +58,7 @@
                     <div class="breadcrumb"><a href="{{ route('f.home') }}">Home</a> » {{ $category->title }}</div>
                 </div>
                 <h1>
-                    <span>{{ $category->title }}</span> @if(isset($sub_category) && !empty($sub_category))<span> - {{ $sub_category>title }}</span> @endif
+                    <span>{{ $category->title }}</span> @if(isset($sub_category) && !empty($sub_category))<span> - {{ $sub_category->title }}</span> @endif
                 </h1>
             </div>
         </div>
