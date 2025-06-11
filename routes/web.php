@@ -31,6 +31,7 @@ Auth::routes();
 Route::group(['as' => 'f.'], function () {
     Route::get('/', [HomePageController::class, 'index'])->name('home');
     Route::get('/terms-and-conditions', [HomePageController::class, 'tc'])->name('tc');
+    Route::get('/disclaimer', [HomePageController::class, 'disclaimer'])->name('disclaimer');
     Route::get('/news/{slug}', [SingleNewsPageController::class, 'index'])->name('news');
 
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\SubCategory;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -37,5 +38,11 @@ class HomePageController extends Controller
     public function tc() :View
     {
         return view('frontend.home.tc');
+    }
+
+    public function disclaimer(): View
+    {
+        $data['last_update_date'] = Carbon::createFromFormat('m,d,Y', '06-11-2025')->format('F d, Y');
+        return view('frontend.home.disclaimer', $data);
     }
 }
