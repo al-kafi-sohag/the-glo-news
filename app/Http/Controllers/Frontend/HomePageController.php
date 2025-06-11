@@ -42,7 +42,7 @@ class HomePageController extends Controller
 
     public function disclaimer(): View
     {
-        $data['last_update_date'] = Carbon::createFromFormat('m,d,Y', '06-11-2025')->format('F d, Y');
+        $data['last_update_date'] = Carbon::createFromFormat('m,d,Y', '06,11,2025')->format('F d, Y');
         return view('frontend.home.disclaimer', $data);
     }
 }
