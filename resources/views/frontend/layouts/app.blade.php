@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-site-verification" content="zAElhakSlUOTTEvBcSBoD3st8Y98mrWK6XTSmJUmAFE" />
+    <meta name="google-site-verification" content="9QAQ-4ow970gAY8NZND6nm33rsjky6XXaTtdxCRoh7U" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="icon" type="image/png" href="{{ asset('frontend/img/logo.png') }}">
@@ -43,7 +43,7 @@
 
     @stack('link_css')
     @stack('css')
-
+    
     {{-- Google Custom Search Engine --}}
     <script async src="https://cse.google.com/cse.js?cx=019de7ea5c4d24a73"></script>
 
