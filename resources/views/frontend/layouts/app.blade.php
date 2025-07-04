@@ -45,9 +45,11 @@
     @stack('css')
     
     {{-- Google Custom Search Engine --}}
-    <script async src="https://cse.google.com/cse.js?cx=019de7ea5c4d24a73"></script>
+    <script async src="https://cse.google.com/cse.js?cx=b0e404f753520449c"></script>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9560012881621308" crossorigin="anonymous"></script>
+
+
 </head>
 
 <body class="home page-template-default page page-id-3595 left_fullwidth">
