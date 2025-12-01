@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="9QAQ-4ow970gAY8NZND6nm33rsjky6XXaTtdxCRoh7U" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="google-adsense-account" content="ca-pub-9560012881621308">
 
     <link rel="icon" type="image/png" href="{{ asset('frontend/img/logo.png') }}">
 
@@ -43,10 +44,9 @@
 
     @stack('link_css')
     @stack('css')
-    
+
     {{-- Google Custom Search Engine --}}
     <script async src="https://cse.google.com/cse.js?cx=b0e404f753520449c"></script>
-
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9560012881621308" crossorigin="anonymous"></script>
 
 
