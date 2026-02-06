@@ -18,18 +18,12 @@ class MultipleNewsController extends Controller
         $query = Category::activated()->where('slug', $category_slug);
         $category = $query->firstOrFail();
 
-        $postsQuery = Post::with(['author', 'categories.category', 'categories.subCategory'])
-            ->activated()
-            ->whereHas('categories', function ($q) use ($category, $sub_category_slug) {
-                if ($sub_category_slug) {
-                    $q->where('sub_category_slug', $sub_category_slug);
-                } else {
-                    $q->where('category_id', $category->id);
-                }
-            })
-            ->orderByRaw('CASE WHEN `order` IS NOT NULL THEN 0 ELSE 1 END')
-            ->orderBy('order', 'asc')
-            ->orderBy('created_at', 'desc')
+        $postsQuery=PostCategory::with('post.author', 'category', 'subCategory')
+            ->where('category_id', $category->id)
+            ->join('posts', 'post_categories.post_id', '=', 'posts.id')
+            ->orderByRaw('CASE WHEN posts.`order` IS NOT NULL THEN 0 ELSE 1 END')
+            ->orderBy('posts.order', 'asc')
+            ->orderBy('posts.created_at', 'desc')
             ->paginate(9);
 
         // Breadcrumbs
