@@ -1,18 +1,33 @@
-<div class="d-flex flex-wrap lh-1">
-    @foreach ($news->categories as $key => $cat)
-        <div class="post_info_cat @if ($key > 0) ml-1 @endif">
+<div class="breadcrumb">
+    @foreach ($categories as $key => $cat)
+        @php
+            $hasCategory = isset($cat->category) && !empty($cat->category);
+            $hasSubCategory = isset($cat->subCategory) && !empty($cat->subCategory) && isset($cat->subCategory->category);
+        @endphp
+
+        @if ($hasCategory || $hasSubCategory)
             @if ($key > 0)
                 |
             @endif
             <span>
-                <a
-                    href="{{ route('f.category.index', ['category_slug' => $cat->category->slug]) }}">{{ $cat->category->title }}</a>
-                @if (isset($cat->subCategory) && !empty($cat->subCategory))
+                {{-- Main category link --}}
+                @if ($hasCategory)
+                    <a href="{{ route('f.category.index', ['category_slug' => $cat->category->slug]) }}">
+                        {{ $cat->category->title }}
+                    </a>
+                @endif
+
+                {{-- Subcategory link --}}
+                @if ($hasSubCategory)
                     &nbsp;/
-                    <a
-                        href="{{ route('f.category.index', ['category_slug' => $cat->subCategory->category->slug, 'sub_category_slug' => $cat->subCategory->slug]) }}">{{ $cat->subCategory->title }}</a>
+                    <a href="{{ route('f.category.index', [
+                        'category_slug' => $cat->subCategory->category->slug,
+                        'sub_category_slug' => $cat->subCategory->slug
+                    ]) }}">
+                        {{ $cat->subCategory->title }}
+                    </a>
                 @endif
             </span>
-        </div>
+        @endif
     @endforeach
 </div>
