@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
@@ -9,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Artesaos\SEOTools\Facades\JsonLd;
 
-class SingleNewsPageController extends Category
+class SingleNewsPageController extends Controller
 {
     public function index($slug): View|RedirectResponse
     {
