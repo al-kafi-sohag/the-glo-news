@@ -55,7 +55,7 @@ class MultipleNewsController extends Controller
         );
 
         $data = [
-            'posts' => $postsQuery,
+            'news' => $postsQuery,
             'category' => $category,
             'sub_category_slug' => $sub_category_slug,
             'title' => $title,
