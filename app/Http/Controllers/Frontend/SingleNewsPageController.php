@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Artesaos\SEOTools\Facades\JsonLd;
+use Carbon\Carbon;
 
 class SingleNewsPageController extends Controller
 {
@@ -67,8 +68,8 @@ class SingleNewsPageController extends Controller
 
         // Additional NewsArticle schema fields
         JsonLd::addValue('headline', $news->title);
-        JsonLd::addValue('datePublished', $news->post_date->toIso8601String());
-        JsonLd::addValue('dateModified', $news->updated_at->toIso8601String());
+        JsonLd::addValue('datePublished', Carbon::parse($news->post_date)->toIso8601String());
+        JsonLd::addValue('dateModified', Carbon::parse($news->post_date)->toIso8601String());
         JsonLd::addValue('author', [
             '@type' => 'Person',
             'name'  => $news->author->name ?? 'The Reporter 24', // fallback if author missing
