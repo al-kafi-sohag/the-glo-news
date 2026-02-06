@@ -16,6 +16,7 @@ class AdvertisementController extends Controller
 
     public function index(): View
     {
+        $this->setupSEO('Advertise With Us - The Reporter 24');
         return view('frontend.advertisement.index');
     }
 

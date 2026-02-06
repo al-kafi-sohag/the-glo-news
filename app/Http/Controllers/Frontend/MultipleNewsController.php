@@ -15,21 +15,51 @@ class MultipleNewsController extends Controller
 {
     public function index($category_slug, $sub_category_slug = false): View
     {
-        $data['category'] = Category::with('subCategories')->where('slug', $category_slug)->activated()->first();
-        if($sub_category_slug){
-            $data['sub_category']  = SubCategory::with('category')->where('slug', $sub_category_slug)->activated()->first();
-        }
-        $query=PostCategory::with('post.author', 'category', 'subCategory')
-            ->where('category_id', $data['category']->id)
-            ->join('posts', 'post_categories.post_id', '=', 'posts.id')
-            ->orderByRaw('CASE WHEN posts.`order` IS NOT NULL THEN 0 ELSE 1 END')
-            ->orderBy('posts.order', 'asc')
-            ->orderBy('posts.created_at', 'desc');
+        $query = Category::activated()->where('slug', $category_slug);
+        $category = $query->firstOrFail();
 
-        if(isset($data['sub_category'])){
-            $query->where('subcategory_id',$data['sub_category']->id);
+        $postsQuery = Post::with(['author', 'categories.category', 'categories.subCategory'])
+            ->activated()
+            ->whereHas('categories', function ($q) use ($category, $sub_category_slug) {
+                if ($sub_category_slug) {
+                    $q->where('sub_category_slug', $sub_category_slug);
+                } else {
+                    $q->where('category_id', $category->id);
+                }
+            })
+            ->orderByRaw('CASE WHEN `order` IS NOT NULL THEN 0 ELSE 1 END')
+            ->orderBy('order', 'asc')
+            ->orderBy('created_at', 'desc')
+            ->paginate(9);
+
+        // Breadcrumbs
+        $breadcrumbs = [
+            ['name' => 'Home', 'url' => route('f.home')],
+            ['name' => $category->name, 'url' => route('f.category.index', $category->slug)],
+        ];
+        if ($sub_category_slug) {
+            $sub = $category->subCategories->where('slug', $sub_category_slug)->first();
+            $breadcrumbs[] = ['name' => $sub?->name ?? 'Subcategory', 'url' => route('f.category.index', [$category->slug, $sub_category_slug])];
         }
-        $data['news'] = $query->paginate(9);
+
+        $title = $sub_category_slug ? ($sub?->name ?? $category->name) : $category->name;
+
+        $this->setupSEO(
+            "$title - The Reporter 24",
+            "Latest news and updates from $title on The Reporter 24.",
+            null,
+            null,
+            'website',
+            'CollectionPage',
+            $breadcrumbs
+        );
+
+        $data = [
+            'posts' => $postsQuery,
+            'category' => $category,
+            'sub_category_slug' => $sub_category_slug,
+            'title' => $title,
+        ];
         return view('frontend.news.multiple',$data);
     }
 

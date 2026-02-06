@@ -14,6 +14,7 @@ use App\Models\TmpFile;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
@@ -109,6 +110,7 @@ class NewsController extends Controller
             }
         }
 
+        Artisan::call('sitemap:generate');
         sweetalert()->success("News created successfully");
         return redirect()->route('b.news.index');
 
@@ -201,6 +203,8 @@ class NewsController extends Controller
                 return redirect()->back();
             }
         }
+
+        Artisan::call('sitemap:generate');
         sweetalert()->success("News updated successfully");
         return redirect()->route('b.news.index');
 
@@ -221,6 +225,7 @@ class NewsController extends Controller
         $news = Post::findOrFail($id);
         $news->delete();
 
+        Artisan::call('sitemap:generate');
         sweetalert()->success("News $news->title deleted successfully");
         return redirect()->route('b.news.index');
     }

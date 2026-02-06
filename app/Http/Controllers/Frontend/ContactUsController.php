@@ -15,6 +15,7 @@ class ContactUsController  extends Controller
 {
     public function index(): View
     {
+        $this->setupSEO('Contact Us - The Reporter 24');
         return view('frontend.contact.index');
     }
 
