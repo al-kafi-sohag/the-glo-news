@@ -39,7 +39,7 @@ class DashboardController extends Controller
         ->orderBy('total_news', 'desc')
         ->take(5)
         ->get();
-        $data['topNews'] =  Post::select('title', 'visitors')->orderBy('visitors', 'desc')->limit(10)->get();
+        $data['topNews'] =  Post::select('title', 'actual_visitors')->orderBy('actual_visitors', 'desc')->limit(10)->get();
 
         $year = Carbon::now()->year;
         $monthlyPosts = Post::selectRaw('MONTH(created_at) as month, COUNT(*) as post_count')
