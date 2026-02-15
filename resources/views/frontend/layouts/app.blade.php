@@ -9,6 +9,7 @@
     <meta name="google-adsense-account" content="ca-pub-9560012881621308">
 
     <link rel="icon" type="image/png" href="{{ asset('frontend/img/logo.png') }}">
+    <meta name="seobility" content="e462587576dfab7f575611be0e652cdb">
 
     {!! SEO::generate() !!}
 
