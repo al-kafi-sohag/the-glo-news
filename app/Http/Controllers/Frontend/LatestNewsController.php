@@ -11,7 +11,7 @@ class LatestNewsController extends Controller
 
     public function index($type='all')
     {
-        $post_per_page = 25;
+        $post_per_page = 40;
 
         $query = Post::with('author:id,name')->activated()
             ->orderByRaw('CASE WHEN `order` IS NOT NULL THEN 0 ELSE 1 END')
